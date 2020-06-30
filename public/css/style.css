@@ -1,0 +1,704 @@
+/* Navbar */
+.navbar {
+    position: relative;
+    z-index: 5;
+}
+
+.navbar-brand {
+    font-family: McLaren;
+    font-size: 32px;
+    color: white !important;
+    opacity: 1;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0);
+}
+
+.nav-link {
+    color: white !important;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0);
+}
+
+/* Utility */
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #424874;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+    font-family: McLaren;
+}
+
+.glow-on-hover:before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #ff0000,
+        #ff7300,
+        #fffb00,
+        #48ff00,
+        #00ffd5,
+        #002bff,
+        #7a00ff,
+        #ff00c8,
+        #ff0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000;
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #424874;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 400% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Jumbotron */
+.jumbotron {
+    background-image: url("255980.jpg");
+    background-size: cover;
+    background-position: center;
+    display: block;
+    height: 540px;
+    width: 100%;
+    margin-top: 0px;
+    text-align: center;
+    position: relative;
+}
+
+.jumbotron .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Gradasi */
+.jumbotron::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 80%;
+    background-image: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0)
+    );
+    position: absolute;
+    bottom: 0;
+}
+
+.jumbotron .display-4 {
+    color: white;
+    margin-top: 150px;
+    font-size: 32px;
+    font-weight: 200;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
+}
+
+.jumbotron .display-4 span {
+    font-weight: 500;
+}
+
+.jumbotron .glow-on-hover {
+    margin-top: -200px;
+}
+
+/* Info Panel */
+.info-panel {
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    margin-top: -125px;
+    background-color: white;
+    padding: 30px;
+}
+
+.info-panel img {
+    height: 80px;
+    width: 80px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.info-panel h4 {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.info-panel p {
+    font-size: 11px;
+    color: #acacac;
+    margin-top: -5px;
+    font-weight: 150;
+}
+
+/* Workingspace */
+.workingspace {
+    margin-top: 120px;
+    text-align: center;
+}
+
+.workingspace img {
+    border-radius: 10px;
+    display: block;
+}
+
+.workingspace h3 {
+    font-size: 30px;
+    font-weight: 200;
+    text-transform: uppercase;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.workingspace h3 span {
+    font-weight: 500;
+}
+
+.workingspace p {
+    font-size: 18px;
+    color: #acacac;
+    font-weight: 200;
+    margin: 30px 0;
+    text-align: center;
+}
+
+.workingspace .spread {
+    text-align: center;
+}
+
+.workingspace a {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Testimonial */
+.testimonial {
+    margin-top: 80px;
+}
+
+.testimonial h5 {
+    text-align: center;
+    font-weight: 200;
+    font-style: italic;
+    font-size: 20px;
+}
+
+.testimonial figure img {
+    width: 60px;
+    margin: 20px 10px 10px;
+    opacity: 0.6;
+}
+
+.testimonial figure img.utama {
+    width: 90px;
+    opacity: 1;
+    margin-top: 5px;
+}
+
+.testimonial figure h5 {
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    color: #1c2c5d;
+}
+
+.testimonial figure p {
+    font-size: 12px;
+    color: #acacac;
+    margin-top: -5px !important;
+}
+
+.testimonial figcaption {
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer p {
+    color: #acacac;
+    font-size: 14px;
+}
+
+/* Modal Login Register */
+.auth .modal-content {
+    width: 270px;
+    height: 550px;
+    padding: 0;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+}
+
+.auth .modal-content input[type="text"] {
+    font-size: 12px;
+}
+.auth .modal-content input[type="email"] {
+    font-size: 12px;
+}
+.auth .modal-content input[type="password"] {
+    font-size: 12px;
+}
+
+.auth .modal-content img {
+    height: 125px;
+    width: 200px;
+}
+
+.auth .modal-content h3 {
+    font-size: 16px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.auth .modal-content .input-group {
+    width: 230px;
+    font-size: 10px;
+}
+
+.controls-top .fa-chevron-left {
+    left: 0;
+}
+
+.controls-top .fa-chevron-right {
+    right: 0;
+}
+
+.panel .card {
+    background-color: #afafaf;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Hind:400,700");
+html,
+body {
+    font-family: McLaren;
+    /* "Hind", sans-serif */
+    margin: 0;
+    padding: 0 !important;
+    height: 100%;
+    background-color: #ddf3f5;
+}
+
+#bg-apis {
+    background-color: #a6dcef;
+    border: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h3 {
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.active-cyan-4 input[type="text"]:focus:not([readonly]) {
+    border: 1px solid #4dd0e1;
+    box-shadow: 0 0 0 1px #4dd0e1;
+}
+.active-cyan-3 input[type="text"] {
+    border: 1px solid #4dd0e1;
+    box-shadow: 0 0 0 1px #4dd0e1;
+}
+
+.profile {
+    font-size: 7px;
+    color: black !important;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255);
+}
+
+.body {
+    font-size: 9px;
+}
+
+.card-body {
+    font-size: 14px;
+}
+
+.location {
+    font-size: 10px;
+    text-align: center;
+}
+
+.breadcrumb {
+    font-size: 11px;
+}
+
+.hidden {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+}
+input[type="checkbox"] + label {
+    color: gray;
+    font-style: italic;
+}
+input[type="checkbox"]:checked + label {
+    color: #32afa9;
+    font-style: normal;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card h5 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.card h6 {
+    font-size: 11px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.card p {
+    font-size: 12px;
+}
+
+.panel input[type="text"] {
+    font-size: 11px;
+}
+.panel select {
+    font-size: 11px;
+}
+
+.panel button {
+    font-size: 11px;
+}
+
+.buttonstatus {
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.detailpost {
+    font-size: 11px;
+}
+
+.detailpost button {
+    font-size: 11px;
+}
+
+.dataprofile {
+    font-size: 30px !important;
+    text-align: justify;
+}
+
+.posting,
+.posting input[type="text"],
+.posting select,
+.posting textarea {
+    font-size: 11px;
+}
+
+.postingedit,
+.postingedit input[type="text"],
+.postingedit select,
+.postingedit textarea {
+    font-size: 11px;
+}
+
+.postingedit .header {
+    font-size: 24px;
+}
+
+.postingedit img {
+    margin-top: -20px;
+}
+
+.carousel {
+    z-index: 1;
+}
+
+.stylish-color-dark {
+    color: white;
+}
+
+.btn {
+    text-transform: unset !important;
+}
+
+.profilepage .btn-sm {
+    font-size: 10px;
+}
+
+.navtabsatas .nav-link {
+    font-size: 8px;
+    color: black !important;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255);
+}
+
+.navtabsbawah .nav-link {
+    font-size: 7px;
+}
+
+/* DESKTOP VERSION */
+@media (min-width: 992px) {
+    .breadcrumb {
+        font-size: 16px;
+    }
+
+    .navtabsatas .nav-link {
+        font-size: 16px;
+        color: black !important;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255);
+    }
+
+    .profilepage .btn-sm {
+        font-size: 13px;
+    }
+
+    .allpost .card-body {
+        min-height: 260px;
+    }
+
+    .allreceive .card {
+        min-height: 380px;
+    }
+
+    .postingedit,
+    .postingedit input[type="text"],
+    .postingedit select,
+    .postingedit textarea {
+        font-size: 14px;
+    }
+
+    .postingedit .header {
+        font-size: 24px;
+    }
+
+    .postingedit img {
+        margin-top: 20px;
+    }
+
+    .posting,
+    .posting input[type="text"],
+    .posting select,
+    .posting textarea {
+        font-size: 14px;
+    }
+
+    .location {
+        font-size: 12px;
+    }
+
+    .data {
+        font-size: 16px;
+    }
+    .panel input[type="text"] {
+        font-size: 16px;
+    }
+    .panel select {
+        font-size: 16px;
+    }
+
+    .panel button {
+        font-size: 16px;
+    }
+
+    .auth .modal-content {
+        width: 360px;
+        height: 613px;
+    }
+
+    .auth .modal-content input[type="text"] {
+        font-size: 16px;
+    }
+    .auth .modal-content input[type="email"] {
+        font-size: 16px;
+    }
+    .auth .modal-content input[type="password"] {
+        font-size: 16px;
+    }
+
+    .auth .modal-content span strong {
+        font-size: 10px;
+    }
+
+    .auth .modal-content img {
+        width: 250px;
+        height: 150px;
+        margin-top: 30px;
+    }
+
+    .auth .modal-content .input-group {
+        width: 326px;
+        height: 38px;
+        font-size: 10px;
+    }
+
+    .auth .modal-content h3 {
+        font-size: 24px;
+        margin-top: 25px;
+        margin-bottom: 30px;
+    }
+
+    .auth .modal-content p {
+        margin-top: 10px;
+    }
+
+    .card h5 {
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+
+    .card h6 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .card p {
+        font-size: 15px;
+    }
+
+    .navbar-brand,
+    .nav-link {
+        color: white !important;
+        text-shadow: 15px black;
+    }
+
+    .nav-link {
+        text-transform: uppercase;
+        margin-right: 30px;
+    }
+
+    .jumbotron {
+        margin-top: -105px;
+        height: 640px;
+    }
+
+    .jumbotron .display-4 {
+        font-size: 62px;
+    }
+
+    .info-panel h4 {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .info-panel p {
+        font-size: 12px;
+        color: #acacac;
+        margin-top: -5px;
+        font-weight: 200;
+        text-align: left;
+    }
+
+    .workingspace h3 {
+        text-align: left;
+        font-size: 52px;
+    }
+
+    .workingspace p {
+        text-align: justify;
+    }
+
+    .testimonial {
+        margin-top: 120px;
+    }
+
+    .testimonial h5 {
+        font-size: 32px;
+    }
+
+    .footer p {
+        font-size: 18px;
+    }
+
+    .workingspace a {
+        margin-right: 80%;
+    }
+
+    .body {
+        font-size: 16px;
+        padding: 0px !important;
+    }
+
+    .profile {
+        font-size: 16px;
+        color: black !important;
+        text-shadow: 1px 1px 1px rgba(255, 255, 255);
+    }
+
+    .glow-on-hover {
+        width: 220px;
+        height: 50px;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: #424874;
+        cursor: pointer;
+        position: relative;
+        z-index: 0;
+        border-radius: 10px;
+        font-family: McLaren;
+    }
+
+    .detailpost {
+        font-size: 14px;
+    }
+
+    .detailpost button {
+        font-size: 14px;
+    }
+
+    .detailpost img {
+        margin-top: 55px;
+    }
+}

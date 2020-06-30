@@ -1,0 +1,2 @@
+Postings = apus owner
+Applications = apus phone, location

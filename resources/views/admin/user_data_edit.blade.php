@@ -54,7 +54,10 @@
                                     @enderror
                                 </div>
                             </div>
-
+                            <div class="form-group row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-6 text-muted" style="font-size:12px;">(Fill in the password fields below if you want to change your password)</div>
+                            </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-2 col-form-label text-md-right">{{ __('Password') }}</label>
 

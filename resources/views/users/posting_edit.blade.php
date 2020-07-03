@@ -19,7 +19,7 @@
 
         <div class="col-md-12 mt-1 mb-2">
             <div class="card" style="background:#f9f9f9">
-                <div class="card-body postingedit">
+                <div class="card-body postingedit animate__animated animate__zoomIn">
                     <div class="header"><i class="fa fa-pencil-alt"></i> Edit Post</div>
                     <form method="POST" action="{{ route('posting.update',$post->id) }}" enctype="multipart/form-data">
                         @csrf

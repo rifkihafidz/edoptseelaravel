@@ -102,8 +102,6 @@ class PostingController extends Controller
         Image::make($gambar)->resize(1920, 1080)->save($location);
         $data['img'] = $filename;
 
-        // $data['img'] = $request->file('img')->store('assets/images', 'public');
-
         Posting::create($data);
 
         alert()->success('Post success!');
@@ -161,11 +159,6 @@ class PostingController extends Controller
             ->join('postings', 'applications.id_post', '=', 'postings.id')
             ->where('applications.id_post', '=', $posting->id)
             ->delete();
-
-        // $adopts = DB::table('adopts')
-        //     ->join('postings', 'adopts.id_post', 'postings.id')
-        //     ->where('adopts.id_post', '=', $posting->id)
-        //     ->delete();
 
         File::delete($oldFile);
         $posting->delete();

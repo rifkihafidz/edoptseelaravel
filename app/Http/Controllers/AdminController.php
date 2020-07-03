@@ -147,7 +147,8 @@ class AdminController extends Controller
     {
         $user = User::findorfail($id);
         $this->validate($request, [
-            'avatar' => 'image|mimes:jpeg,png,jpg|min:64|max:2048'
+            'avatar' => 'image|mimes:jpeg,png,jpg|min:64|max:2048',
+            'password' => 'confirmed',
         ]);
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
@@ -164,6 +165,9 @@ class AdminController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->role = $request->role;
+        if (!empty($request->password)) {
+            $user->password = Hash::make($request->password);
+        }
         $user->update();
         alert()->success('Success updating profile!');
         return back();

@@ -17,7 +17,7 @@
                 </nav>
             </div>
 
-            <div class="col-md-12 mt-1 mb-2">
+            <div class="col-md-12 mt-1 mb-2 animate__animated animate__fadeIn">
                 <div class="card" style="background:#f9f9f9">
                     <div class="card-body">
                         <div class="float-left pb-2 pl-2">
@@ -29,24 +29,24 @@
                             </a>
                         </div>
                         <table class="table table-responsive-sm ">
-                            <tbody class="tbody bujug">
+                            <tbody class="tbody">
                                 <tr>
-                                    <td>Nama</td>
+                                    <td>Name</td>
                                     <td width="3">:</td>
                                     <td>{{ $user->name }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Email</td>
+                                    <td>E-mail</td>
                                     <td width="3">:</td>
                                     <td>{{ $user->email }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Nomor HP</td>
+                                    <td>Phone</td>
                                     <td width="3">:</td>
                                     <td>{{ $user->no_hp }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Alamat</td>
+                                    <td>Address</td>
                                     <td width="3">:</td>
                                     <td>{{ $user->alamat }}</td>
                                 </tr>
@@ -96,7 +96,7 @@
                                     <div class="tab-content">
                                         <!-- Content -->
                                         <!-- All posts -->
-                                        <div class="container tab-pane active" id="allposts">
+                                        <div class="container tab-pane active animate__animated animate__fadeIn" id="allposts">
                                             <div class="container">
                                                 <div class="card-body" style="text-align: center;">
                                                     <div class="row justify-content-center mt-1">
@@ -189,7 +189,7 @@
                                         <!-- End all posts -->
 
                                         <!-- Avaliable posts -->
-                                        <div class="container tab-pane fade" id="availableposts">
+                                        <div class="container tab-pane fade animate__animated animate__fadeIn" id="availableposts">
                                             <div class="container">
                                                 <div class="card-body">
                                                     <div class="row justify-content-center mt-1">
@@ -246,7 +246,7 @@
                                         <!-- End available posts -->
 
                                         <!-- Adopted posts -->
-                                        <div class="container tab-pane fade" id="adoptedposts">
+                                        <div class="container tab-pane fade animate__animated animate__fadeIn" id="adoptedposts">
                                             <div class="container">
                                                 <div class="card-body">
                                                     <div class="row justify-content-center mt-1">
@@ -337,7 +337,7 @@
                                         <!-- End adopted posts -->
 
                                         <!-- Rip posts -->
-                                        <div class="container tab-pane fade" id="ripposts">
+                                        <div class="container tab-pane fade animate__animated animate__fadeIn" id="ripposts">
                                             <div class="container">
                                                 <div class="card-body">
                                                     <div class="row justify-content-center mt-1">
@@ -424,7 +424,7 @@
                                 <!-- Tab content -->
                                 <div class="justify-content-center">
                                     <div class="tab-content">
-                                        <div class="container tab-pane active" id="receiveall">
+                                        <div class="container tab-pane active animate__animated animate__fadeIn" id="receiveall">
                                             <div class="container">
                                                 <div class="card-body">
                                                     <div class="row justify-content-center mt-1">
@@ -497,7 +497,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="container tab-pane fade" id="receivepending">
+                                        <div class="container tab-pane fade animate__animated animate__fadeIn" id="receivepending">
                                             <div class="container">
                                                 <div class="card-body">
                                                     <div class="row justify-content-center mt-3">
@@ -552,7 +552,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="container tab-pane fade" id="receiveaccepted">
+                                        <div class="container tab-pane fade animate__animated animate__fadeIn" id="receiveaccepted">
                                             <div class="container">
                                                 <div class="card-body">
                                                     <div class="row justify-content-center mt-3">
@@ -612,7 +612,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="container tab-pane fade" id="receiverejected">
+                                        <div class="container tab-pane fade animate__animated animate__fadeIn" id="receiverejected">
                                             <div class="container">
                                                 <div class="card-body">
                                                     <div class="row justify-content-center mt-3">
@@ -688,7 +688,7 @@
                                 <!-- Tab content -->
                                 <div class="justify-content-center mt-3">
                                     <div class="tab-content">
-                                        <div class="container tab-pane active" id="sentall">
+                                        <div class="container tab-pane active animate__animated animate__fadeIn" id="sentall">
                                             <div class="container">
                                                 <div class="card-body">
                                                     <div class="row justify-content-center mt-1">
@@ -749,7 +749,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="container tab-pane fade" id="sentpending">
+                                        <div class="container tab-pane fade animate__animated animate__fadeIn" id="sentpending">
                                             <div class="container">
                                                 <div class="card-body">
                                                     <div class="row justify-content-center mt-1">
@@ -796,7 +796,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="container tab-pane fade" id="sentaccepted">
+                                        <div class="container tab-pane fade animate__animated animate__fadeIn" id="sentaccepted">
                                             <div class="container">
                                                 <div class="card-body">
                                                     <div class="row justify-content-center mt-1">
@@ -849,7 +849,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="container tab-pane fade" id="sentrejected">
+                                        <div class="container tab-pane fade animate__animated animate__fadeIn" id="sentrejected">
                                             <div class="container">
                                                 <div class="card-body">
                                                     <div class="row justify-content-center mt-1">

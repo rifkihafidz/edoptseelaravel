@@ -31,6 +31,9 @@
     <!-- Material Design Bootstrap -->
     <link href="{{ URL::asset('css/mdbootstrap/css/mdb.min.css') }}" rel="stylesheet">
 
+    <!-- Animated CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+
     <!-- Bootstrap CSS -->
     <!-- Font Awesome -->
     <link rel="stylesheet" href="/AdminLTE/plugins/fontawesome-free/css/all.min.css">
@@ -77,7 +80,7 @@
                         </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('About Us') }}</a>
+                            <a class="nav-link" href="#footer">{{ __('Contact Us') }}</a>
                         </li>
                         @else
                         <li class="nav-item">
@@ -89,6 +92,10 @@
                         @if( Auth::user()->role === 'admin' )
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('Admin') }}</a>
+                        </li>
+                        @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer">{{ __('Contact Us') }}</a>
                         </li>
                         @endif
                         <li class="nav-item dropdown">

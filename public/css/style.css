@@ -485,6 +485,16 @@ input[type="checkbox"]:checked + label {
     font-size: 7px;
 }
 
+.swal {
+    text-align: justify;
+}
+
+/* footer {
+    position: relative;
+    margin-top: 260px;
+    width: 100%;
+} */
+
 /* DESKTOP VERSION */
 @media (min-width: 992px) {
     .breadcrumb {

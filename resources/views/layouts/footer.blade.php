@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer font-small blue-gradient pt-4">
+<footer class="page-footer font-small blue-gradient pt-4" id="footer">
 
     <!-- Footer Links -->
     <div class="container-fluid text-center text-md-left">
@@ -69,7 +69,7 @@
 
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">
-        ©2020 Copyright: E-dopt-see
+        © 2020 Copyright: E-dopt-see
     </div>
     <!-- Copyright -->
 

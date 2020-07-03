@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-12 mt-1 mb-2">
             <div class="card text-center" style="background:#f9f9f9;">
-                <div class="card-body">
+                <div class="card-body active animate__animated animate__fadeIn">
                     <img src="/assets/uploads/avatars/{{ $user->avatar }}" style="width:75px; height:75px; border-radius:50%;" class="img-fluid mx-auto d-block mb-3">
                     <p style="font-size:24px;">
                         <strong>{{ $user->name }}</strong><br>
@@ -29,24 +29,26 @@
                 <div class="col-md-12">
                     <div class="card mb-3" style="background:#f9f9f9">
                         <!-- Nav Tabs -->
-                        <ul class="nav nav-tabs justify-content-center">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#allposts">All Posts</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#availableposts">Available Posts</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#adoptedposts">Adopted Posts</a>
-                            </li>
-                        </ul>
+                        <div class="navtabsatas">
+                            <ul class="nav nav-tabs justify-content-center">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#allposts">All Posts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#availableposts">Available Posts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#adoptedposts">Adopted Posts</a>
+                                </li>
+                            </ul>
+                        </div>
                         <!-- End Nav Tabs -->
                         <!-- Tab Panes -->
                         <div class="row justify-content-center">
                             <div class="tab-content justify-content-center">
                                 <!-- Tab Content -->
                                 <!-- All posts -->
-                                <div class="container tab-pane active" id="allposts">
+                                <div class="container tab-pane active animate__animated animate__fadeIn" id="allposts">
                                     <div class="container">
                                         <div class="card-body">
                                             <div class="row justify-content-center mt-1">
@@ -76,7 +78,7 @@
                                 <!-- End All Posts -->
 
                                 <!-- Available Posts -->
-                                <div class="container tab-pane fade" id="availableposts">
+                                <div class="container tab-pane fade active animate__animated animate__fadeIn" id="availableposts">
                                     <div class="container">
                                         <div class="card-body">
                                             <div class="row justify-content-center mt-1">
@@ -85,8 +87,8 @@
                                                 <div class="col-md-4 mb-3">
                                                     <img src="{{ url('assets/uploads') }}/{{ $post->img }}" class="img-fluid" style="border-top-left-radius:15px; border-top-right-radius:15px">
                                                     <div class=" card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px; height:240px;">
-                                                        <h5 class="card-title" style="text-align:center;">{{ $post->name }}</h5>
-                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Posted on : {{ $post->date }}</h6>
+                                                        <h5 class="card-subtitle">{{ $post->name }}</h5>
+                                                        <h6 class="card-subtitle mb-2 text-muted">Posted on : {{ $post->date }}</h6>
                                                         <p class="card-text" style="text-align: center;">
                                                             <strong>Status : {{ $post->status }}</strong><br>
                                                             <strong>Age : {{ $post->age }} year(s)</strong><br>
@@ -106,7 +108,7 @@
                                 <!-- End Available Posts -->
 
                                 <!-- Adopted Posts -->
-                                <div class="container tab-pane fade" id="adoptedposts">
+                                <div class="container tab-pane fade active animate__animated animate__fadeIn" id="adoptedposts">
                                     <div class="container">
                                         <div class="card-body">
                                             <div class="row justify-content-center mt-1">
@@ -115,8 +117,8 @@
                                                 <div class="col-md-4 mb-3">
                                                     <img src="{{ url('assets/uploads') }}/{{ $post->img }}" class="img-fluid" style="border-top-left-radius:15px; border-top-right-radius:15px">
                                                     <div class=" card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px; height:240px;">
-                                                        <h5 class="card-title" style="text-align:center;">{{ $post->name }}</h5>
-                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Posted on : {{ $post->date }}</h6>
+                                                        <h5 class="card-subtitle">{{ $post->name }}</h5>
+                                                        <h6 class="card-subtitle mb-2 text-muted">Posted on : {{ $post->date }}</h6>
                                                         <p class="card-text" style="text-align: center;">
                                                             <strong>Status : {{ $post->status }}</strong><br>
                                                             <strong>Age : {{ $post->age }} year(s)</strong><br>

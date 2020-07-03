@@ -7,7 +7,7 @@
 <!-- Jumbotron -->
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h5 class="display-4">Choose and Adopt the <span><b>Perfect</b></span> Pet<br>with Your <span><b>Heart.</b></span></h5>
+    <h5 class="display-4 animate__animated animate__slideInDown">Choose and Adopt the <span><b>Perfect</b></span> Pet<br>with Your <span><b>Heart.</b></span></h5>
     <a href="{{ route('adopt') }}"><button class="glow-on-hover">Adopt Now</button></a>
   </div>
 </div>
@@ -18,7 +18,7 @@
 <div class="container">
 
   <!-- Info Panel -->
-  <div class="row justify-content-center">
+  <div class="row justify-content-center animate__animated animate__zoomIn">
     <div class="col-10 info-panel">
       <div class="row">
         <div class="col-lg">
@@ -42,7 +42,7 @@
   <!-- Akhir Info Panel -->
 
   <!-- Workingspace -->
-  <div class="row workingspace mb-5">
+  <div class="row workingspace mb-5 animate__animated animate__slideInUp">
     <div class="col-lg-6">
       <img src="{{ url('images/img/ws.jpg') }}" alt="Workingspace" class="img-fluid">
     </div>

@@ -21,7 +21,7 @@
             <div class="card" style="background:#f9f9f9">
                 <div class="card-body" style="text-align: justify;">
                     <div class="detailpost">
-                        <div class="row">
+                        <div class="row  animate__animated animate__fadeIn">
                             <div class="col-md-6 mt-2">
                                 <h2>{{ $post->name }}</h2>
                                 <div class="table-responsive-sm">
@@ -46,6 +46,14 @@
                                             <tr>
                                                 <td>Size</td>
                                                 <td>{{ $post->size }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Gender</td>
+                                                @if($post->sex == 'Male')
+                                                <td><i class="fas fa-mars fa-lg" style="color:#a6dcef;"></i></td>
+                                                @else
+                                                <td><i class="fas fa-venus fa-lg" style="color:#e36387;"></i></td>
+                                                @endif
                                             </tr>
                                             <tr>
                                                 <td>Medical Notes</td>

@@ -17,7 +17,7 @@
 
     <div class="col-md-12">
       <div class="card" style="background:#f9f9f9">
-        <div class="card-body posting">
+        <div class="card-body posting animate__animated animate__fadeIn">
           <form method="POST" action="{{ route('posting.store') }}" enctype="multipart/form-data">
             @csrf
 

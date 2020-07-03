@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="panel">
+  <div class="panel animate__animated animate__fadeIn">
     <div class="card" id="bg-apis">
       <div class="card-body" style="background:#f9f9f9">
         <!-- Form Filter -->
@@ -76,7 +76,7 @@
     </div>
   </div>
   @if(count($postings) > 0)
-  <div class="col-md-12 mb-3">
+  <div class="col-md-12 mb-3 animate__animated animate__fadeIn">
     <div class="carousel">
       <div id="carouselExampleCaptions" class="carousel slide mt-2" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -120,8 +120,8 @@
       @foreach($postings as $posting)
       <div class="col-md-4">
         <div class="mb-4">
-          <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid" style="border-top-left-radius:15px; border-top-right-radius:15px">
-          <div class="card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px;">
+          <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid animate__animated animate__backInUp" style="border-top-left-radius:15px; border-top-right-radius:15px">
+          <div class="card-body animate__animated animate__backInUp" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px;">
             <h5 class="card-subtitle" style="text-align:center;">{{ $posting->name }}</h5>
             <div class="location">{{ $posting->location }}</div>
             <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Posted on : {{ $posting->date }}</h6>

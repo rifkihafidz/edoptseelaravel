@@ -20,7 +20,7 @@
             <div class="card">
                 <div class="card-body" style="background:#f9f9f9">
                     <h4><i class="fa fa-pencil-alt mb-2"></i> Edit Profile</h4>
-                    <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="animate__animated animate__zoomIn">
                         @csrf
 
                         <div class="form-group row">
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Nama') }}</label>
+                            <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
@@ -65,7 +65,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="no_hp" class="col-md-2 col-form-label text-md-right">{{ __('Nomor HP') }}</label>
+                            <label for="no_hp" class="col-md-2 col-form-label text-md-right">{{ __('Phone') }}</label>
 
                             <div class="col-md-6">
                                 <input id="no_hp" type="text" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Start with (08), ex : 08961234" name="no_hp" value="{{ $user->no_hp }}" required autocomplete="no_hp" autofocus>
@@ -81,7 +81,7 @@
 
 
                         <div class="form-group row">
-                            <label for="alamat" class="col-md-2 col-form-label text-md-right">{{ __('Alamat') }}</label>
+                            <label for="alamat" class="col-md-2 col-form-label text-md-right">{{ __('Address') }}</label>
                             <div class="col-md-3 mb-2">
                                 <select name="province" class="form-control" id="province">
                                     <option selected="false">Select Province...</option>
@@ -99,7 +99,10 @@
                                 </select>
                             </div>
                         </div>
-
+                        <div class="form-group row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-6 text-muted" style="font-size:12px;">(Fill in the password fields below if you want to change your password)</div>
+                        </div>
                         <div class="form-group row">
                             <label for="password" class="col-md-2 col-form-label text-md-right">{{ __('Password') }}</label>
 

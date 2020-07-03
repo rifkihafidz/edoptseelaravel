@@ -99,7 +99,7 @@
                                                     <label for="description" class="col-form-label text-md-right">{{ __('Description') }}</label>
                                                 </td>
                                                 <td>
-                                                    <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ $post->description }}" required autocomplete="description" autofocus>
+                                                <textarea style="text-align: justify;" class="form-control" name="description" rows="3" required placeholder="Description">{{ $post->description }}</textarea>
 
                                                     @error('description')
                                                     <span class="invalid-feedback" role="alert">
@@ -109,18 +109,18 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
-                                                    <label for="medical" class="col-form-label text-md-left">{{ __('Medical Notes') }}</label>
-                                                </td>
-                                                <td>
-                                                    <input id="medical" type="text" class="form-control @error('medical') is-invalid @enderror" name="medical" value="{{ $post->medical }}" autocomplete="medical" autofocus>
+                                            <td>
+                                                <label for="medical" class="col-form-label text-md-left">{{ __('Medical Notes') }}</label>
+                                            </td>
+                                            <td>
+                                                <textarea style="text-align: justify;" class="form-control" name="medical" rows="3" required placeholder="Medical notes">{{ $post->medical }}</textarea>
 
-                                                    @error('medical')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
-                                                    @enderror
-                                                </td>
+                                                @error('medical')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
+                                            </td>
                                             </tr>
                                             <tr>
                                                 <td>

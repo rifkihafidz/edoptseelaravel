@@ -30,7 +30,13 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    // protected $redirectTo = '/';
+
+    protected function redirectTo()
+    {
+        alert()->success('Welcome !');
+        return '/'; // return dynamicaly generated URL.
+    }
 
     /**
      * Create a new controller instance.

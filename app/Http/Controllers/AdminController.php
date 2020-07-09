@@ -148,7 +148,7 @@ class AdminController extends Controller
         $user = User::findorfail($id);
         $this->validate($request, [
             'avatar' => 'image|mimes:jpeg,png,jpg|min:64|max:2048',
-            'password' => 'confirmed',
+            'password' => 'confirmed|min:8',
         ]);
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');

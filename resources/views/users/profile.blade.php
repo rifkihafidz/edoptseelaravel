@@ -28,27 +28,27 @@
                                 <i class="fa fa-pencil-alt"></i> Edit Profile
                             </a>
                         </div>
-                        <table class="table table-responsive-sm ">
+                        <table class="table table-responsive-sm">
                             <tbody class="tbody">
                                 <tr>
-                                    <td>Name</td>
-                                    <td width="3">:</td>
-                                    <td>{{ $user->name }}</td>
+                                    <td class="tdprofile">Name</td>
+                                    <td class="tdprofile" width="3">:</td>
+                                    <td class="tdprofile">{{ $user->name }}</td>
                                 </tr>
                                 <tr>
-                                    <td>E-mail</td>
-                                    <td width="3">:</td>
-                                    <td>{{ $user->email }}</td>
+                                    <td class="tdprofile">E-mail</td>
+                                    <td class="tdprofile" width="3">:</td>
+                                    <td class="tdprofile">{{ $user->email }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Phone</td>
-                                    <td width="3">:</td>
-                                    <td>{{ $user->no_hp }}</td>
+                                    <td class="tdprofile">Phone</td>
+                                    <td class="tdprofile" width="3">:</td>
+                                    <td class="tdprofile">{{ $user->no_hp }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Address</td>
-                                    <td width="3">:</td>
-                                    <td>{{ $user->alamat }}</td>
+                                    <td class="tdprofile">Address</td>
+                                    <td class="tdprofile" width="3">:</td>
+                                    <td class="tdprofile">{{ $user->alamat }}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -77,22 +77,24 @@
                             <!-- Tab 1 (My Posts) -->
                             <div id="myposts" class="container tab-pane active">
                                 <!-- Nav tabs -->
-                                <ul class="nav nav-tabs justify-content-center mt-2">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" data-toggle="tab" href="#allposts"><i class="fa fa-list"></i> All</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#availableposts"><i class="fa fa-check"></i> Available</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#adoptedposts"><i class="fa fa-paw"></i> Adopted</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-toggle="tab" href="#ripposts"><i class="fa fa-skull-crossbones"></i> R.I.P</a>
-                                    </li>
-                                </ul>
+                                <div class="navtabsbawah">
+                                    <ul class="nav nav-tabs justify-content-center mt-2">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#allposts"><i class="fa fa-list"></i> All</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#availableposts"><i class="fa fa-check"></i> Available</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#adoptedposts"><i class="fa fa-paw"></i> Adopted</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#ripposts"><i class="fa fa-skull-crossbones"></i> R.I.P</a>
+                                        </li>
+                                    </ul>
+                                </div>
                                 <!-- End nav tabs -->
-                                <div class="row justify-content-center mt-3">
+                                <div class="row justify-content-center">
                                     <div class="tab-content">
                                         <!-- Content -->
                                         <!-- All posts -->
@@ -431,56 +433,58 @@
                                                         @if(count($applicationreceived) > 0)
                                                         @foreach($applicationreceived as $received)
                                                         <div class="col-md-4">
-                                                            <div class="allreceive">
-                                                                <div class="card" style="border-radius:15px;">
-                                                                    <div class="card-body">
-                                                                        <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#modalDetailAll{{ $received->id }}">Application for {{ $received->animalsname }}</h5>
-                                                                        <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#modalDetailAll{{ $received->id }}">
-                                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
-                                                                        @if($received->status == "0")
-                                                                        <form action="{{ route('accept.application') }}" method="POST">
-                                                                            @csrf
-                                                                            <input type="hidden" name="id" value="{{ $received->id }}">
-                                                                            <button onclick="return confirm('Are you sure you want to accept this appliance ?')" type="submit" class="btn btn-info btn-block mb-2 btn-sm">Accept</button>
-                                                                        </form>
-                                                                        <form action="{{ route('reject.application') }}" method="POST">
-                                                                            @csrf
-                                                                            <input type="hidden" name="id" value="{{ $received->id }}">
-                                                                            <button onclick="return confirm('Are you sure you want to reject this appliance ?')" type="submit" class="btn btn-danger btn-block btn-sm">Reject</button>
-                                                                        </form>
-                                                                        @elseif($received->status == "1")
-                                                                        <button class="btn btn-info btn-block mb-2 btn-sm" disabled><i class="fas fa-check"></i> Accepted</button>
-                                                                        <form action="{{ route('set.adopter') }}" method="POST">
-                                                                            @csrf
-                                                                            <input type="hidden" name="idapply" value="{{ $received->id }}">
-                                                                            <input type="hidden" name="idpost" value="{{ $received->id_post }}">
-                                                                            <button onclick="return confirm('Are you sure you want to set {{ $received->submittername }} as a {{ $received->animalsname }} adopter ?')" type="submit" class="btn btn-info btn-block btn-sm">Set Adopt</button>
-                                                                        </form>
-                                                                        @elseif($received->status == "2")
-                                                                        <button class="btn btn-danger btn-block btn-sm" disabled><i class="fas fa-times"></i> Rejected</button>
-                                                                        @elseif($received->status == "3")
-                                                                        <button class="btn btn-success btn-block mb-2 btn-sm" disabled><i class="fas fa-check"></i> {{$received->animalsname}}'s Adopter</button>
-                                                                        @elseif($received->status == "4")
-                                                                        <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Adopted by others <i class="fas fa-exclamation"></i></button>
-                                                                        @endif
-                                                                        <div class="modal fade" id="modalDetailAll{{ $received->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                            <span aria-hidden="true">&times;</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-                                                                                        <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                                                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
-                                                                                        <p class="card-text">Reason : {{ $received->reason }}</p>
-                                                                                        <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
-                                                                                        <p class="card-text">Permissions : {{ $received->permissions }}</p>
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block btn-sm"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
+                                                            <div class="mb-3">
+                                                                <div class="allreceive">
+                                                                    <div class="card" style="border-radius:15px;">
+                                                                        <div class="card-body">
+                                                                            <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#modalDetailAll{{ $received->id }}">Application for {{ $received->animalsname }}</h5>
+                                                                            <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#modalDetailAll{{ $received->id }}">
+                                                                            <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                                                                            @if($received->status == "0")
+                                                                            <form action="{{ route('accept.application') }}" method="POST">
+                                                                                @csrf
+                                                                                <input type="hidden" name="id" value="{{ $received->id }}">
+                                                                                <button onclick="return confirm('Are you sure you want to accept this appliance ?')" type="submit" class="btn btn-info btn-block mb-2 btn-sm">Accept</button>
+                                                                            </form>
+                                                                            <form action="{{ route('reject.application') }}" method="POST">
+                                                                                @csrf
+                                                                                <input type="hidden" name="id" value="{{ $received->id }}">
+                                                                                <button onclick="return confirm('Are you sure you want to reject this appliance ?')" type="submit" class="btn btn-danger btn-block btn-sm">Reject</button>
+                                                                            </form>
+                                                                            @elseif($received->status == "1")
+                                                                            <button class="btn btn-info btn-block mb-2 btn-sm" disabled><i class="fas fa-check"></i> Accepted</button>
+                                                                            <form action="{{ route('set.adopter') }}" method="POST">
+                                                                                @csrf
+                                                                                <input type="hidden" name="idapply" value="{{ $received->id }}">
+                                                                                <input type="hidden" name="idpost" value="{{ $received->id_post }}">
+                                                                                <button onclick="return confirm('Are you sure you want to set {{ $received->submittername }} as a {{ $received->animalsname }} adopter ?')" type="submit" class="btn btn-info btn-block btn-sm">Set Adopt</button>
+                                                                            </form>
+                                                                            @elseif($received->status == "2")
+                                                                            <button class="btn btn-danger btn-block btn-sm" disabled><i class="fas fa-times"></i> Rejected</button>
+                                                                            @elseif($received->status == "3")
+                                                                            <button class="btn btn-success btn-block mb-2 btn-sm" disabled><i class="fas fa-check"></i> {{$received->animalsname}}'s Adopter</button>
+                                                                            @elseif($received->status == "4")
+                                                                            <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Adopted by others <i class="fas fa-exclamation"></i></button>
+                                                                            @endif
+                                                                            <div class="modal fade" id="modalDetailAll{{ $received->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                                <span aria-hidden="true">&times;</span>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
+                                                                                            <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                                                                                            <p class="card-text">Reason : {{ $received->reason }}</p>
+                                                                                            <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
+                                                                                            <p class="card-text">Permissions : {{ $received->permissions }}</p>
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block btn-sm"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -500,7 +504,7 @@
                                         <div class="container tab-pane fade animate__animated animate__fadeIn" id="receivepending">
                                             <div class="container">
                                                 <div class="card-body">
-                                                    <div class="row justify-content-center mt-3">
+                                                    <div class="row justify-content-center mt-1">
                                                         @if(count($applicationreceivedpending) > 0)
                                                         @foreach($applicationreceivedpending as $received)
                                                         <div class="col-md-4">
@@ -546,7 +550,7 @@
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No submitation has been accepted yet.</strong>
+                                                        <strong style="text-align:center;">No submitation has been received yet.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -555,7 +559,7 @@
                                         <div class="container tab-pane fade animate__animated animate__fadeIn" id="receiveaccepted">
                                             <div class="container">
                                                 <div class="card-body">
-                                                    <div class="row justify-content-center mt-3">
+                                                    <div class="row justify-content-center mt-1">
                                                         @if(count($applicationreceivedaccept) > 0)
                                                         @foreach($applicationreceivedaccept as $received)
                                                         <div class="col-md-4">
@@ -615,7 +619,7 @@
                                         <div class="container tab-pane fade animate__animated animate__fadeIn" id="receiverejected">
                                             <div class="container">
                                                 <div class="card-body">
-                                                    <div class="row justify-content-center mt-3">
+                                                    <div class="row justify-content-center mt-1">
                                                         @if(count($applicationreceivedreject) > 0)
                                                         @foreach($applicationreceivedreject as $received)
                                                         <div class="col-md-4">
@@ -686,7 +690,7 @@
                                 <!-- End nav tabs -->
 
                                 <!-- Tab content -->
-                                <div class="justify-content-center mt-3">
+                                <div class="justify-content-center">
                                     <div class="tab-content">
                                         <div class="container tab-pane active animate__animated animate__fadeIn" id="sentall">
                                             <div class="container">

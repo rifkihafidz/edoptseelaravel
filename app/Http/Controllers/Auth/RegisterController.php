@@ -34,8 +34,8 @@ class RegisterController extends Controller
 
     protected function redirectTo()
     {
-        alert()->success('Welcome !');
-        return '/'; // return dynamicaly generated URL.
+        alert()->warning('Please complete your identity first !');
+        return route('profile.edit'); // return dynamicaly generated URL.
     }
 
     /**

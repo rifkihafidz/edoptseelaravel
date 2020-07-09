@@ -46,7 +46,7 @@
 
 </head>
 
-<body>
+<body class="wrapper">
     <div id="app">
         <nav class="navbar navbar-dark blue-gradient lighten-1 navbar-expand-lg" style="position:fixed; width:100%">
             <!-- b9cced -->
@@ -128,7 +128,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-
+        <div class="push"></div>
         @include('layouts.footer')
 
     </div>

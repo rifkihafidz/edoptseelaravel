@@ -489,6 +489,10 @@ input[type="checkbox"]:checked + label {
     text-align: justify;
 }
 
+.tdprofile {
+    font-size: 13px;
+}
+
 /* footer {
     position: relative;
     margin-top: 260px;
@@ -497,6 +501,19 @@ input[type="checkbox"]:checked + label {
 
 /* DESKTOP VERSION */
 @media (min-width: 992px) {
+    .wrapper {
+        margin: 0 auto -260px;
+    }
+
+    .footer,
+    .push {
+        height: 260px;
+    }
+
+    .tdprofile {
+        font-size: 14px;
+    }
+
     .breadcrumb {
         font-size: 16px;
     }

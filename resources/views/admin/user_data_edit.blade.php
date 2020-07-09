@@ -10,7 +10,7 @@
             <div class="col-md-12 mt-3 mb-2">
                 <div class="card">
                     <div class="card-body" style="background:#f9f9f9">
-                        <h4><i class="fa fa-pencil-alt mb-2"></i> Edit Profile</h4>
+                        <h4><i class="fa fa-pencil-alt mb-2"></i> Edit User</h4>
                         <form method="POST" action="{{ route('admin.user.update',$user->id) }}" enctype="multipart/form-data">
                             @csrf
 

@@ -11,4 +11,6 @@ class Application extends Model
     protected $attributes = [
         'status' => '0',
     ];
+
+    public $timestamps = false;
 }

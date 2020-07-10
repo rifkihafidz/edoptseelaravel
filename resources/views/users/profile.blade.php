@@ -120,61 +120,12 @@
                                                                         <h6 class="card-subtitle mb-2" style="text-align:center;"><strong>Adopted on : {{ $adopt->adoptdate }}</strong></h6>
                                                                         @endif
                                                                         @if($posting->status == 'Available' || $posting->status == 'Adopted' || $posting->status == 'R.I.P')
-                                                                        <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block btn-sm"><i class="fa fa-pencil-alt"></i> Edit</a>
-                                                                        <div class="modal fade" id="deleteModalAll{{$posting->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalAllCenterTitle" aria-hidden="true">
-                                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <h5 class="modal-title" id="deleteModalAllCenterTitle"><i class="fa fa-exclamation-triangle"></i> Alert</h5>
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                            <span aria-hidden="true">&times;</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-                                                                                        <form id="deleteForm" method="POST" action="{{ route('posting.delete',$posting->id) }}">
-                                                                                            @csrf
-                                                                                            {{ method_field('DELETE') }}
-                                                                                            <strong>Are you sure you want to delete this post?</strong>
-                                                                                            <input type="hidden" name="id" value="{{ $posting->id }}">
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button type="button" class="btn stylish-color-dark" data-dismiss="modal">Close</button>
-                                                                                        <button type="submit" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i> Delete</button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <button type="button" class="btn btn-danger btn-block btn-sm mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAll{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
+                                                                        <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Edit</a>
+
+                                                                        <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAll{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
                                                                         </form>
                                                                         @else
-                                                                        <button type="button" class="btn btn-info btn-block btn-sm mt-3" data-toggle="modal" data-target="#modalDetailPost{{ $posting->id }}"><i class="fa fa-paw"></i> Details</button>
-                                                                        <div class="modal fade" id="modalDetailPost{{ $posting->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                                <div class="modal-content">
-                                                                                    <div class="modal-header">
-                                                                                        <h5 class="modal-title" id="exampleModalCenterTitle" style="text-align:center;"><i class="fas fa-paw"></i> {{ $posting->name }}'s details <i class="fas fa-paw"></i></h5>
-                                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                            <span aria-hidden="true">&times;</span>
-                                                                                        </button>
-                                                                                    </div>
-                                                                                    <div class="modal-body">
-                                                                                        <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid mb-3" style="border-radius:15px">
-                                                                                        <h6 class="card-subtitle mb-2 text-muted">Owner : {{ $posting->owner }}<br></h6>
-                                                                                        <p class="card-text">Age : {{ $posting->age }} year(s)</p>
-                                                                                        <p class="card-text">Category : {{ $posting->category }}</p>
-                                                                                        <p class="card-text">Size : {{ $posting->size }}</p>
-                                                                                        <p class="card-text">Sex : {{ $posting->sex }}</p>
-                                                                                        <p class="card-text">Background : {{ $posting->background }}</p>
-                                                                                        <p class="card-text">Description : {{ $posting->description }}</p>
-                                                                                        <p class="card-text">Medical notes : {{ $posting->medical }}</p>
-                                                                                        <p class="card-text">Post Date : {{ $posting->date }}</p>
-                                                                                    </div>
-                                                                                    <div class="modal-footer">
-                                                                                        <button class="btn btn-success btn-block mb-2 btn-sm" disabled><strong><i class="fas fa-check"></i>Status : {{$posting->status}}</strong></button>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                                                                        <button type="button" class="btn btn-info btn-block mt-3" data-toggle="modal" data-target="#modalDetailPost{{ $posting->id }}"><i class="fa fa-paw"></i> Details</button>
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -208,31 +159,8 @@
                                                                         <strong>Age : {{ $posting->age }} year(s)</strong><br>
                                                                         <strong>Background : {{ $posting->background }} </strong><br>
                                                                     </p>
-                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block btn-sm"><i class="fa fa-pencil-alt"></i> Edit</a>
-                                                                    <div class="modal fade" id="deleteModalAvailable{{$posting->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalAvailableCenterTitle" aria-hidden="true">
-                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="deleteModalAvailableCenterTitle"><i class="fa fa-exclamation-triangle"></i> Alert</h5>
-                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                        <span aria-hidden="true">&times;</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    <form id="deleteForm" method="POST" action="{{ route('posting.delete',$posting->id) }}">
-                                                                                        @csrf
-                                                                                        {{ method_field('DELETE') }}
-                                                                                        <strong>Are you sure you want to delete this post?</strong>
-                                                                                        <input type="hidden" name="id" value="{{ $posting->id }}">
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <button type="button" class="btn stylish-color-dark btn-sm" data-dismiss="modal">Close</button>
-                                                                                    <button type="submit" class="btn btn-danger btn-delete btn-sm"><i class="fa fa-trash"></i> Delete</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <button type="button" class="btn btn-danger btn-block btn-sm mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAvailable{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
+                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Edit</a>
+                                                                    <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAvailable{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
@@ -269,61 +197,11 @@
                                                                     <h6 class="card-subtitle mb-2" style="text-align:center;"><strong>Adopted on : {{ $adopt->adoptdate }}</strong></h6>
                                                                     @endif
                                                                     @if($posting->status == 'Adopted')
-                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block btn-sm"><i class="fa fa-pencil-alt"></i> Edit</a>
-                                                                    <div class="modal fade" id="deleteModalAdopted{{$posting->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalAdoptedCenterTitle" aria-hidden="true">
-                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="deleteModalAdoptedCenterTitle"><i class="fa fa-exclamation-triangle"></i> Alert</h5>
-                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                        <span aria-hidden="true">&times;</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    <form id="deleteForm" method="POST" action="{{ route('posting.delete',$posting->id) }}">
-                                                                                        @csrf
-                                                                                        {{ method_field('DELETE') }}
-                                                                                        <strong>Are you sure you want to delete this post?</strong>
-                                                                                        <input type="hidden" name="id" value="{{ $posting->id }}">
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <button type="button" class="btn stylish-color-dark btn-sm" data-dismiss="modal">Close</button>
-                                                                                    <button type="submit" class="btn btn-danger btn-delete btn-sm"><i class="fa fa-trash"></i> Delete</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <button type="button" class="btn btn-danger btn-block btn-sm mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAdopted{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
+                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Edit</a>
+                                                                    <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAdopted{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
                                                                     </form>
                                                                     @else
-                                                                    <button type="button" class="btn btn-info btn-sm btn-block mt-3" data-toggle="modal" data-target="#modalDetailPostAccepted{{ $posting->id }}"><i class="fa fa-paw"></i> Details</button>
-                                                                    <div class="modal fade" id="modalDetailPostAccepted{{ $posting->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fas fa-paw" style="text-align:center;"></i> {{ $posting->name }}'s details <i class="fas fa-paw"></i></h5>
-                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                        <span aria-hidden="true">&times;</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid mb-3" style="border-radius:15px">
-                                                                                    <h6 class="card-subtitle mb-2 text-muted">Owner : {{ $posting->owner }}<br></h6>
-                                                                                    <p class="card-text">Age : {{ $posting->age }} year(s)</p>
-                                                                                    <p class="card-text">Category : {{ $posting->category }}</p>
-                                                                                    <p class="card-text">Size : {{ $posting->size }}</p>
-                                                                                    <p class="card-text">Sex : {{ $posting->sex }}</p>
-                                                                                    <p class="card-text">Background : {{ $posting->background }}</p>
-                                                                                    <p class="card-text">Description : {{ $posting->description }}</p>
-                                                                                    <p class="card-text">Medical notes : {{ $posting->medical }}</p>
-                                                                                    <p class="card-text">Post Date : {{ $posting->date }}</p>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <button class="btn btn-success btn-block mb-2 btn-sm" disabled><strong><i class="fas fa-check"></i>Status : {{$posting->status}}</strong></button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                                    <button type="button" class="btn btn-info btn-block mt-3" data-toggle="modal" data-target="#modalDetailPostAccepted{{ $posting->id }}"><i class="fa fa-paw"></i> Details</button>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -356,31 +234,8 @@
                                                                         <strong>Age : {{ $posting->age }} year(s)</strong><br>
                                                                         <strong>Background : {{ $posting->background }} </strong><br>
                                                                     </p>
-                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block btn-sm"><i class="fa fa-pencil-alt"></i> Edit</a>
-                                                                    <div class="modal fade" id="deleteModalRIP{{$posting->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalRIPCenterTitle" aria-hidden="true">
-                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="deleteModalRIPCenterTitle"><i class="fa fa-exclamation-triangle"></i> Alert</h5>
-                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                        <span aria-hidden="true">&times;</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    <form id="deleteForm" method="POST" action="{{ route('posting.delete',$posting->id) }}">
-                                                                                        @csrf
-                                                                                        {{ method_field('DELETE') }}
-                                                                                        <strong>Are you sure you want to delete this post?</strong>
-                                                                                        <input type="hidden" name="id" value="{{ $posting->id }}">
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <button type="button" class="btn stylish-color-dark btn-sm" data-dismiss="modal">Close</button>
-                                                                                    <button type="submit" class="btn btn-danger btn-delete btn-sm"><i class="fa fa-trash"></i> Delete</button>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <button type="button" class="btn btn-danger btn-block mt-2 btn-trash btn-sm" data-toggle="modal" data-target="#deleteModalRIP{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
+                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Edit</a>
+                                                                    <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalRIP{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
@@ -466,28 +321,6 @@
                                                                             @elseif($received->status == "4")
                                                                             <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Adopted by others <i class="fas fa-exclamation"></i></button>
                                                                             @endif
-                                                                            <div class="modal fade" id="modalDetailAll{{ $received->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                                    <div class="modal-content">
-                                                                                        <div class="modal-header">
-                                                                                            <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
-                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                                <span aria-hidden="true">&times;</span>
-                                                                                            </button>
-                                                                                        </div>
-                                                                                        <div class="modal-body">
-                                                                                            <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                                                                                            <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
-                                                                                            <p class="card-text">Reason : {{ $received->reason }}</p>
-                                                                                            <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
-                                                                                            <p class="card-text">Permissions : {{ $received->permissions }}</p>
-                                                                                        </div>
-                                                                                        <div class="modal-footer">
-                                                                                            <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block btn-sm"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -523,28 +356,6 @@
                                                                         <input type="hidden" name="id" value="{{ $received->id }}">
                                                                         <button onclick="return confirm('Are you sure you want to reject this appliance ?')" type="submit" class="btn btn-danger btn-sm btn-block">Reject</button>
                                                                     </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal fade" id="modalDetailPending{{ $received->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
-                                                                        <p class="card-text">Reason : {{ $received->reason }}</p>
-                                                                        <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
-                                                                        <p class="card-text">Permissions : {{ $received->permissions }}</p>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block btn-sm"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -586,28 +397,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="modal fade" id="modalDetailAccepted{{ $received->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
-                                                                        <p class="card-text">Reason : {{ $received->reason }}</p>
-                                                                        <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
-                                                                        <p class="card-text">Permissions : {{ $received->permissions }}</p>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block btn-sm"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                         @endforeach
                                                         @else
                                                         <strong style="text-align:center;">No submitation has been accepted yet.</strong>
@@ -629,28 +418,6 @@
                                                                     <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#modalDetailRejected{{ $received->id }}">
                                                                     <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
                                                                     <button class="btn btn-danger btn-block btn-sm" disabled><i class="fas fa-times"></i> Rejected</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal fade" id="modalDetailRejected{{ $received->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
-                                                                        <p class="card-text">Reason : {{ $received->reason }}</p>
-                                                                        <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
-                                                                        <p class="card-text">Permissions : {{ $received->permissions }}</p>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block btn-sm"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -719,29 +486,6 @@
                                                                     <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
                                                                     <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Adopted by others <i class="fas fa-exclamation"></i></button>
                                                                     @endif
-                                                                    <div class="modal fade" id="detailSentAll{{ $sent->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
-                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                        <span aria-hidden="true">&times;</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                                                                                    <p class="card-text">Reason : {{ $sent->reason }}</p>
-                                                                                    <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
-                                                                                    <p class="card-text">Permissions : {{ $sent->permissions }}</p>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Details</a>
-                                                                                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block btn-sm"><i class="fa fa-phone"></i> Whatsapp Owner</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -766,29 +510,6 @@
                                                                     <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#detailSentPending{{ $sent->id }}">
                                                                     <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
                                                                     <button class="btn stylish-color-dark btn-block btn-sm" disabled><i class="fas fa-clock"></i> Pending</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal fade" id="detailSentPending{{ $sent->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                                                                        <p class="card-text">Reason : {{ $sent->reason }}</p>
-                                                                        <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
-                                                                        <p class="card-text">Permissions : {{ $sent->permissions }}</p>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block btn-sm"><i class="fas fa-paw"></i> Details</a>
-                                                                        <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block btn-sm"><i class="fa fa-phone"></i> Whatsapp Owner</a>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -822,29 +543,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="modal fade" id="detailSendAccepted{{ $sent->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                                                                        <p class="card-text">Reason : {{ $sent->reason }}</p>
-                                                                        <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
-                                                                        <p class="card-text">Permissions : {{ $sent->permissions }}</p>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block btn-sm"><i class="fas fa-paw"></i> Details</a>
-                                                                        <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block btn-sm"><i class="fa fa-phone"></i> Whatsapp Owner</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+
                                                         @endforeach
                                                         @else
                                                         <strong style="text-align:center;">No submitation has been accepted yet.</strong>
@@ -866,29 +565,6 @@
                                                                     <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#detailSendReject{{ $sent->id }}">
                                                                     <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
                                                                     <button class="btn btn-danger btn-block" disabled><i class="fas fa-times"></i> Rejected</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal fade" id="detailSendReject{{ $sent->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                            <span aria-hidden="true">&times;</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                                                                        <p class="card-text">Reason : {{ $sent->reason }}</p>
-                                                                        <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
-                                                                        <p class="card-text">Permissions : {{ $sent->permissions }}</p>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Details</a>
-                                                                        <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block btn-sm"><i class="fa fa-phone"></i> Whatsapp Owner</a>
-                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -914,4 +590,359 @@
     </div>
 </div>
 
+
+<div class="text-center">
+    @foreach($postings as $posting)
+    <!-- Detail All Posts -->
+    <div class="modal fade" id="modalDetailPost{{ $posting->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle" style="text-align:center;"><i class="fas fa-paw"></i> {{ $posting->name }}'s details <i class="fas fa-paw"></i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid mb-3" style="border-radius:15px">
+                    <h6 class="card-subtitle mb-2 text-muted">Owner : {{ $posting->owner }}<br></h6>
+                    <p class="card-text">Age : {{ $posting->age }} year(s)</p>
+                    <p class="card-text">Category : {{ $posting->category }}</p>
+                    <p class="card-text">Size : {{ $posting->size }}</p>
+                    <p class="card-text">Sex : {{ $posting->sex }}</p>
+                    <p class="card-text">Background : {{ $posting->background }}</p>
+                    <p class="card-text">Description : {{ $posting->description }}</p>
+                    <p class="card-text">Medical notes : {{ $posting->medical }}</p>
+                    <p class="card-text">Post Date : {{ $posting->date }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-block mb-2" disabled><strong><i class="fas fa-check"></i>Status : {{$posting->status}}</strong></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal All Posts -->
+    <div class="modal fade" id="deleteModalAll{{$posting->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalAllCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalAllCenterTitle"><i class="fa fa-exclamation-triangle"></i> Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="deleteForm" method="POST" action="{{ route('posting.delete',$posting->id) }}">
+                        @csrf
+                        {{ method_field('DELETE') }}
+                        <strong>Are you sure you want to delete this post?</strong>
+                        <input type="hidden" name="id" value="{{ $posting->id }}">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn stylish-color-dark" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i> Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($postavail as $posting)
+    <!-- Delete Modal Available Posts -->
+    <div class="modal fade" id="deleteModalAvailable{{$posting->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalAvailableCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalAvailableCenterTitle"><i class="fa fa-exclamation-triangle"></i> Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="deleteForm" method="POST" action="{{ route('posting.delete',$posting->id) }}">
+                        @csrf
+                        {{ method_field('DELETE') }}
+                        <strong>Are you sure you want to delete this post?</strong>
+                        <input type="hidden" name="id" value="{{ $posting->id }}">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn stylish-color-dark" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i> Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($postadopted as $posting)
+    <!-- Modal Detail Adopted Posts -->
+    <div class="modal fade" id="modalDetailPostAccepted{{ $posting->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fas fa-paw" style="text-align:center;"></i> {{ $posting->name }}'s details <i class="fas fa-paw"></i></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid mb-3" style="border-radius:15px">
+                    <h6 class="card-subtitle mb-2 text-muted">Owner : {{ $posting->owner }}<br></h6>
+                    <p class="card-text">Age : {{ $posting->age }} year(s)</p>
+                    <p class="card-text">Category : {{ $posting->category }}</p>
+                    <p class="card-text">Size : {{ $posting->size }}</p>
+                    <p class="card-text">Sex : {{ $posting->sex }}</p>
+                    <p class="card-text">Background : {{ $posting->background }}</p>
+                    <p class="card-text">Description : {{ $posting->description }}</p>
+                    <p class="card-text">Medical notes : {{ $posting->medical }}</p>
+                    <p class="card-text">Post Date : {{ $posting->date }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-block mb-2" disabled><strong><i class="fas fa-check"></i>Status : {{$posting->status}}</strong></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($postrip as $posting)
+    <!-- Delete Modal RIP Posts -->
+    <div class="modal fade" id="deleteModalRIP{{$posting->id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalRIPCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalRIPCenterTitle"><i class="fa fa-exclamation-triangle"></i> Alert</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="deleteForm" method="POST" action="{{ route('posting.delete',$posting->id) }}">
+                        @csrf
+                        {{ method_field('DELETE') }}
+                        <strong>Are you sure you want to delete this post?</strong>
+                        <input type="hidden" name="id" value="{{ $posting->id }}">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn stylish-color-dark" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i> Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($applicationreceived as $received)
+    <!-- Modal All Received  -->
+    <div class="modal fade" id="modalDetailAll{{ $received->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                    <p class="card-text">Reason : {{ $received->reason }}</p>
+                    <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
+                    <p class="card-text">Permissions : {{ $received->permissions }}</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($applicationreceivedpending as $received)
+    <!-- Modal Pending Received -->
+    <div class="modal fade" id="modalDetailPending{{ $received->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                    <p class="card-text">Reason : {{ $received->reason }}</p>
+                    <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
+                    <p class="card-text">Permissions : {{ $received->permissions }}</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($applicationreceivedaccept as $received)
+    <!-- Modal Accepted Received -->
+    <div class="modal fade" id="modalDetailAccepted{{ $received->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                    <p class="card-text">Reason : {{ $received->reason }}</p>
+                    <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
+                    <p class="card-text">Permissions : {{ $received->permissions }}</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($applicationreceivedreject as $received)
+    <!-- Modal Rejected Received -->
+    <div class="modal fade" id="modalDetailRejected{{ $received->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                    <p class="card-text">Reason : {{ $received->reason }}</p>
+                    <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
+                    <p class="card-text">Permissions : {{ $received->permissions }}</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($applicationsent as $sent)
+    <!-- Modal Sent All -->
+    <div class="modal fade" id="detailSentAll{{ $sent->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                    <p class="card-text">Reason : {{ $sent->reason }}</p>
+                    <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
+                    <p class="card-text">Permissions : {{ $sent->permissions }}</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Details</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Owner</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($applicationsentpending as $sent)
+    <!-- Modal Sent Pending -->
+    <div class="modal fade" id="detailSentPending{{ $sent->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                    <p class="card-text">Reason : {{ $sent->reason }}</p>
+                    <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
+                    <p class="card-text">Permissions : {{ $sent->permissions }}</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Details</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Owner</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($applicationsentaccepted as $sent)
+    <!-- Modal Sent Accepted -->
+    <div class="modal fade" id="detailSendAccepted{{ $sent->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                    <p class="card-text">Reason : {{ $sent->reason }}</p>
+                    <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
+                    <p class="card-text">Permissions : {{ $sent->permissions }}</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Details</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Owner</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+    @foreach($applicationsentrejected as $sent)
+    <!-- Modal Sent Rejected -->
+    <div class="modal fade" id="detailSendReject{{ $sent->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                    <p class="card-text">Reason : {{ $sent->reason }}</p>
+                    <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
+                    <p class="card-text">Permissions : {{ $sent->permissions }}</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Details</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Owner</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+</div>
 @endsection

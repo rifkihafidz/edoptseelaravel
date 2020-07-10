@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use Auth;
 use app\User;
 use Illuminate\Database\Eloquent\Model;
@@ -12,4 +13,7 @@ class Posting extends Model
     protected $attributes = [
         'status' => 'Available',
     ];
+
+    // Disable timestamps
+    public $timestamps = false;
 }

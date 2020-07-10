@@ -41,4 +41,15 @@ class User extends Authenticatable
         'role' => 'user',
         'avatar' => 'default.jpg',
     ];
+    // Disable timestamps
+    public $timestamps = false;
+    // Enable created_at
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $model->created_at = $model->freshTimestamp();
+        });
+    }
 }

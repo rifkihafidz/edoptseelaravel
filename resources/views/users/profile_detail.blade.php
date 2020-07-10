@@ -50,13 +50,13 @@
                                 <!-- All posts -->
                                 <div class="container tab-pane active animate__animated animate__fadeIn" id="allposts">
                                     <div class="container">
-                                        <div class="card-body">
+                                        <div class="card-body" style="text-align: center;">
                                             <div class="row justify-content-center mt-1">
                                                 @if(count($allposts) > 0)
                                                 @foreach($allposts as $post)
                                                 <div class="col-md-4 mb-3">
                                                     <img src="{{ url('assets/uploads') }}/{{ $post->img }}" class="img-fluid" style="border-top-left-radius:15px; border-top-right-radius:15px">
-                                                    <div class=" card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px; height:240px;">
+                                                    <div class="card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px; height:240px;">
                                                         <h5 class="card-subtitle">{{ $post->name }}</h5>
                                                         <h6 class="card-subtitle mb-2 text-muted">Posted on : {{ $post->date }}</h6>
                                                         <p class="card-text" style="text-align: center;">
@@ -78,7 +78,7 @@
                                 <!-- End All Posts -->
 
                                 <!-- Available Posts -->
-                                <div class="container tab-pane fade active animate__animated animate__fadeIn" id="availableposts">
+                                <div class="container tab-pane fade animate__animated animate__fadeIn" id="availableposts">
                                     <div class="container">
                                         <div class="card-body">
                                             <div class="row justify-content-center mt-1">
@@ -108,7 +108,7 @@
                                 <!-- End Available Posts -->
 
                                 <!-- Adopted Posts -->
-                                <div class="container tab-pane fade active animate__animated animate__fadeIn" id="adoptedposts">
+                                <div class="container tab-pane fade animate__animated animate__fadeIn" id="adoptedposts">
                                     <div class="container">
                                         <div class="card-body">
                                             <div class="row justify-content-center mt-1">
@@ -144,5 +144,6 @@
             </div>
         </div>
     </div>
+</div>
 
-    @endsection
+@endsection

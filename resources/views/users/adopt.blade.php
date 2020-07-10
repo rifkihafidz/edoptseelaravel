@@ -33,7 +33,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
+          <div class="form-group row">
             <div class="col-md-4 mb-2">
               <select name="province" class="form-control" id="province">
                 <option selected="false">Select Province...</option>

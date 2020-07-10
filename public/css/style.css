@@ -320,7 +320,6 @@
 html,
 body {
     font-family: McLaren;
-    /* "Hind", sans-serif */
     margin: 0;
     padding: 0 !important;
     height: 100%;
@@ -412,6 +411,7 @@ input[type="checkbox"]:checked + label {
 }
 .panel select {
     font-size: 11px;
+    border: 1px;
 }
 
 .panel button {

@@ -200,7 +200,7 @@
                                                         <div class="col-md-4">
                                                             <div class="mb-4">
                                                                 <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid" style="border-top-left-radius:15px; border-top-right-radius:15px">
-                                                                <div class=" card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px;">
+                                                                <div class="card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px;">
                                                                     <h5 class="card-subtitle" style="text-align:center;">{{ $posting->name }}</h5>
                                                                     <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Posted on : {{ $posting->date }}</h6>
                                                                     <p class="card-text" style="text-align: center;">

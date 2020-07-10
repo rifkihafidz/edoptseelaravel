@@ -78,8 +78,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="form-group row">
                             <label for="alamat" class="col-md-2 col-form-label text-md-right">{{ __('Address') }}</label>
                             <div class="col-md-3 mb-2">

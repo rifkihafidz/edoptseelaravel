@@ -205,6 +205,9 @@ class PostingController extends Controller
         }
         $posting->medical = $request->medical;
         $posting->status = $request->status;
+        $posting->friendly = $request->friendly;
+        $posting->neutered = $request->neutered;
+        $posting->vaccinated = $request->vaccinated;
 
         $posting->update();
 

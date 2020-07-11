@@ -178,6 +178,54 @@
                                                 </select>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="friendly" class="col-form-label text-md-right">{{ __('Friendly') }}</label>
+                                            </td>
+                                            <td>
+                                                <select name="friendly" class="form-control">
+                                                    @if($post->friendly === 0)
+                                                    <option value="0" selected>No</option>
+                                                    <option value="1">Yes</option>
+                                                    @elseif($post->friendly === 1)
+                                                    <option value="0">No</option>
+                                                    <option value="1" selected>Yes</option>
+                                                    @endif
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="neutered" class="col-form-label text-md-right">{{ __('Neutered') }}</label>
+                                            </td>
+                                            <td>
+                                                <select name="neutered" class="form-control">
+                                                    @if($post->neutered === 0)
+                                                    <option value="0" selected>No</option>
+                                                    <option value="1">Yes</option>
+                                                    @elseif($post->neutered === 1)
+                                                    <option value="0">No</option>
+                                                    <option value="1" selected>Yes</option>
+                                                    @endif
+                                                </select>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="vaccinated" class="col-form-label text-md-right">{{ __('Vaccinated') }}</label>
+                                            </td>
+                                            <td>
+                                                <select name="vaccinated" class="form-control">
+                                                    @if($post->vaccinated === 0)
+                                                    <option value="0" selected>No</option>
+                                                    <option value="1">Yes</option>
+                                                    @elseif($post->vaccinated === 1)
+                                                    <option value="0">No</option>
+                                                    <option value="1" selected>Yes</option>
+                                                    @endif
+                                                </select>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

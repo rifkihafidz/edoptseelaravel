@@ -96,6 +96,9 @@ class AdminController extends Controller
         }
         $post->medical = $request->medical;
         $post->status = $request->status;
+        $post->friendly = $request->friendly;
+        $post->neutered = $request->neutered;
+        $post->vaccinated = $request->vaccinated;
 
         $post->update();
 

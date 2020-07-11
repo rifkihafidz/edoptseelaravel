@@ -217,9 +217,9 @@
 @endsection
 
 @section('scripts')
-<!-- <script type="text/javascript">
+<script type="text/javascript">
   @if(count($errors) > 0)
   $('#loginModal').modal('show');
   @endif
-</script> -->
+</script>
 @endsection

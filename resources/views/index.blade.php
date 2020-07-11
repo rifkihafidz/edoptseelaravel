@@ -44,7 +44,36 @@
   <!-- Workingspace -->
   <div class="row workingspace mb-5 animate__animated animate__slideInUp">
     <div class="col-lg-6">
-      <img src="{{ url('images/img/ws.jpg') }}" alt="Workingspace" class="img-fluid">
+      <div id="carouselExampleIndicators" class="carousel slide" data-interval="2500" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{{ url('images/img/resized/carousel1.png') }}" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{{ url('images/img/resized/carousel2.png') }}" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{{ url('images/img/resized/carousel3.png') }}" alt="Third slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{{ url('images/img/resized/carousel4.png') }}" alt="Fourth slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{{ url('images/img/resized/carousel5.png') }}" alt="Fifth slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="{{ url('images/img/resized/carousel6.png') }}" alt="Sixth slide">
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-lg-6">
       <h3 style="text-align: center;">Give the <span><b>Animals</b></span> a New <span><b>Home</b></span></h3>
@@ -188,9 +217,9 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   @if(count($errors) > 0)
   $('#loginModal').modal('show');
   @endif
-</script>
+</script> -->
 @endsection

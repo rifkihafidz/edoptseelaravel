@@ -154,7 +154,6 @@ class PostingController extends Controller
 
         $oldFile = public_path('/assets/uploads/' . $posting->img);
 
-        // Delete applications yang postnya mau didelete
         $applications = DB::table('applications')
             ->join('postings', 'applications.id_post', '=', 'postings.id')
             ->where('applications.id_post', '=', $posting->id)

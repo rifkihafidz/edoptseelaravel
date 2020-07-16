@@ -75,12 +75,15 @@
             buttons: [{
                     extend: 'excel',
                     text: 'Excel',
-                    "className": 'btn btn-info'
+                    "className": 'btn btn-info',
+                    title: 'E-dopt-see Data Applications'
+
                 },
                 {
                     extend: 'print',
                     text: 'Print',
-                    "className": 'btn btn-info'
+                    "className": 'btn btn-info',
+                    title: 'E-dopt-see Data Applications'
                 },
             ],
             language: {

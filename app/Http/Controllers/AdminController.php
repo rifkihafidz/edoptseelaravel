@@ -112,7 +112,6 @@ class AdminController extends Controller
 
         $oldFile = public_path('/assets/uploads/' . $posting->img);
 
-        // Delete applications dan adopts yang postnya mau didelete
         $applications = DB::table('applications')
             ->join('postings', 'applications.id_post', '=', 'postings.id')
             ->where('applications.id_post', '=', $posting->id)
@@ -184,7 +183,6 @@ class AdminController extends Controller
             File::delete($oldFile);
         }
 
-        // Delete postings, applications dan adopts yang usernya mau didelete
         $applications = DB::table('applications')
             ->join('users', 'applications.id_user', '=', 'users.id')
             ->where('applications.id_user', '=', $user->id)
@@ -200,7 +198,6 @@ class AdminController extends Controller
             ->where('adopts.id_adopter', '=', $user->id)
             ->delete();
 
-        // Delete gambar di public path
         $postdeletes = DB::table('postings')
             ->join('users', 'postings.id_user', 'users.id')
             ->where('postings.id_user', '=', $user->id)

@@ -60,11 +60,9 @@ class AdoptController extends Controller
     {
         $user = Auth::user();
         $post = Posting::findorfail($id);
-        // $owner_id = $post->id_user;
         $adopter = User::where('id', Auth::user()->id)->firstorfail();
         $date = Carbon::now();
 
-        // Validasi alamat dan no telpon
         if (empty($user->alamat and $user->no_hp)) {
             alert()->error('Harap lengkapi identitas terlebih dahulu!');
             return redirect('/profile/edit');
@@ -72,7 +70,6 @@ class AdoptController extends Controller
 
         $applycheck = Application::where('id_user', Auth::user()->id)->where('status', 0)->orWhere('id_user', Auth::user()->id)->Where('status', 1)->get();
 
-        // Validasi data
         $request->validate([
             'reason' => 'required|min:10',
             'otheranimals' => 'required|min:10',
@@ -81,22 +78,17 @@ class AdoptController extends Controller
 
         $ada = "";
 
-        // Cek di tabel ada id_post yang akan disubmit atau tidak
         foreach ($applycheck as $app) {
             if ($app->id_post == $id) {
-                // Kalau id_postnya ada
                 $ada = $id;
             }
         }
 
-        // Kalau request $id != application->id_post yang sudah disubmit 
         if ($id != $ada) {
             $data = $request->all();
             $data['id_user'] = $adopter->id;
             $data['id_post'] = $post->id;
             $data['apply_date'] = $date;
-
-            // Apus ini
             $data['phone'] = $adopter->no_hp;
             $data['location'] = $adopter->alamat;
 
@@ -133,14 +125,12 @@ class AdoptController extends Controller
         $application = Application::findorfail($request->idapply);
         $post = Posting::findorfail($request->idpost);
 
-        // Update status applications selain calon adopter menjadi 4 (user lain telah menjadi adopter)
         $others = DB::table('applications')
             ->join('postings', 'applications.id_post', '=', 'postings.id')
             ->where('postings.id', '=', $request->idpost)
             ->where('applications.id', '!=', $request->idapply)
             ->update(['applications.status' => DB::raw(4)]);
 
-        // Update status applications yang menjadi adopter
         $adopters = DB::table('users')
             ->join('applications', 'users.id', '=', 'applications.id_user')
             ->where('applications.id', '=', $application->id)

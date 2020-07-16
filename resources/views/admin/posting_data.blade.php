@@ -99,12 +99,20 @@
             buttons: [{
                     extend: 'excel',
                     text: 'Excel',
-                    "className": 'btn btn-info'
+                    "className": 'btn btn-info',
+                    title: 'E-dopt-see Data Postings',
+                    exportOptions: {
+                        columns: [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+                    }
                 },
                 {
                     extend: 'print',
                     text: 'Print',
-                    "className": 'btn btn-info'
+                    "className": 'btn btn-info',
+                    title: 'E-dopt-see Data Postings',
+                    exportOptions: {
+                        columns: [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+                    }
                 },
             ],
             language: {

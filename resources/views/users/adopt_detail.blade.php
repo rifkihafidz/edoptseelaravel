@@ -49,7 +49,7 @@
                                             </tr>
                                             <tr>
                                                 <td>J. Kelamin</td>
-                                                @if($post->sex == 'Male')
+                                                @if($post->sex == 'Laki-laki')
                                                 <td><i class="fas fa-mars fa-lg" style="color:#a6dcef;"></i></td>
                                                 @else
                                                 <td><i class="fas fa-venus fa-lg" style="color:#e36387;"></i></td>

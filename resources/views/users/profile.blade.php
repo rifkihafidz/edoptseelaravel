@@ -117,12 +117,10 @@
                                                                             <strong>Latar Belakang : {{ $posting->background }} </strong><br>
                                                                         </p>
                                                                         @if($posting->status != 'Tersedia' && $posting->status != 'Tiada' && $posting->status != 'Teradopsi')
-                                                                        <?= $adopt->adoptdate ?>
-                                                                        <h6 class="card-subtitle mb-2" style="text-align:center;"><strong>Tanggal adopsi : Tes</strong></h6>
+                                                                        <h6 class="card-subtitle mb-2" style="text-align:center;"><strong>Tanggal adopsi : {{ $adopt->adoptdate }}</strong></h6>
                                                                         @endif
                                                                         @if($posting->status == 'Tersedia' || $posting->status == 'Teradopsi' || $posting->status == 'Tiada')
                                                                         <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Ubah</a>
-
                                                                         <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAll{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Hapus</button>
                                                                         </form>
                                                                         @else

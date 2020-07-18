@@ -10,7 +10,7 @@
         <div class="col-md-12 mt-3 pt-5">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="background:#f9f9f9">
-                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('profile') }}">Profil</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Ubah Profil</li>
                 </ol>
@@ -68,7 +68,7 @@
                             <label for="no_hp" class="col-md-2 col-form-label text-md-right">{{ __('No. HP') }}</label>
 
                             <div class="col-md-6">
-                                <input id="no_hp" type="text" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Start with (08), ex : 08961234" name="no_hp" value="{{ $user->no_hp }}" required autocomplete="no_hp" autofocus>
+                                <input id="no_hp" type="text" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Dimulai dengan (08), co : 08961234" name="no_hp" value="{{ $user->no_hp }}" required autocomplete="no_hp" autofocus>
 
                                 @error('no_hp')
                                 <span class="invalid-feedback" role="alert">
@@ -152,14 +152,14 @@
             }
             sel.length = 0;
 
-            if (selectedProvince == "Select Province...") {
+            if (selectedProvince == "Pilih Provinsi...") {
                 $.post("{{url('/getAllCities')}}", {
                     "_token": "{{ csrf_token() }}",
 
                 }, function(resp) {
                     var opt = document.createElement('option');
                     opt.selected = 'false';
-                    opt.text = 'Select City...';
+                    opt.text = 'Pilih Kota...';
                     sel.appendChild(opt);
                     $(resp).each(function() {
                         var opt = document.createElement('option');

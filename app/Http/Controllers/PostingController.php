@@ -100,7 +100,7 @@ class PostingController extends Controller
         $data['img'] = $filename;
         Posting::create($data);
 
-        alert()->success('Post success!');
+        alert()->success('Berhasil Membuat Post!');
         return redirect('/profile');
     }
 

@@ -299,12 +299,12 @@
                                                                             <form action="{{ route('accept.application') }}" method="POST">
                                                                                 @csrf
                                                                                 <input type="hidden" name="id" value="{{ $received->id }}">
-                                                                                <button onclick="return confirm('Are you sure you want to accept this appliance ?')" type="submit" class="btn btn-info btn-block mb-2 btn-sm">Terima</button>
+                                                                                <button onclick="return confirm('Apakah anda yakin ingin menerima permohonan ini ?')" type="submit" class="btn btn-info btn-block mb-2 btn-sm">Terima</button>
                                                                             </form>
                                                                             <form action="{{ route('reject.application') }}" method="POST">
                                                                                 @csrf
                                                                                 <input type="hidden" name="id" value="{{ $received->id }}">
-                                                                                <button onclick="return confirm('Are you sure you want to reject this appliance ?')" type="submit" class="btn btn-danger btn-block btn-sm">Tolak</button>
+                                                                                <button onclick="return confirm('Apakah anda yakin ingin menolak permohonan ini ?')" type="submit" class="btn btn-danger btn-block btn-sm">Tolak</button>
                                                                             </form>
                                                                             @elseif($received->status == "1")
                                                                             <button class="btn btn-info btn-block mb-2 btn-sm" disabled><i class="fas fa-check"></i> Diterima</button>
@@ -312,7 +312,7 @@
                                                                                 @csrf
                                                                                 <input type="hidden" name="idapply" value="{{ $received->id }}">
                                                                                 <input type="hidden" name="idpost" value="{{ $received->id_post }}">
-                                                                                <button onclick="return confirm('Are you sure you want to set {{ $received->submittername }} as a {{ $received->animalsname }} adopter ?')" type="submit" class="btn btn-info btn-block btn-sm">Jadikan Pengadopsi</button>
+                                                                                <button onclick="return confirm('Apakah anda yakin ingin menjadikan {{ $received->submittername }} sebagai pengadopsi {{ $received->animalsname }} ?')" type="submit" class="btn btn-info btn-block btn-sm">Jadikan Pengadopsi</button>
                                                                             </form>
                                                                             @elseif($received->status == "2")
                                                                             <button class="btn btn-danger btn-block btn-sm" disabled><i class="fas fa-times"></i> Ditolak</button>
@@ -349,12 +349,12 @@
                                                                     <form action="{{ route('accept.application') }}" method="POST">
                                                                         @csrf
                                                                         <input type="hidden" name="id" value="{{ $received->id }}">
-                                                                        <button onclick="return confirm('Are you sure you want to accept this appliance ?')" type="submit" class="btn btn-info btn-block btn-sm mb-2">Terima</button>
+                                                                        <button onclick="return confirm('Apakah anda yakin ingin menerima permohonan ini ?')" type="submit" class="btn btn-info btn-block btn-sm mb-2">Terima</button>
                                                                     </form>
                                                                     <form action="{{ route('reject.application') }}" method="POST">
                                                                         @csrf
                                                                         <input type="hidden" name="id" value="{{ $received->id }}">
-                                                                        <button onclick="return confirm('Are you sure you want to reject this appliance ?')" type="submit" class="btn btn-danger btn-sm btn-block">Tolak</button>
+                                                                        <button onclick="return confirm('Apakah anda yakin ingin menolak permohonan ini ?')" type="submit" class="btn btn-danger btn-sm btn-block">Tolak</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
@@ -386,7 +386,7 @@
                                                                             @csrf
                                                                             <input type="hidden" name="idapply" value="{{ $received->id }}">
                                                                             <input type="hidden" name="idpost" value="{{ $received->id_post }}">
-                                                                            <button onclick="return confirm('Are you sure you want to accept this appliance ?')" type="submit" class="btn btn-info btn-block btn-sm">Jadikan Pengadopsi</button>
+                                                                            <button onclick="return confirm('Apakah anda yakin ingin menerima permohonan ini ?')" type="submit" class="btn btn-info btn-block btn-sm">Jadikan Pengadopsi</button>
                                                                         </form>
                                                                         @elseif($received->status == '3')
                                                                         <button class="btn btn-success btn-block btn-sm" disabled><i class="fas fa-check"></i> Pengadopsi {{ $received->animalsname }}</button>

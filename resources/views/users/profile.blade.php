@@ -391,7 +391,7 @@
                                                                         @elseif($received->status == '3')
                                                                         <button class="btn btn-success btn-block btn-sm" disabled><i class="fas fa-check"></i> Pengadopsi {{ $received->animalsname }}</button>
                                                                         @elseif($received->status == "4")
-                                                                        <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Adopted by others <i class="fas fa-exclamation"></i></button>
+                                                                        <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Teradopsi oleh orang lain <i class="fas fa-exclamation"></i></button>
                                                                         @endif
                                                                     </div>
                                                                 </div>

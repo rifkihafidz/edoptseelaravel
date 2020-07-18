@@ -158,7 +158,7 @@ class PostingController extends Controller
         File::delete($oldFile);
         $posting->delete();
 
-        alert()->error('Successfully deleted the post!');
+        alert()->error('Berhasil menghapus post!');
         return redirect('profile');
     }
 

@@ -34,7 +34,7 @@ class RegisterController extends Controller
 
     protected function redirectTo()
     {
-        alert()->warning('Please complete your identity first !');
+        alert()->warning('Tolong lengkapi data diri anda terlebih dahulu !');
         return route('profile.edit'); // return dynamicaly generated URL.
     }
 

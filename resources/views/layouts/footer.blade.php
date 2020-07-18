@@ -11,8 +11,8 @@
             <div class="col-md-6 mt-md-0 mt-3">
 
                 <!-- Content -->
-                <h5 class="text-uppercase">About Us</h5>
-                <p>This website is created with the aim of reducing abandoned animals so they can find new homes and owners.</p>
+                <h5 class="text-uppercase">Tentang Kami</h5>
+                <p>Website ini dibuat dengan tujuan untuk mengurangi hewan terlantar sehingga mereka dapat menemukan rumah dan pemilik baru.</p>
 
             </div>
             <!-- Grid column -->
@@ -23,7 +23,7 @@
             <div class="col-md-3 mb-md-0 mb-3">
 
                 <!-- Links -->
-                <h5 class="text-uppercase">Contact Us</h5>
+                <h5 class="text-uppercase">Hubungi Kami</h5>
 
                 <ul class="list-unstyled">
                     <li>
@@ -44,17 +44,17 @@
             <div class="col-md-3 mb-md-0 mb-3">
 
                 <!-- Links -->
-                <h5 class="text-uppercase">Links</h5>
+                <h5 class="text-uppercase">Menu</h5>
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="{{ route('index') }}"><i class="fas fa-home"></i> Home</a>
+                        <a href="{{ route('index') }}"><i class="fas fa-home"></i> Beranda</a>
                     </li>
                     <li>
-                        <a href="{{ route('profile') }}"><i class="fas fa-user"></i> Profile</a>
+                        <a href="{{ route('profile') }}"><i class="fas fa-user"></i> Profil</a>
                     </li>
                     <li>
-                        <a href="{{ route('adopt') }}"><i class="fas fa-paw"></i> Adopt Now</a>
+                        <a href="{{ route('adopt') }}"><i class="fas fa-paw"></i> Adopsi</a>
                     </li>
                 </ul>
 

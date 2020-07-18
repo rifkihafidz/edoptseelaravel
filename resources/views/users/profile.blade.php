@@ -11,8 +11,8 @@
             <div class="col-md-12 mt-3 pt-5">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb" style="background:#f9f9f9">
-                        <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                        <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Profil</li>
                     </ol>
                 </nav>
             </div>
@@ -25,13 +25,13 @@
                         </div>
                         <div class="float-right pb-2 pt-3">
                             <a href="{{ route('profile.edit') }}" class="btn btn-info">
-                                <i class="fa fa-pencil-alt"></i> Edit Profile
+                                <i class="fa fa-pencil-alt"></i> Ubah Profile
                             </a>
                         </div>
                         <table class="table table-responsive-sm">
                             <tbody class="tbody">
                                 <tr>
-                                    <td class="tdprofile">Name</td>
+                                    <td class="tdprofile">Nama</td>
                                     <td class="tdprofile" width="3">:</td>
                                     <td class="tdprofile">{{ $user->name }}</td>
                                 </tr>
@@ -41,12 +41,12 @@
                                     <td class="tdprofile">{{ $user->email }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="tdprofile">Phone</td>
+                                    <td class="tdprofile">No. HP</td>
                                     <td class="tdprofile" width="3">:</td>
                                     <td class="tdprofile">{{ $user->no_hp }}</td>
                                 </tr>
                                 <tr>
-                                    <td class="tdprofile">Address</td>
+                                    <td class="tdprofile">Alamat</td>
                                     <td class="tdprofile" width="3">:</td>
                                     <td class="tdprofile">{{ $user->alamat }}</td>
                                 </tr>
@@ -62,13 +62,13 @@
                     <div class="navtabsatas">
                         <ul class="nav nav-tabs justify-content-center">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#myposts">My Posts</a>
+                                <a class="nav-link active" data-toggle="tab" href="#myposts">Post Saya</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#appreceived">Application Received</a>
+                                <a class="nav-link" data-toggle="tab" href="#appreceived">Permohonan Masuk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#appsent">Application Sent</a>
+                                <a class="nav-link" data-toggle="tab" href="#appsent">Permohonan Keluar</a>
                             </li>
                         </ul>
                         <!-- End nav tabs -->
@@ -80,16 +80,16 @@
                                 <div class="navtabsbawah">
                                     <ul class="nav nav-tabs justify-content-center mt-2">
                                         <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="tab" href="#allposts"><i class="fa fa-list"></i> All</a>
+                                            <a class="nav-link active" data-toggle="tab" href="#allposts"><i class="fa fa-list"></i> Semua</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#availableposts"><i class="fa fa-check"></i> Available</a>
+                                            <a class="nav-link" data-toggle="tab" href="#availableposts"><i class="fa fa-check"></i> Tersedia</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#adoptedposts"><i class="fa fa-paw"></i> Adopted</a>
+                                            <a class="nav-link" data-toggle="tab" href="#adoptedposts"><i class="fa fa-paw"></i> Teradopsi</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#ripposts"><i class="fa fa-skull-crossbones"></i> R.I.P</a>
+                                            <a class="nav-link" data-toggle="tab" href="#ripposts"><i class="fa fa-skull-crossbones"></i> Tiada</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -110,22 +110,22 @@
                                                                 <div class="allpost">
                                                                     <div class="card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px;">
                                                                         <h5 class="card-subtitle">{{ $posting->name }}</h5>
-                                                                        <h6 class="card-subtitle mb-2 text-muted">Posted on : {{ $posting->date }}</h6>
+                                                                        <h6 class="card-subtitle mb-2 text-muted">Tanggal post : {{ $posting->date }}</h6>
                                                                         <p class="card-text" style="text-align: center;">
                                                                             <strong>Status : {{ $posting->status }}</strong><br>
-                                                                            <strong>Age : {{ $posting->age }} year(s)</strong><br>
-                                                                            <strong>Background : {{ $posting->background }} </strong><br>
+                                                                            <strong>Umur : {{ $posting->age }} year(s)</strong><br>
+                                                                            <strong>Latar Belakang : {{ $posting->background }} </strong><br>
                                                                         </p>
-                                                                        @if($posting->status != 'Available' && $posting->status != 'R.I.P' && $posting->status != 'Adopted')
-                                                                        <h6 class="card-subtitle mb-2" style="text-align:center;"><strong>Adopted on : {{ $adopt->adoptdate }}</strong></h6>
+                                                                        @if($posting->status != 'Tersedia' && $posting->status != 'Tiada' && $posting->status != 'Teradopsi')
+                                                                        <h6 class="card-subtitle mb-2" style="text-align:center;"><strong>Tanggal adopsi : {{ $adopt->adoptdate }}</strong></h6>
                                                                         @endif
-                                                                        @if($posting->status == 'Available' || $posting->status == 'Adopted' || $posting->status == 'R.I.P')
-                                                                        <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Edit</a>
+                                                                        @if($posting->status == 'Tersedia' || $posting->status == 'Teradopsi' || $posting->status == 'Tiada')
+                                                                        <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Ubah</a>
 
-                                                                        <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAll{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
+                                                                        <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAll{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Hapus</button>
                                                                         </form>
                                                                         @else
-                                                                        <button type="button" class="btn btn-info btn-block mt-3" data-toggle="modal" data-target="#modalDetailPost{{ $posting->id }}"><i class="fa fa-paw"></i> Details</button>
+                                                                        <button type="button" class="btn btn-info btn-block mt-3" data-toggle="modal" data-target="#modalDetailPost{{ $posting->id }}"><i class="fa fa-paw"></i> Detail</button>
                                                                         @endif
                                                                     </div>
                                                                 </div>
@@ -133,7 +133,7 @@
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">You have never made any posts yet</strong>
+                                                        <strong style="text-align:center;">Anda belum membuat post.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -153,21 +153,21 @@
                                                                 <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid" style="border-top-left-radius:15px; border-top-right-radius:15px">
                                                                 <div class="card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px;">
                                                                     <h5 class="card-subtitle" style="text-align:center;">{{ $posting->name }}</h5>
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Posted on : {{ $posting->date }}</h6>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Tanggal post : {{ $posting->date }}</h6>
                                                                     <p class="card-text" style="text-align: center;">
                                                                         <strong>Status : {{ $posting->status }}</strong><br>
-                                                                        <strong>Age : {{ $posting->age }} year(s)</strong><br>
-                                                                        <strong>Background : {{ $posting->background }} </strong><br>
+                                                                        <strong>Umur : {{ $posting->age }} year(s)</strong><br>
+                                                                        <strong>Latar Belakang : {{ $posting->background }} </strong><br>
                                                                     </p>
-                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Edit</a>
-                                                                    <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAvailable{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
+                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Ubah</a>
+                                                                    <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAvailable{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Hapus</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No animal posted available.</strong>
+                                                        <strong style="text-align:center;">Tidak ada post hewan yang tersedia.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -187,28 +187,28 @@
                                                                 <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid" style="border-top-left-radius:15px; border-top-right-radius:15px">
                                                                 <div class=" card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px;">
                                                                     <h5 class="card-subtitle" style="text-align:center;">{{ $posting->name }}</h5>
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Posted on : {{ $posting->date }}</h6>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Tanggal post : {{ $posting->date }}</h6>
                                                                     <p class="card-text" style="text-align: center;">
                                                                         <strong>Status : {{ $posting->status }}</strong><br>
-                                                                        <strong>Age : {{ $posting->age }} year(s)</strong><br>
-                                                                        <strong>Background : {{ $posting->background }} </strong><br>
+                                                                        <strong>Umur : {{ $posting->age }} year(s)</strong><br>
+                                                                        <strong>Latar Belakang : {{ $posting->background }} </strong><br>
                                                                     </p>
-                                                                    @if($posting->status != 'Available' && $posting->status != 'R.I.P' && $posting->status != 'Adopted')
-                                                                    <h6 class="card-subtitle mb-2" style="text-align:center;"><strong>Adopted on : {{ $adopt->adoptdate }}</strong></h6>
+                                                                    @if($posting->status != 'Tersedia' && $posting->status != 'Tiada' && $posting->status != 'Teradopsi')
+                                                                    <h6 class="card-subtitle mb-2" style="text-align:center;"><strong>Tanggal teradopsi : {{ $adopt->adoptdate }}</strong></h6>
                                                                     @endif
-                                                                    @if($posting->status == 'Adopted')
-                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Edit</a>
-                                                                    <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAdopted{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
+                                                                    @if($posting->status == 'Teradopsi')
+                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Ubah</a>
+                                                                    <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalAdopted{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Hapus</button>
                                                                     </form>
                                                                     @else
-                                                                    <button type="button" class="btn btn-info btn-block mt-3" data-toggle="modal" data-target="#modalDetailPostAccepted{{ $posting->id }}"><i class="fa fa-paw"></i> Details</button>
+                                                                    <button type="button" class="btn btn-info btn-block mt-3" data-toggle="modal" data-target="#modalDetailPostAccepted{{ $posting->id }}"><i class="fa fa-paw"></i> Detail</button>
                                                                     @endif
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No animal posted has been adopted yet.</strong>
+                                                        <strong style="text-align:center;">Tidak ada post hewan yang teradopsi.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -228,21 +228,21 @@
                                                                 <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid" style="border-top-left-radius:15px; border-top-right-radius:15px">
                                                                 <div class=" card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px;">
                                                                     <h5 class="card-subtitle" style="text-align:center;">{{ $posting->name }}</h5>
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Posted on : {{ $posting->date }}</h6>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Tanggal post : {{ $posting->date }}</h6>
                                                                     <p class="card-text" style="text-align: center;">
                                                                         <strong>Status : {{ $posting->status }}</strong><br>
-                                                                        <strong>Age : {{ $posting->age }} year(s)</strong><br>
-                                                                        <strong>Background : {{ $posting->background }} </strong><br>
+                                                                        <strong>Umur : {{ $posting->age }} year(s)</strong><br>
+                                                                        <strong>Latar Belakang : {{ $posting->background }} </strong><br>
                                                                     </p>
-                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Edit</a>
-                                                                    <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalRIP{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Delete</button>
+                                                                    <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Ubah</a>
+                                                                    <button type="button" class="btn btn-danger btn-block mt-2 btn-trash" data-toggle="modal" data-target="#deleteModalRIP{{$posting->id}}" data-id={{ $posting->id }}><i class="fa fa-trash"></i> Hapus</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No animal posted has been dead yet.</strong>
+                                                        <strong style="text-align:center;">Tidak ada post hewan yang tiada.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -262,17 +262,17 @@
                                 <div class="navtabsbawah">
                                     <ul class="nav nav-tabs justify-content-center mt-2">
                                         <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="tab" href="#receiveall"><i class="fa fa-list"></i> All</a>
+                                            <a class="nav-link active" data-toggle="tab" href="#receiveall"><i class="fa fa-list"></i> Semua</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" data-toggle="tab" href="#receivepending"><i class="fa fa-clock"></i> Pending
                                                 @if(!empty($notifreceivedpending)) <span class="badge badge-danger pb-1">{{ $notifreceivedpending }}</span> @endif</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#receiveaccepted"><i class="fa fa-check"></i> Accepted</a>
+                                            <a class="nav-link" data-toggle="tab" href="#receiveaccepted"><i class="fa fa-check"></i> Diterima</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#receiverejected"><i class="fa fa-ban"></i> Rejected</a>
+                                            <a class="nav-link" data-toggle="tab" href="#receiverejected"><i class="fa fa-ban"></i> Ditolak</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -292,34 +292,34 @@
                                                                 <div class="allreceive">
                                                                     <div class="card" style="border-radius:15px;">
                                                                         <div class="card-body">
-                                                                            <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#modalDetailAll{{ $received->id }}">Application for {{ $received->animalsname }}</h5>
+                                                                            <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#modalDetailAll{{ $received->id }}">Permohonan {{ $received->animalsname }}</h5>
                                                                             <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#modalDetailAll{{ $received->id }}">
-                                                                            <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                                                                            <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pengirim : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
                                                                             @if($received->status == "0")
                                                                             <form action="{{ route('accept.application') }}" method="POST">
                                                                                 @csrf
                                                                                 <input type="hidden" name="id" value="{{ $received->id }}">
-                                                                                <button onclick="return confirm('Are you sure you want to accept this appliance ?')" type="submit" class="btn btn-info btn-block mb-2 btn-sm">Accept</button>
+                                                                                <button onclick="return confirm('Are you sure you want to accept this appliance ?')" type="submit" class="btn btn-info btn-block mb-2 btn-sm">Terima</button>
                                                                             </form>
                                                                             <form action="{{ route('reject.application') }}" method="POST">
                                                                                 @csrf
                                                                                 <input type="hidden" name="id" value="{{ $received->id }}">
-                                                                                <button onclick="return confirm('Are you sure you want to reject this appliance ?')" type="submit" class="btn btn-danger btn-block btn-sm">Reject</button>
+                                                                                <button onclick="return confirm('Are you sure you want to reject this appliance ?')" type="submit" class="btn btn-danger btn-block btn-sm">Tolak</button>
                                                                             </form>
                                                                             @elseif($received->status == "1")
-                                                                            <button class="btn btn-info btn-block mb-2 btn-sm" disabled><i class="fas fa-check"></i> Accepted</button>
+                                                                            <button class="btn btn-info btn-block mb-2 btn-sm" disabled><i class="fas fa-check"></i> Diterima</button>
                                                                             <form action="{{ route('set.adopter') }}" method="POST">
                                                                                 @csrf
                                                                                 <input type="hidden" name="idapply" value="{{ $received->id }}">
                                                                                 <input type="hidden" name="idpost" value="{{ $received->id_post }}">
-                                                                                <button onclick="return confirm('Are you sure you want to set {{ $received->submittername }} as a {{ $received->animalsname }} adopter ?')" type="submit" class="btn btn-info btn-block btn-sm">Set Adopt</button>
+                                                                                <button onclick="return confirm('Are you sure you want to set {{ $received->submittername }} as a {{ $received->animalsname }} adopter ?')" type="submit" class="btn btn-info btn-block btn-sm">Jadikan Pengadopsi</button>
                                                                             </form>
                                                                             @elseif($received->status == "2")
-                                                                            <button class="btn btn-danger btn-block btn-sm" disabled><i class="fas fa-times"></i> Rejected</button>
+                                                                            <button class="btn btn-danger btn-block btn-sm" disabled><i class="fas fa-times"></i> Ditolak</button>
                                                                             @elseif($received->status == "3")
-                                                                            <button class="btn btn-success btn-block mb-2 btn-sm" disabled><i class="fas fa-check"></i> {{$received->animalsname}}'s Adopter</button>
+                                                                            <button class="btn btn-success btn-block mb-2 btn-sm" disabled><i class="fas fa-check"></i> Pengadopsi {{$received->animalsname}}</button>
                                                                             @elseif($received->status == "4")
-                                                                            <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Adopted by others <i class="fas fa-exclamation"></i></button>
+                                                                            <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Teradopsi oleh orang lain <i class="fas fa-exclamation"></i></button>
                                                                             @endif
                                                                         </div>
                                                                     </div>
@@ -328,7 +328,7 @@
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No posts have received submitation yet.</strong>
+                                                        <strong style="text-align:center;">Tidak ada post hewan yang menerima permohonan.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -343,25 +343,25 @@
                                                         <div class="col-md-4">
                                                             <div class="card mb-3" style="border-radius:15px;">
                                                                 <div class="card-body">
-                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#modalDetailPending{{ $received->id }}">Application for {{ $received->animalsname }}</h5>
+                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#modalDetailPending{{ $received->id }}">Permohonan {{ $received->animalsname }}</h5>
                                                                     <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#modalDetailPending{{ $received->id }}">
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pengirim : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
                                                                     <form action="{{ route('accept.application') }}" method="POST">
                                                                         @csrf
                                                                         <input type="hidden" name="id" value="{{ $received->id }}">
-                                                                        <button onclick="return confirm('Are you sure you want to accept this appliance ?')" type="submit" class="btn btn-info btn-block btn-sm mb-2">Accept</button>
+                                                                        <button onclick="return confirm('Are you sure you want to accept this appliance ?')" type="submit" class="btn btn-info btn-block btn-sm mb-2">Terima</button>
                                                                     </form>
                                                                     <form action="{{ route('reject.application') }}" method="POST">
                                                                         @csrf
                                                                         <input type="hidden" name="id" value="{{ $received->id }}">
-                                                                        <button onclick="return confirm('Are you sure you want to reject this appliance ?')" type="submit" class="btn btn-danger btn-sm btn-block">Reject</button>
+                                                                        <button onclick="return confirm('Are you sure you want to reject this appliance ?')" type="submit" class="btn btn-danger btn-sm btn-block">Tolak</button>
                                                                     </form>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No submitation has been received yet.</strong>
+                                                        <strong style="text-align:center;">Tidak ada permohonan yang masuk.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -377,19 +377,19 @@
                                                             <div class="allreceive">
                                                                 <div class="card mb-3" style="border-radius:15px;">
                                                                     <div class="card-body">
-                                                                        <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#modalDetailAccepted{{ $received->id }}">Application for {{ $received->animalsname }}</h5>
+                                                                        <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#modalDetailAccepted{{ $received->id }}">Permohonan {{ $received->animalsname }}</h5>
                                                                         <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#modalDetailAccepted{{ $received->id }}">
-                                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                                                                        <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pengirim : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
                                                                         @if($received->status == '1')
-                                                                        <button class="btn btn-info btn-block btn-sm mb-2" disabled><i class="fas fa-check"></i> Accepted</button>
+                                                                        <button class="btn btn-info btn-block btn-sm mb-2" disabled><i class="fas fa-check"></i> Diterima</button>
                                                                         <form action="{{ route('set.adopter') }}" method="POST">
                                                                             @csrf
                                                                             <input type="hidden" name="idapply" value="{{ $received->id }}">
                                                                             <input type="hidden" name="idpost" value="{{ $received->id_post }}">
-                                                                            <button onclick="return confirm('Are you sure you want to accept this appliance ?')" type="submit" class="btn btn-info btn-block btn-sm">Set Adopt</button>
+                                                                            <button onclick="return confirm('Are you sure you want to accept this appliance ?')" type="submit" class="btn btn-info btn-block btn-sm">Jadikan Pengadopsi</button>
                                                                         </form>
                                                                         @elseif($received->status == '3')
-                                                                        <button class="btn btn-success btn-block btn-sm" disabled><i class="fas fa-check"></i> {{ $received->animalsname }}'s Adopter</button>
+                                                                        <button class="btn btn-success btn-block btn-sm" disabled><i class="fas fa-check"></i> Pengadopsi {{ $received->animalsname }}</button>
                                                                         @elseif($received->status == "4")
                                                                         <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Adopted by others <i class="fas fa-exclamation"></i></button>
                                                                         @endif
@@ -399,7 +399,7 @@
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No submitation has been accepted yet.</strong>
+                                                        <strong style="text-align:center;">Tidak ada permohonan masuk yang diterima.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -414,16 +414,16 @@
                                                         <div class="col-md-4">
                                                             <div class="card mb-3" style="border-radius:15px;">
                                                                 <div class="card-body">
-                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#modalDetailRejected{{ $received->id }}">Application for {{ $received->animalsname }}</h5>
+                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#modalDetailRejected{{ $received->id }}">Permohonan {{ $received->animalsname }}</h5>
                                                                     <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#modalDetailRejected{{ $received->id }}">
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
-                                                                    <button class="btn btn-danger btn-block btn-sm" disabled><i class="fas fa-times"></i> Rejected</button>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pengirim : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                                                                    <button class="btn btn-danger btn-block btn-sm" disabled><i class="fas fa-times"></i> Ditolak</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No submitation has been rejected yet.</strong>
+                                                        <strong style="text-align:center;">Tidak ada permohonan masuk yang ditolak.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -441,16 +441,16 @@
                                 <div class="navtabsbawah">
                                     <ul class="nav nav-tabs justify-content-center mt-2">
                                         <li class="nav-item">
-                                            <a class="nav-link active" data-toggle="tab" href="#sentall"><i class="fa fa-list"></i> All</a>
+                                            <a class="nav-link active" data-toggle="tab" href="#sentall"><i class="fa fa-list"></i> Semua</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" data-toggle="tab" href="#sentpending"><i class="fa fa-clock"></i> Pending</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#sentaccepted"><i class="fa fa-check"></i> Accepted</a>
+                                            <a class="nav-link" data-toggle="tab" href="#sentaccepted"><i class="fa fa-check"></i> Diterima</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#sentrejected"><i class="fa fa-ban"></i> Rejected</a>
+                                            <a class="nav-link" data-toggle="tab" href="#sentrejected"><i class="fa fa-ban"></i> Ditolak</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -468,30 +468,30 @@
                                                         <div class="col-md-4">
                                                             <div class="card mb-3" style="border-radius:15px;">
                                                                 <div class="card-body">
-                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#detailSentAll{{ $sent->id }}">Application for {{ $sent->animalsname }}</h5>
+                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#detailSentAll{{ $sent->id }}">Permohonan {{ $sent->animalsname }}</h5>
                                                                     <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#detailSentAll{{ $sent->id }}">
                                                                     @if($sent->status == '0')
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a> <br>{{ $sent->location }}</h6>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a> <br>{{ $sent->location }}</h6>
                                                                     <button class="btn stylish-color-dark btn-block btn-sm" disabled><i class="fas fa-clock"></i> Pending</button>
                                                                     @elseif($sent->status == '1')
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                                                                    <button class="btn btn-info btn-block btn-sm" disabled><i class="fas fa-check"></i> Accepted</button>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                                                                    <button class="btn btn-info btn-block btn-sm" disabled><i class="fas fa-check"></i> Diterima</button>
                                                                     @elseif($sent->status == '2')
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                                                                    <button class="btn btn-danger btn-block btn-sm" disabled><i class="fas fa-times"></i> Rejected</button>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                                                                    <button class="btn btn-danger btn-block btn-sm" disabled><i class="fas fa-times"></i> Ditolak</button>
                                                                     @elseif($sent->status == '3')
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                                                                    <button class="btn btn-success btn-block btn-sm" disabled><i class="fas fa-paw"></i> Owner of {{ $sent->animalsname }}</button>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                                                                    <button class="btn btn-success btn-block btn-sm" disabled><i class="fas fa-paw"></i> Pemilik {{ $sent->animalsname }}</button>
                                                                     @elseif($sent->status == "4")
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                                                                    <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Adopted by others <i class="fas fa-exclamation"></i></button>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                                                                    <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Teradopsi oleh orang lain <i class="fas fa-exclamation"></i></button>
                                                                     @endif
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No submitation has been sent yet.</strong>
+                                                        <strong style="text-align:center;">Tidak ada permohonan yang dikirim.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -506,16 +506,16 @@
                                                         <div class="col-md-4">
                                                             <div class="card mb-3" style="border-radius:15px">
                                                                 <div class="card-body">
-                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#detailSentPending{{ $sent->id }}">Application for {{ $sent->animalsname }}</h5>
+                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#detailSentPending{{ $sent->id }}">Permohonan {{ $sent->animalsname }}</h5>
                                                                     <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#detailSentPending{{ $sent->id }}">
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
                                                                     <button class="btn stylish-color-dark btn-block btn-sm" disabled><i class="fas fa-clock"></i> Pending</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No submitation has been sent yet.</strong>
+                                                        <strong style="text-align:center;">Tidak ada permohonan keluar yang pending.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -530,15 +530,15 @@
                                                         <div class="col-md-4">
                                                             <div class="card mb-3" style="border-radius:15px">
                                                                 <div class="card-body">
-                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#detailSendAccepted{{ $sent->id }}">Application for {{ $sent->animalsname }}</h5>
+                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#detailSendAccepted{{ $sent->id }}">Permohonan {{ $sent->animalsname }}</h5>
                                                                     <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#detailSendAccepted{{ $sent->id }}">
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
                                                                     @if($sent->status == '1')
-                                                                    <button class="btn btn-info btn-block btn-sm" disabled><i class="fas fa-check"></i> Accepted</button>
+                                                                    <button class="btn btn-info btn-block btn-sm" disabled><i class="fas fa-check"></i> Diterima</button>
                                                                     @elseif($sent->status == '3')
-                                                                    <button class="btn btn-success btn-block btn-sm" disabled><i class="fas fa-paw"></i> Owner of {{ $sent->animalsname }}</button>
+                                                                    <button class="btn btn-success btn-block btn-sm" disabled><i class="fas fa-paw"></i> Pemilik {{ $sent->animalsname }}</button>
                                                                     @elseif($sent->status == "4")
-                                                                    <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Adopted by others <i class="fas fa-exclamation"></i></button>
+                                                                    <button class="btn stylish-color-dark btn-block mb-2 btn-sm" disabled><i class="fas fa-exclamation"></i> Teradopsi oleh orang lain <i class="fas fa-exclamation"></i></button>
                                                                     @endif
                                                                 </div>
                                                             </div>
@@ -546,7 +546,7 @@
 
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No submitation has been accepted yet.</strong>
+                                                        <strong style="text-align:center;">Tidak ada permohonan keluar yang diterima.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -561,16 +561,16 @@
                                                         <div class="col-md-4">
                                                             <div class="card mb-3" style="border-radius:15px">
                                                                 <div class="card-body">
-                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#detailSendReject{{ $sent->id }}">Application for {{ $sent->animalsname }}</h5>
+                                                                    <h5 class="card-subtitle" style="text-align:center;" data-toggle="modal" data-target="#detailSendReject{{ $sent->id }}">Permohonan {{ $sent->animalsname }}</h5>
                                                                     <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px" data-toggle="modal" data-target="#detailSendReject{{ $sent->id }}">
-                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                                                                    <button class="btn btn-danger btn-block" disabled><i class="fas fa-times"></i> Rejected</button>
+                                                                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                                                                    <button class="btn btn-danger btn-block" disabled><i class="fas fa-times"></i> Ditolak</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         @endforeach
                                                         @else
-                                                        <strong style="text-align:center;">No submitation has been rejected yet.</strong>
+                                                        <strong style="text-align:center;">Tidak ada permohonan keluar yang ditolak.</strong>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -598,22 +598,22 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle" style="text-align:center;"><i class="fas fa-paw"></i> {{ $posting->name }}'s details <i class="fas fa-paw"></i></h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle" style="text-align:center;"><i class="fas fa-paw"></i> Detail {{ $posting->name }} <i class="fas fa-paw"></i></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid mb-3" style="border-radius:15px">
-                    <h6 class="card-subtitle mb-2 text-muted">Owner : {{ $posting->owner }}<br></h6>
-                    <p class="card-text">Age : {{ $posting->age }} year(s)</p>
-                    <p class="card-text">Category : {{ $posting->category }}</p>
-                    <p class="card-text">Size : {{ $posting->size }}</p>
-                    <p class="card-text">Sex : {{ $posting->sex }}</p>
-                    <p class="card-text">Background : {{ $posting->background }}</p>
-                    <p class="card-text">Description : {{ $posting->description }}</p>
-                    <p class="card-text">Medical notes : {{ $posting->medical }}</p>
-                    <p class="card-text">Post Date : {{ $posting->date }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted">Pemilik : {{ $posting->owner }}<br></h6>
+                    <p class="card-text">Umur : {{ $posting->age }} year(s)</p>
+                    <p class="card-text">Kategori : {{ $posting->category }}</p>
+                    <p class="card-text">Ukuran : {{ $posting->size }}</p>
+                    <p class="card-text">Jenis Kelamin : {{ $posting->sex }}</p>
+                    <p class="card-text">Latar Belakang : {{ $posting->background }}</p>
+                    <p class="card-text">Deskripsi : {{ $posting->description }}</p>
+                    <p class="card-text">Catatan Medis : {{ $posting->medical }}</p>
+                    <p class="card-text">Tanggal Post : {{ $posting->date }}</p>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-success btn-block mb-2" disabled><strong><i class="fas fa-check"></i>Status : {{$posting->status}}</strong></button>
@@ -627,7 +627,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalAllCenterTitle"><i class="fa fa-exclamation-triangle"></i> Alert</h5>
+                    <h5 class="modal-title" id="deleteModalAllCenterTitle"><i class="fa fa-exclamation-triangle"></i> Perhatian</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -636,12 +636,12 @@
                     <form id="deleteForm" method="POST" action="{{ route('posting.delete',$posting->id) }}">
                         @csrf
                         {{ method_field('DELETE') }}
-                        <strong>Are you sure you want to delete this post?</strong>
+                        <strong>Apakah anda yakin ingin menghapus post ini ?</strong>
                         <input type="hidden" name="id" value="{{ $posting->id }}">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn stylish-color-dark" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i> Delete</button>
+                    <button type="button" class="btn stylish-color-dark" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i> Hapus</button>
                 </div>
             </div>
         </div>
@@ -654,7 +654,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalAvailableCenterTitle"><i class="fa fa-exclamation-triangle"></i> Alert</h5>
+                    <h5 class="modal-title" id="deleteModalAvailableCenterTitle"><i class="fa fa-exclamation-triangle"></i> Perhatian</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -663,12 +663,12 @@
                     <form id="deleteForm" method="POST" action="{{ route('posting.delete',$posting->id) }}">
                         @csrf
                         {{ method_field('DELETE') }}
-                        <strong>Are you sure you want to delete this post?</strong>
+                        <strong>Apakah anda yakin ingin menghapus post ini ?</strong>
                         <input type="hidden" name="id" value="{{ $posting->id }}">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn stylish-color-dark" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i> Delete</button>
+                    <button type="button" class="btn stylish-color-dark" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i> Hapus</button>
                 </div>
             </div>
         </div>
@@ -681,22 +681,22 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fas fa-paw" style="text-align:center;"></i> {{ $posting->name }}'s details <i class="fas fa-paw"></i></h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle"><i class="fas fa-paw" style="text-align:center;"></i> {{ $posting->name }} <i class="fas fa-paw"></i></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid mb-3" style="border-radius:15px">
-                    <h6 class="card-subtitle mb-2 text-muted">Owner : {{ $posting->owner }}<br></h6>
-                    <p class="card-text">Age : {{ $posting->age }} year(s)</p>
-                    <p class="card-text">Category : {{ $posting->category }}</p>
-                    <p class="card-text">Size : {{ $posting->size }}</p>
-                    <p class="card-text">Sex : {{ $posting->sex }}</p>
-                    <p class="card-text">Background : {{ $posting->background }}</p>
-                    <p class="card-text">Description : {{ $posting->description }}</p>
-                    <p class="card-text">Medical notes : {{ $posting->medical }}</p>
-                    <p class="card-text">Post Date : {{ $posting->date }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted">Pemilik : {{ $posting->owner }}<br></h6>
+                    <p class="card-text">Umur : {{ $posting->age }} year(s)</p>
+                    <p class="card-text">Kategori : {{ $posting->category }}</p>
+                    <p class="card-text">Ukuran : {{ $posting->size }}</p>
+                    <p class="card-text">Jenis Kelamin : {{ $posting->sex }}</p>
+                    <p class="card-text">Latar Belakang : {{ $posting->background }}</p>
+                    <p class="card-text">Deskripsi : {{ $posting->description }}</p>
+                    <p class="card-text">Catatan Medis : {{ $posting->medical }}</p>
+                    <p class="card-text">Tanggal Post : {{ $posting->date }}</p>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-success btn-block mb-2" disabled><strong><i class="fas fa-check"></i>Status : {{$posting->status}}</strong></button>
@@ -712,7 +712,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="deleteModalRIPCenterTitle"><i class="fa fa-exclamation-triangle"></i> Alert</h5>
+                    <h5 class="modal-title" id="deleteModalRIPCenterTitle"><i class="fa fa-exclamation-triangle"></i> Perhatian</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -721,12 +721,12 @@
                     <form id="deleteForm" method="POST" action="{{ route('posting.delete',$posting->id) }}">
                         @csrf
                         {{ method_field('DELETE') }}
-                        <strong>Are you sure you want to delete this post?</strong>
+                        <strong>Apakah anda yakin ingin menghapus post ini ?</strong>
                         <input type="hidden" name="id" value="{{ $posting->id }}">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn stylish-color-dark" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i> Delete</button>
+                    <button type="button" class="btn stylish-color-dark" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-danger btn-delete"><i class="fa fa-trash"></i> Hapus</button>
                 </div>
             </div>
         </div>
@@ -739,20 +739,20 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Permohonan : {{ $received->animalsname }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
-                    <p class="card-text">Reason : {{ $received->reason }}</p>
-                    <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
-                    <p class="card-text">Permissions : {{ $received->permissions }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pengirim : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                    <p class="card-text">Alasan : {{ $received->reason }}</p>
+                    <p class="card-text">Hewan lain : {{ $received->otheranimals }}</p>
+                    <p class="card-text">Izin : {{ $received->permissions }}</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Pemohon</a>
                 </div>
             </div>
         </div>
@@ -765,20 +765,20 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Permohonan : {{ $received->animalsname }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
-                    <p class="card-text">Reason : {{ $received->reason }}</p>
-                    <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
-                    <p class="card-text">Permissions : {{ $received->permissions }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pengirim : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                    <p class="card-text">Alasan : {{ $received->reason }}</p>
+                    <p class="card-text">Hewan lain : {{ $received->otheranimals }}</p>
+                    <p class="card-text">Izin : {{ $received->permissions }}</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Pemohon</a>
                 </div>
             </div>
         </div>
@@ -791,20 +791,20 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Permohonan : {{ $received->animalsname }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
-                    <p class="card-text">Reason : {{ $received->reason }}</p>
-                    <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
-                    <p class="card-text">Permissions : {{ $received->permissions }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pengirim : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                    <p class="card-text">Alasan : {{ $received->reason }}</p>
+                    <p class="card-text">Hewan lain : {{ $received->otheranimals }}</p>
+                    <p class="card-text">Izin : {{ $received->permissions }}</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Pemohon</a>
                 </div>
             </div>
         </div>
@@ -817,20 +817,20 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $received->animalsname }}</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Permohonan : {{ $received->animalsname }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $received->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Sumbitter : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
-                    <p class="card-text">Reason : {{ $received->reason }}</p>
-                    <p class="card-text">Other Animals : {{ $received->otheranimals }}</p>
-                    <p class="card-text">Permissions : {{ $received->permissions }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pengirim : <a href="{{ route('otherprofile',$received->id_user) }}" style="text-decoration: none;">{{ $received->submittername }}</a><br>{{ $received->location }}</h6>
+                    <p class="card-text">Alasan : {{ $received->reason }}</p>
+                    <p class="card-text">Hewan lain : {{ $received->otheranimals }}</p>
+                    <p class="card-text">Izin : {{ $received->permissions }}</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Submitter</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $received->phone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Pemohon</a>
                 </div>
             </div>
         </div>
@@ -843,21 +843,21 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Permohonan : {{ $sent->animalsname }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                    <p class="card-text">Reason : {{ $sent->reason }}</p>
-                    <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
-                    <p class="card-text">Permissions : {{ $sent->permissions }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                    <p class="card-text">Alasan : {{ $sent->reason }}</p>
+                    <p class="card-text">Hewan lain : {{ $sent->otheranimals }}</p>
+                    <p class="card-text">Izin : {{ $sent->permissions }}</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Details</a>
-                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Owner</a>
+                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Detail</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Pemilik</a>
                 </div>
             </div>
         </div>
@@ -870,21 +870,21 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Permohonan : {{ $sent->animalsname }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                    <p class="card-text">Reason : {{ $sent->reason }}</p>
-                    <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
-                    <p class="card-text">Permissions : {{ $sent->permissions }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                    <p class="card-text">Alasan : {{ $sent->reason }}</p>
+                    <p class="card-text">Hewan lain : {{ $sent->otheranimals }}</p>
+                    <p class="card-text">Izin : {{ $sent->permissions }}</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Details</a>
-                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Owner</a>
+                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Detail</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Pemilik</a>
                 </div>
             </div>
         </div>
@@ -897,21 +897,21 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Permohonan : {{ $sent->animalsname }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                    <p class="card-text">Reason : {{ $sent->reason }}</p>
-                    <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
-                    <p class="card-text">Permissions : {{ $sent->permissions }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                    <p class="card-text">Alasan : {{ $sent->reason }}</p>
+                    <p class="card-text">Hewan lain : {{ $sent->otheranimals }}</p>
+                    <p class="card-text">Izin : {{ $sent->permissions }}</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Details</a>
-                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Owner</a>
+                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Detail</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Pemilik</a>
                 </div>
             </div>
         </div>
@@ -924,21 +924,21 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Application for : {{ $sent->animalsname }}</h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Permohonan : {{ $sent->animalsname }}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $sent->gambar }}" class="img-fluid mb-3" style="border-radius:15px">
-                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Owner : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
-                    <p class="card-text">Reason : {{ $sent->reason }}</p>
-                    <p class="card-text">Other Animals : {{ $sent->otheranimals }}</p>
-                    <p class="card-text">Permissions : {{ $sent->permissions }}</p>
+                    <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Pemilik : <a href="{{ route('otherprofile',$sent->id_user) }}" style="text-decoration: none;">{{ $sent->owner }}</a><br>{{ $sent->location }}</h6>
+                    <p class="card-text">Alasan : {{ $sent->reason }}</p>
+                    <p class="card-text">Hewan lain : {{ $sent->otheranimals }}</p>
+                    <p class="card-text">Izin : {{ $sent->permissions }}</p>
                 </div>
                 <div class="modal-footer">
-                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Details</a>
-                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Owner</a>
+                    <a href="{{ url('details') }}/{{ $sent->id_post }}" class="btn btn-info btn-block"><i class="fas fa-paw"></i> Detail</a>
+                    <a href="whatsapp://send?text=Hello&phone=+62{{ $sent->handphone }}" class="btn btn-success btn-block"><i class="fa fa-phone"></i> Whatsapp Pemilik</a>
                 </div>
             </div>
         </div>

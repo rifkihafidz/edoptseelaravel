@@ -7,8 +7,8 @@
 <!-- Jumbotron -->
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h5 class="display-4 animate__animated animate__slideInDown">Choose and Adopt the <span><b>Perfect</b></span> Pet<br>with Your <span><b>Heart.</b></span></h5>
-    <a href="{{ route('adopt') }}"><button class="glow-on-hover">Adopt Now</button></a>
+    <h5 class="display-4 animate__animated animate__slideInDown">Pilih dan adopsi hewan yang sesuai dengan keinginanmu.</h5>
+    <a href="{{ route('adopt') }}"><button class="glow-on-hover">Adopsi Sekarang</button></a>
   </div>
 </div>
 <!-- Akhir Jumbotron -->
@@ -24,17 +24,17 @@
         <div class="col-lg">
           <img src="{{ url('images/img/120px/love.png') }}" alt="Love" class="float-left">
           <h4>Love</h4>
-          <p>Find a perfect pet<br>for you to love from<br>cities around you.</p>
+          <p>Pilih hewan yang kamu<br>inginkan dari kota di<br>sekitarmu.</p>
         </div>
         <div class="col-lg">
           <img src="{{ url('images/img/120px/house.png') }}" alt="House" class="float-left">
           <h4>Home</h4>
-          <p>Give your pet a new<br>comfy home through<br>E-dopt-see!</p>
+          <p>Berikan rumah baru<br>kepada hewan melalui<br>E-dopt-see!</p>
         </div>
         <div class="col-lg">
           <img src="{{ url('images/img/120px/connect.png') }}" alt="Connect" class="float-left">
           <h4>Connect</h4>
-          <p>Connecting owner<br>with potential<br>adopters online.</p>
+          <p>Hubungkan pemilik hewan<br>dengan calon pengadopsi<br>secara online.</p>
         </div>
       </div>
     </div>
@@ -76,10 +76,8 @@
       </div>
     </div>
     <div class="col-lg-6">
-      <h3 style="text-align: center;">Give the <span><b>Animals</b></span> a New <span><b>Home</b></span></h3>
-      <p>E-dopt-see is built to make abandoned animals or pets in order to find new owners and homes and help pet owners to advertise their animals for adoption by online potential adopters.<br>
-        <div class="spread"><i class="fas fa-paw"></i> Spread Love! <i class="fas fa-paw"></i></div>
-      </p>
+      <h3 style="text-align: center;">Berikan rumah <span><b>baru</b></span> kepada <span><b>hewan</b></span></h3>
+      <p>E-dopt-see dibuat untuk membantu hewan liar atau hewan peliharaan yang ditinggalkan untuk menemukan pemilik dan rumah baru dan membantu pemilik hewan peliharaan untuk mengiklankan hewan mereka untuk diadopsi oleh calon pengadopsi secara online.</p>
     </div>
   </div>
   <!-- Akhir Workingspace -->
@@ -94,7 +92,7 @@
         <div class="modal-content">
           <div class="modal-body mt-3">
             <img src="{{ url('images/Logooo.png') }}" class="rounded mx-auto d-block">
-            <h3 align="center"><strong>Login</strong></h3>
+            <h3 align="center"><strong>Masuk</strong></h3>
 
             <form action=" {{ route('login') }}" method="POST">
               @csrf
@@ -124,16 +122,13 @@
               </div>
 
               <button type="submit" class="glow-on-hover mb-2 mt-2" style="height: 50px; width:150px;">
-                {{ __('Login') }}
+                {{ __('Masuk') }}
               </button>
 
             </form>
             <p>
-              <a href="{{ route('register') }}" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Don't have an account ?</a>
+              <a href="{{ route('register') }}" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Belum punya akun ?</a>
             </p>
-            <!-- <p class="mb-0">
-                <a href="#" class="text-center">Forget password ?</a>
-              </p> -->
           </div>
         </div>
       </div>
@@ -150,7 +145,7 @@
         <div class="modal-content">
           <div class="modal-body mt-3">
             <img src="{{ url('images/Logooo.png') }}" class="rounded mx-auto d-block mb-2">
-            <h3 align="center" class="mb-3"><strong>Register</strong></h3>
+            <h3 align="center" class="mb-3"><strong>Daftar</strong></h3>
 
             <form method="POST" action="{{ route('register') }}">
               @csrf
@@ -158,7 +153,7 @@
                 <div class="input-group-text">
                   <span class="fas fa-user"></span>
                 </div>
-                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Enter your name" autofocus>
+                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="Masukkan nama" autofocus>
                 @error('name')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -170,7 +165,7 @@
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span>
                 </div>
-                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Enter your email" required autocomplete="email">
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Masukkan email" required autocomplete="email">
 
                 @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -183,7 +178,7 @@
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
                 </div>
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Enter your password" required autocomplete="new-password">
+                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Masukkan password" required autocomplete="new-password">
 
                 @error('password')
                 <span class="invalid-feedback" role="alert">
@@ -196,16 +191,16 @@
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>
                 </div>
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Password confirmation" required autocomplete="new-password">
+                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Konfirmasi password" required autocomplete="new-password">
               </div>
 
               <button type="submit" class="glow-on-hover" style="height: 50px; width:150px;">
-                {{ __('Register') }}
+                {{ __('Daftar') }}
               </button>
             </form>
 
             <p class="mt-2">
-              <a href="{{ route('login') }}" data-toggle="modal" data-target="#loginModal" data-dismiss="modal">Already have an account?</a>
+              <a href="{{ route('login') }}" data-toggle="modal" data-target="#loginModal" data-dismiss="modal">Sudah punya akun ?</a>
             </p>
           </div>
         </div>

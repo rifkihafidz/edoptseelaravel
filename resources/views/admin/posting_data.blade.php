@@ -14,24 +14,24 @@
                     <thead class="thead-dark" style="font-size:10px;">
                         <tr>
                             <th>Id</th>
-                            <th>Image</th>
-                            <th class="text-nowrap">Id User</th>
-                            <th>Owner</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Category</th>
-                            <th>Size</th>
-                            <th>Sex</th>
-                            <th>Background</th>
-                            <th>Description</th>
+                            <th>Gambar</th>
+                            <th class="text-nowrap">Id Pengguna</th>
+                            <th>Pemilik</th>
+                            <th>Nama</th>
+                            <th>Umur</th>
+                            <th>Kategori</th>
+                            <th>Ukuran</th>
+                            <th>Kelamin</th>
+                            <th>Latar Belakang</th>
+                            <th>Deskripsi</th>
                             <th>Status</th>
-                            <th>Medical</th>
-                            <th>Vaccinated</th>
-                            <th>Neutered</th>
-                            <th>Friendly</th>
-                            <th class="text-nowrap">Posted At</th>
-                            <th>Location</th>
-                            <th>Action</th>
+                            <th>Medis</th>
+                            <th>Vaksinasi</th>
+                            <th>Sterilisasi</th>
+                            <th>Bershabat</th>
+                            <th class="text-nowrap">Tanggal Post</th>
+                            <th>Lokasi</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody style="font-size:11px;">
@@ -51,19 +51,19 @@
                             <td class="text-nowrap"><strong>{{ $posting->status }}</strong></td>
                             <td>{{ $posting->medical }}</td>
                             @if($posting->vaccinated == 1)
-                            <td><strong>Yes</strong></td>
+                            <td><strong>Iya</strong></td>
                             @else
-                            <td><strong>No</strong></td>
+                            <td><strong>Tidak</strong></td>
                             @endif
                             @if($posting->neutered == 1)
-                            <td><strong>Yes</strong></td>
+                            <td><strong>Iya</strong></td>
                             @else
-                            <td><strong>No</strong></td>
+                            <td><strong>Tidak</strong></td>
                             @endif
                             @if($posting->friendly == 1)
-                            <td><strong>Yes</strong></td>
+                            <td><strong>Iya</strong></td>
                             @else
-                            <td><strong>No</strong></td>
+                            <td><strong>Tidak</strong></td>
                             @endif
                             <td class="text-nowrap">{{ $posting->date }}</td>
                             <td class="text-nowrap">{{ $posting->location }}</td>
@@ -73,7 +73,7 @@
 
                                     {{ method_field('DELETE') }}
                                     <a href="{{ route('admin.posting.edit',$posting->id) }}" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this post ?');"><i class="fas fa-trash-alt"></i></button>
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin ingin menghapus post ini ?');"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

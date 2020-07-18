@@ -10,7 +10,7 @@
             <div class="col-md-12 mt-3 mb-2">
                 <div class="card" style="background:#f9f9f9">
                     <div class="card-header">
-                        <h4><i class="fa fa-pencil-alt"></i> Edit Post</h4>
+                        <h4><i class="fa fa-pencil-alt"></i> Ubah Post</h4>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.posting.update',$post->id) }}" enctype="multipart/form-data">
@@ -22,7 +22,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <label for="name" class="col-form-label text-md-right">{{ __('Name') }}</label>
+                                                    <label for="name" class="col-form-label text-md-right">{{ __('Nama') }}</label>
                                                 </td>
                                                 <td>
                                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $post->name }}" required autocomplete="name" autofocus>
@@ -36,7 +36,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="image" class="col-form-label text-md-right">{{ __('Animal Image') }}</label>
+                                                    <label for="image" class="col-form-label text-md-right">{{ __('Gambar Hewan') }}</label>
                                                 </td>
                                                 <td>
                                                     <input type="file" id="img" name="img" value="{{ old('img') }}" accept="image/*" class="form-control-file @error('img') is-invalid @enderror">
@@ -49,7 +49,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="age" class="col-form-label text-md-right">{{ __('Age') }}</label>
+                                                    <label for="age" class="col-form-label text-md-right">{{ __('Umur') }}</label>
                                                 </td>
                                                 <td>
                                                     <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ $post->age }}" required autocomplete="age" autofocus>
@@ -63,7 +63,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="background" class="col-form-label text-md-right">{{ __('Background') }}</label>
+                                                    <label for="background" class="col-form-label text-md-right">{{ __('Latar Belakang') }}</label>
                                                 </td>
                                                 <td>
                                                     <select name="background" class="form-control">
@@ -80,7 +80,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="category" class="col-form-label text-md-right">{{ __('Category') }}</label>
+                                                    <label for="category" class="col-form-label text-md-right">{{ __('Kategori') }}</label>
                                                 </td>
                                                 <td>
                                                     <select name="category" class="form-control">
@@ -96,7 +96,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="description" class="col-form-label text-md-right">{{ __('Description') }}</label>
+                                                    <label for="description" class="col-form-label text-md-right">{{ __('Deskripsi') }}</label>
                                                 </td>
                                                 <td>
                                                     <textarea style="text-align: justify;" class="form-control" name="description" rows="3" required placeholder="Description">{{ $post->description }}</textarea>
@@ -110,7 +110,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="medical" class="col-form-label text-md-left">{{ __('Medical Notes') }}</label>
+                                                    <label for="medical" class="col-form-label text-md-left">{{ __('Catatan Medis') }}</label>
                                                 </td>
                                                 <td>
                                                     <textarea style="text-align: justify;" class="form-control" name="medical" rows="3" required placeholder="Medical notes">{{ $post->medical }}</textarea>
@@ -124,7 +124,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="sex" class="col-form-label text-md-right">{{ __('Sex') }}</label>
+                                                    <label for="sex" class="col-form-label text-md-right">{{ __('J. Kelamin') }}</label>
                                                 </td>
                                                 <td>
                                                     <select name="sex" class="form-control">
@@ -140,7 +140,7 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="size" class="col-form-label text-md-right">{{ __('Size') }}</label>
+                                                    <label for="size" class="col-form-label text-md-right">{{ __('Ukuran') }}</label>
                                                 </td>
                                                 <td>
                                                     <select name="size" class="form-control">
@@ -172,47 +172,47 @@
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="friendly" class="col-form-label text-md-right">{{ __('Friendly') }}</label>
+                                                    <label for="friendly" class="col-form-label text-md-right">{{ __('Bersahabat') }}</label>
                                                 </td>
                                                 <td>
                                                     <select name="friendly" class="form-control">
                                                         @if($post->friendly === 0)
-                                                        <option value="0" selected>No</option>
-                                                        <option value="1">Yes</option>
+                                                        <option value="0" selected>Tidak</option>
+                                                        <option value="1">Iya</option>
                                                         @elseif($post->friendly === 1)
-                                                        <option value="0">No</option>
-                                                        <option value="1" selected>Yes</option>
+                                                        <option value="0">Tidak</option>
+                                                        <option value="1" selected>Iya</option>
                                                         @endif
                                                     </select>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="neutered" class="col-form-label text-md-right">{{ __('Neutered') }}</label>
+                                                    <label for="neutered" class="col-form-label text-md-right">{{ __('Sterilisasi') }}</label>
                                                 </td>
                                                 <td>
                                                     <select name="neutered" class="form-control">
                                                         @if($post->neutered === 0)
-                                                        <option value="0" selected>No</option>
-                                                        <option value="1">Yes</option>
+                                                        <option value="0" selected>Tidak</option>
+                                                        <option value="1">Iya</option>
                                                         @elseif($post->neutered === 1)
-                                                        <option value="0">No</option>
-                                                        <option value="1" selected>Yes</option>
+                                                        <option value="0">Tidak</option>
+                                                        <option value="1" selected>Iya</option>
                                                         @endif
                                                     </select>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <label for="vaccinated" class="col-form-label text-md-right">{{ __('Vaccinated') }}</label>
+                                                    <label for="vaccinated" class="col-form-label text-md-right">{{ __('Vaksinasi') }}</label>
                                                 </td>
                                                 <td>
                                                     <select name="vaccinated" class="form-control">
                                                         @if($post->vaccinated === 0)
-                                                        <option value="0" selected>No</option>
-                                                        <option value="1">Yes</option>
+                                                        <option value="0" selected>Tidak</option>
+                                                        <option value="1">Iya</option>
                                                         @elseif($post->vaccinated === 1)
-                                                        <option value="0">No</option>
+                                                        <option value="0">Tidak</option>
                                                         <option value="1" selected>Yes</option>
                                                         @endif
                                                     </select>

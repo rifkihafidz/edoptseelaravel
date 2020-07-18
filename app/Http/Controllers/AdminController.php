@@ -38,6 +38,7 @@ class AdminController extends Controller
             ->join('applications', 'adopts.id_application', '=', 'applications.id')
             ->select('owner.name as ownername', 'adopter.name as adoptername', 'postings.name as animalname', 'adopts.id as idadopts', 'adopts.id_owner as idowners', 'adopts.id_adopter as idadopters', 'adopts.id_post as idposts', 'adopts.id_application as idapplications', 'adopts.adoptedat as adoptedat')
             ->get();
+
         return view('admin.adopt_data', compact('datetime', 'adopts'));
     }
 
@@ -102,7 +103,7 @@ class AdminController extends Controller
 
         $post->update();
 
-        alert()->success('Update success!');
+        alert()->success('Berhasil memperbaharui data!');
         return redirect()->route('admin.posting.edit', $id);
     }
 
@@ -125,7 +126,7 @@ class AdminController extends Controller
         File::delete($oldFile);
         $posting->delete();
 
-        alert()->error('Successfully deleted the post!');
+        alert()->error('Berhasil menghapus post!');
         return back();
     }
 
@@ -171,7 +172,7 @@ class AdminController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->update();
-        alert()->success('Success updating profile!');
+        alert()->success('Berhasil memperbaharui profil!');
         return back();
     }
 
@@ -217,7 +218,7 @@ class AdminController extends Controller
 
         $user->delete();
 
-        alert()->error('Successfully deleted this user!');
+        alert()->error('Berhasil menghapus pengguna!');
         return back();
     }
 }

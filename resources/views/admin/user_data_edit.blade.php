@@ -10,7 +10,7 @@
             <div class="col-md-12 mt-3 mb-2">
                 <div class="card">
                     <div class="card-body" style="background:#f9f9f9">
-                        <h4><i class="fa fa-pencil-alt mb-2"></i> Edit User</h4>
+                        <h4><i class="fa fa-pencil-alt mb-2"></i> Ubah Pengguna</h4>
                         <form method="POST" action="{{ route('admin.user.update',$user->id) }}" enctype="multipart/form-data">
                             @csrf
 
@@ -56,7 +56,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-2"></div>
-                                <div class="col-md-6 text-muted" style="font-size:12px;">(Fill in the password fields below if you want to change your password)</div>
+                                <div class="col-md-6 text-muted" style="font-size:12px;">(Isi kolom password di bawah ini jika anda ingin mengubah password)</div>
                             </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-2 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -73,7 +73,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-2 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                <label for="password-confirm" class="col-md-2 col-form-label text-md-right">{{ __('Konfirmasi Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
@@ -83,7 +83,7 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-2">
                                     <button type="submit" class="btn btn-info btn-block">
-                                        Save
+                                        Simpan
                                     </button>
                                 </div>
                             </div>

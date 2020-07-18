@@ -24,8 +24,8 @@ class ProfileController extends Controller
     {
         $user = User::where('id', Auth::user()->id)->firstorfail();
         $postings = DB::table('postings')->where('id_user', Auth::user()->id)->paginate(6);
-        $postavail = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'Available')->paginate(6);
-        $postadopted = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'LIKE', 'Adopt%')->paginate(6);
+        $postavail = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'Tersedia')->paginate(6);
+        $postadopted = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'LIKE', 'Teradopsi%')->paginate(6);
         $adopts = DB::table('postings')
             ->join('adopts', 'postings.id', '=', 'adopts.id_post')
             ->where('postings.id_user', '=', $user->id)
@@ -38,7 +38,7 @@ class ProfileController extends Controller
             }
         }
 
-        $postrip = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'R.I.P')->paginate(6);
+        $postrip = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'Tiada')->paginate(6);
 
         $applicationsent = DB::table('applications')
             ->join('postings', 'applications.id_post', '=', 'postings.id')
@@ -132,19 +132,15 @@ class ProfileController extends Controller
         $provinces = Province::all();
         $cities = City::all();
 
-        // Split Strings
         if (!empty($user->alamat)) {
             if ($adopts->isEmpty()) {
-                // Jika alamat tidak kosong dan sudah pernah adopt
                 list($prov, $kt) = explode(', ', $user->alamat);
                 return view('users.profile', compact('user', 'provinces', 'cities', 'postings', 'prov', 'kt', 'postavail', 'postadopted', 'postrip', 'postapp', 'applicationreceived', 'applicationreceivedpending', 'applicationreceivedaccept', 'applicationreceivedreject', 'applicationsent', 'applicationsentpending', 'applicationsentaccepted', 'applicationsentrejected', 'notifreceivedpending'));
             } else {
-                // Jika alamat tidak kosong dan belum pernah adopt
                 list($prov, $kt) = explode(', ', $user->alamat);
                 return view('users.profile', compact('user', 'provinces', 'cities', 'postings', 'prov', 'kt', 'postavail', 'postadopted', 'postrip', 'postapp', 'applicationreceived', 'applicationreceivedpending', 'applicationreceivedaccept', 'applicationreceivedreject', 'applicationsent', 'applicationsentpending', 'applicationsentaccepted', 'applicationsentrejected', 'notifreceivedpending', 'adopt'));
             }
         } else {
-            // Jika alamat kosong
             return view('users.profile', compact('user', 'provinces', 'cities', 'postings', 'postavail', 'postadopted', 'postrip', 'postapp', 'applicationreceived', 'applicationreceivedpending', 'applicationreceivedaccept', 'applicationreceivedreject', 'applicationsent', 'applicationsentpending', 'applicationsentaccepted', 'applicationsentrejected', 'notifreceivedpending'));
         }
     }
@@ -162,7 +158,6 @@ class ProfileController extends Controller
     {
         $user = User::where('id', Auth::user()->id)->firstorfail();
 
-        // Validasi
         $this->validate($request, [
             'password' => 'confirmed',
             'no_hp' => 'required|numeric|min:8',
@@ -183,7 +178,7 @@ class ProfileController extends Controller
         $provinces = Province::all();
         $cities = City::orderBy('name', 'asc')->get();
 
-        if ($request->province != "Select Province...") {
+        if ($request->province != "Pilih Provinsi...") {
             foreach ($provinces as $province) {
                 if ($province->id == $request->province) {
                     $namaProvinsi = $province->name;
@@ -195,7 +190,7 @@ class ProfileController extends Controller
                 }
             }
             $location = $namaProvinsi . ', ' . $namaCity;
-        } elseif ($request->city != "Select City...") {
+        } elseif ($request->city != "Pilih Kota...") {
             foreach ($cities as $city) {
                 if ($request->city == $city->id) {
                     $idprovinsi = $city->province_id;
@@ -216,11 +211,11 @@ class ProfileController extends Controller
         $user->email = $request->email;
         $user->no_hp = $request->no_hp;
 
-        if ($request->province == 'Select Province...') {
-            if ($request->city != 'Select City...') {
+        if ($request->province == 'Pilih Provinsi...') {
+            if ($request->city != 'Pilih Kota...') {
                 $user->alamat = $location;
             }
-        } elseif ($request->province != 'Select Province...') {
+        } elseif ($request->province != 'Pilih Provinsi...') {
             $user->alamat = $location;
         }
 
@@ -230,7 +225,7 @@ class ProfileController extends Controller
 
         $user->update();
 
-        alert()->success('Success updating profile!');
+        alert()->success('Sukses mengubah profil!');
         return redirect()->route('profile');
     }
 
@@ -238,8 +233,8 @@ class ProfileController extends Controller
     {
         $user = User::findorfail($id);
         $allposts = Posting::where('id_user', $id)->paginate();
-        $availableposts = Posting::where('id_user', $id)->where('status', 'Available')->paginate(6);
-        $adoptedposts = Posting::where('id_user', $id)->where('status', 'LIKE', 'Adopt%')->paginate(6);
+        $availableposts = Posting::where('id_user', $id)->where('status', 'Tersedia')->paginate(6);
+        $adoptedposts = Posting::where('id_user', $id)->where('status', 'LIKE', 'Teradopsi%')->paginate(6);
 
         return view('users.profile_detail', compact('user', 'allposts', 'availableposts', 'adoptedposts'));
     }

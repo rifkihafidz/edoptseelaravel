@@ -30,8 +30,8 @@
             <div class="notfound-404">
                 <h1>404</h1>
             </div>
-            <h2 style="margin-bottom: 20px;">Oops, The Page you are looking for can't be found!</h2>
-            <a href="{{ route('index') }}"><i class="fas fa-arrow-circle-left"></i> Return To Homepage</a>
+            <h2 style="margin-bottom: 20px;">Oops, Halaman tidak dapat ditemukan!</h2>
+            <a href="{{ route('index') }}"><i class="fas fa-arrow-circle-left"></i> Kembali ke beranda</a>
         </div>
     </div>
 

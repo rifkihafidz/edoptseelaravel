@@ -11,15 +11,15 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="background:#f9f9f9">
                     <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('profile') }}">Profile</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
+                    <li class="breadcrumb-item"><a href="{{ route('profile') }}">Profil</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Ubah Profil</li>
                 </ol>
             </nav>
         </div>
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body" style="background:#f9f9f9">
-                    <h4><i class="fa fa-pencil-alt mb-2"></i> Edit Profile</h4>
+                    <h4><i class="fa fa-pencil-alt mb-2"></i> Ubah Profil</h4>
                     <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="animate__animated animate__zoomIn">
                         @csrf
 
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Nama') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
@@ -65,7 +65,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="no_hp" class="col-md-2 col-form-label text-md-right">{{ __('Phone') }}</label>
+                            <label for="no_hp" class="col-md-2 col-form-label text-md-right">{{ __('No. HP') }}</label>
 
                             <div class="col-md-6">
                                 <input id="no_hp" type="text" class="form-control @error('no_hp') is-invalid @enderror" placeholder="Start with (08), ex : 08961234" name="no_hp" value="{{ $user->no_hp }}" required autocomplete="no_hp" autofocus>
@@ -79,10 +79,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="alamat" class="col-md-2 col-form-label text-md-right">{{ __('Address') }}</label>
+                            <label for="alamat" class="col-md-2 col-form-label text-md-right">{{ __('Alamat') }}</label>
                             <div class="col-md-3 mb-2">
                                 <select name="province" class="form-control" id="province">
-                                    <option selected="false">Select Province...</option>
+                                    <option selected="false">Pilih Province...</option>
                                     @foreach($provinces as $province)
                                     <option value="{{ $province->id }}">{{ $province->name }}</option>
                                     @endforeach
@@ -90,7 +90,7 @@
                             </div>
                             <div class="col-md-3">
                                 <select name="city" class="form-control" id="city">
-                                    <option selected="false">Select City...</option>
+                                    <option selected="false">Pilih Kota...</option>
                                     @foreach($cities as $city)
                                     <option value="{{ $city->id }}">{{ $city->name }}</option>
                                     @endforeach
@@ -99,7 +99,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-md-2"></div>
-                            <div class="col-md-6 text-muted" style="font-size:12px;">(Fill in the password fields below if you want to change your password)</div>
+                            <div class="col-md-6 text-muted" style="font-size:12px;">(Isi kolom password di bawah ini jika anda ingin mengubah password)</div>
                         </div>
                         <div class="form-group row">
                             <label for="password" class="col-md-2 col-form-label text-md-right">{{ __('Password') }}</label>
@@ -116,7 +116,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-2 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-2 col-form-label text-md-right">{{ __('Konfirmasi Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
@@ -127,7 +127,7 @@
                             <div class="col-md-2"></div>
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-info btn-block">
-                                    Save
+                                    Simpan
                                 </button>
                             </div>
                         </div>

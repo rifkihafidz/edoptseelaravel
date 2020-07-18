@@ -10,9 +10,9 @@
         <div class="col-md-12 mt-3 pt-5">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="background:#f9f9f9">
-                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('adopt') }}">Adoptable Animals</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ $user->name }}'s Profile</li>
+                    <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('adopt') }}">Adopsi Hewan</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Profil {{ $user->name }}</li>
                 </ol>
             </nav>
         </div>
@@ -23,7 +23,7 @@
                     <p style="font-size:24px;">
                         <strong>{{ $user->name }}</strong><br>
                         <strong style="font-size:20px;">{{ $user->alamat }}</strong><br>
-                        <strong class="text-muted" style="font-size: 16px;">Member Since : {{ $user->created_at }}</strong>
+                        <strong class="text-muted" style="font-size: 16px;">Anggota sejak : {{ $user->created_at }}</strong>
                     </p>
                 </div>
                 <div class="col-md-12">
@@ -32,13 +32,13 @@
                         <div class="navtabsatas">
                             <ul class="nav nav-tabs justify-content-center">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#allposts">All Posts</a>
+                                    <a class="nav-link active" data-toggle="tab" href="#allposts">Semua Post</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#availableposts">Available Posts</a>
+                                    <a class="nav-link" data-toggle="tab" href="#availableposts">Post Tersedia</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#adoptedposts">Adopted Posts</a>
+                                    <a class="nav-link" data-toggle="tab" href="#adoptedposts">Post Teradopsi</a>
                                 </li>
                             </ul>
                         </div>
@@ -58,18 +58,18 @@
                                                     <img src="{{ url('assets/uploads') }}/{{ $post->img }}" class="img-fluid" style="border-top-left-radius:15px; border-top-right-radius:15px">
                                                     <div class="card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px; height:240px;">
                                                         <h5 class="card-subtitle">{{ $post->name }}</h5>
-                                                        <h6 class="card-subtitle mb-2 text-muted">Posted on : {{ $post->date }}</h6>
+                                                        <h6 class="card-subtitle mb-2 text-muted">Tanggal Post : {{ $post->date }}</h6>
                                                         <p class="card-text" style="text-align: center;">
                                                             <strong>Status : {{ $post->status }}</strong><br>
-                                                            <strong>Age : {{ $post->age }} year(s)</strong><br>
-                                                            <strong>Background : {{ $post->background }} </strong><br>
+                                                            <strong>Umur : {{ $post->age }} year(s)</strong><br>
+                                                            <strong>Latar Belakang {{ $post->background }} </strong><br>
                                                         </p>
-                                                        <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Details</a>
+                                                        <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Detail</a>
                                                     </div>
                                                 </div>
                                                 @endforeach
                                                 @else
-                                                <strong>{{ $user->name }} never made any posts yet.</strong>
+                                                <strong>{{ $user->name }} belum membuat post apapun.</strong>
                                                 @endif
                                             </div>
                                         </div>
@@ -88,18 +88,18 @@
                                                     <img src="{{ url('assets/uploads') }}/{{ $post->img }}" class="img-fluid" style="border-top-left-radius:15px; border-top-right-radius:15px">
                                                     <div class=" card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px; height:240px;">
                                                         <h5 class="card-subtitle">{{ $post->name }}</h5>
-                                                        <h6 class="card-subtitle mb-2 text-muted">Posted on : {{ $post->date }}</h6>
+                                                        <h6 class="card-subtitle mb-2 text-muted">Tanggal Post : {{ $post->date }}</h6>
                                                         <p class="card-text" style="text-align: center;">
                                                             <strong>Status : {{ $post->status }}</strong><br>
-                                                            <strong>Age : {{ $post->age }} year(s)</strong><br>
-                                                            <strong>Background : {{ $post->background }} </strong><br>
+                                                            <strong>Umur : {{ $post->age }} year(s)</strong><br>
+                                                            <strong>Latar Belakang {{ $post->background }} </strong><br>
                                                         </p>
-                                                        <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Details</a>
+                                                        <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Detail</a>
                                                     </div>
                                                 </div>
                                                 @endforeach
                                                 @else
-                                                <strong>There are no {{ $user->name }}'s posts that are available.</strong>
+                                                <strong>Tidak ada post {{ $user->name }} yang tersedia.</strong>
                                                 @endif
                                             </div>
                                         </div>
@@ -118,18 +118,18 @@
                                                     <img src="{{ url('assets/uploads') }}/{{ $post->img }}" class="img-fluid" style="border-top-left-radius:15px; border-top-right-radius:15px">
                                                     <div class=" card-body" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px; height:240px;">
                                                         <h5 class="card-subtitle">{{ $post->name }}</h5>
-                                                        <h6 class="card-subtitle mb-2 text-muted">Posted on : {{ $post->date }}</h6>
+                                                        <h6 class="card-subtitle mb-2 text-muted">Tanggal Post : {{ $post->date }}</h6>
                                                         <p class="card-text" style="text-align: center;">
                                                             <strong>Status : {{ $post->status }}</strong><br>
-                                                            <strong>Age : {{ $post->age }} year(s)</strong><br>
-                                                            <strong>Background : {{ $post->background }} </strong><br>
+                                                            <strong>Umur : {{ $post->age }} year(s)</strong><br>
+                                                            <strong>Latar Belakang {{ $post->background }} </strong><br>
                                                         </p>
-                                                        <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Details</a>
+                                                        <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Detail</a>
                                                     </div>
                                                 </div>
                                                 @endforeach
                                                 @else
-                                                <strong>There are no {{ $user->name }}'s posts that are adopted.</strong>
+                                                <strong>Tidak ada post {{ $user->name }} yang teradopsi.</strong>
                                                 @endif
                                             </div>
                                         </div>

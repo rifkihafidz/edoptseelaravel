@@ -33,7 +33,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="{{ route('admin.dashboard') }}" class="nav-link">Home</a>
+          <a href="{{ route('admin.dashboard') }}" class="nav-link">Beranda</a>
         </li>
       </ul>
 
@@ -72,7 +72,7 @@
               <a href="{{ route('admin.dashboard') }}" class="nav-link">
                 <i class="nav-icon fas fa-home"></i>
                 <p>
-                  Welcome
+                  Selamat Datang
                 </p>
               </a>
             </li>
@@ -80,7 +80,7 @@
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>
-                  Data Tables
+                  Data Tabel
                   <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
@@ -88,25 +88,25 @@
                 <li class="nav-item">
                   <a href="{{ route('admin.adoptdata') }}" class="nav-link">
                     <i class="fas fa-minus nav-icon"></i>
-                    <p>Data Adopts</p>
+                    <p>Data Adopsi</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('admin.applicationdata') }}" class="nav-link">
                     <i class="fas fa-minus nav-icon"></i>
-                    <p>Data Applications</p>
+                    <p>Data Permohonan</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('admin.postingdata') }}" class="nav-link">
                     <i class="fas fa-minus nav-icon"></i>
-                    <p>Data Postings</p>
+                    <p>Data Post Hewan</p>
                   </a>
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('admin.userdata') }}" class="nav-link">
                     <i class="fas fa-minus nav-icon"></i>
-                    <p>Data Users</p>
+                    <p>Data Pengguna</p>
                   </a>
                 </li>
               </ul>

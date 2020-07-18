@@ -48,7 +48,7 @@ class PostingController extends Controller
     public function store(Request $request)
     {
         $user = Auth::user();
-        $date = Carbon::now(); // Ambil datetime sekarang
+        $date = Carbon::now();
 
         if (empty($user->alamat or $user->no_hp)) {
             alert()->error('Harap lengkapi identitas terlebih dahulu!');
@@ -91,17 +91,13 @@ class PostingController extends Controller
 
         $data['id_user'] = $user->id;
         $data['date'] = $date;
-
-        // Apus ini
         $data['owner'] = $user->name;
         $data['location'] = $user->alamat;
-
         $gambar = $request->file('img');
         $filename = time() . '.' . $gambar->getClientOriginalExtension();
         $location = public_path('/assets/uploads/' . $filename);
         Image::make($gambar)->resize(1920, 1080)->save($location);
         $data['img'] = $filename;
-
         Posting::create($data);
 
         alert()->success('Post success!');

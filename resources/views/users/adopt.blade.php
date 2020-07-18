@@ -10,8 +10,8 @@
     <div class="col-md-12 mt-3 pt-5">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb" style="background:#f9f9f9">
-          <li class="breadcrumb-item"><a href="{{ route('index') }}">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Adopt Animals</li>
+          <li class="breadcrumb-item"><a href="{{ route('index') }}">Beranda</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Adopsi Hewan</li>
         </ol>
       </nav>
     </div>
@@ -29,14 +29,14 @@
                 <div class="input-group-text">
                   <span class="fas fa-search"></span>
                 </div>
-                <input class="form-control" type="text" placeholder="Search for animals" aria-label="Search" id="name" name="name">
+                <input class="form-control" type="text" placeholder="Cari nama hewan ..." aria-label="Search" id="name" name="name">
               </div>
             </div>
           </div>
           <div class="form-group row">
             <div class="col-md-4 mb-2">
               <select name="province" class="form-control" id="province">
-                <option selected="false">Select Province...</option>
+                <option selected="false">Pilih Provinsi...</option>
                 @foreach($provinces as $province)
                 <option value="{{ $province->id }}">{{ $province->name }}</option>
                 @endforeach
@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-4 mb-2">
               <select name="city" class="form-control" id="city">
-                <option selected="false">Select City...</option>
+                <option selected="false">Pilih Kota...</option>
                 @foreach($cities as $city)
                 <option value="{{ $city->id }}">{{ $city->name }}</option>
                 @endforeach
@@ -52,7 +52,7 @@
             </div>
             <div class="col-md-4 mb-2">
               <select name="category" class="form-control">
-                <option selected="false">Select Category...</option>
+                <option selected="false">Pilih Kategori...</option>
                 @foreach(App\PostCategory::all() as $category)
                 <option value="{{ $category->option }}"> {{ $category->option }}</option>
                 @endforeach
@@ -63,12 +63,12 @@
           <div class="row justify-content-center">
             <div class="col-md-12 text-center">
               <input type="checkbox" class="hidden" name="availablecheckbox" id="availablecheckbox" value="1">
-              <label for="availablecheckbox">Show adoptable animals only</label>
+              <label for="availablecheckbox">Hanya tampilkan hewan yang dapat diadopsi</label>
             </div>
           </div>
 
           <div class="text-center mt-2">
-            <button class="btn btn-info shadow-lg" type="submit" name="search">Search <i class="fa fa-search"></i></button>
+            <button class="btn btn-info shadow-lg" type="submit" name="search">Cari <i class="fa fa-search"></i></button>
           </div>
         </form>
         <!-- Form Filter End -->
@@ -124,20 +124,20 @@
           <div class="card-body animate__animated animate__backInUp" style="background:#f1f1f6; border-bottom-left-radius:15px; border-bottom-right-radius:15px;">
             <h5 class="card-subtitle" style="text-align:center;">{{ $posting->name }}</h5>
             <div class="location">{{ $posting->location }}</div>
-            <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Posted on : {{ $posting->date }}</h6>
+            <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Tanggal post : {{ $posting->date }}</h6>
             <p class="card-text" style="text-align:center;">
               <strong>Status : {{ $posting->status }}</strong><br>
-              <strong>Age : {{ $posting->age }} year(s)</strong><br>
-              <strong>Background : {{ $posting->background }} </strong><br>
+              <strong>Umur : {{ $posting->age }} year(s)</strong><br>
+              <strong>Latar belakang : {{ $posting->background }} </strong><br>
               <a href="{{ route('otherprofile',$posting->id_user) }}" class="text-secondary mt-2"><i class="fas fa-user"></i><strong> : {{ $posting->owner}}</strong></a>
             </p>
-            <a href="{{ route('details',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-paw"></i> Details</a>
+            <a href="{{ route('details',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-paw"></i> Detail</a>
           </div>
         </div>
       </div>
       @endforeach
       @else
-      <strong style="text-align: center;">No search results matched.</strong>
+      <strong style="text-align: center;">Tidak ada hasil yang sesuai.</strong>
       @endif
     </div>
   </div>

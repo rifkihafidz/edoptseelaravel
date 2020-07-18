@@ -94,10 +94,10 @@ class AdoptController extends Controller
 
             Application::create($data);
 
-            alert()->success('Form application sent!');
+            alert()->success('Permohonan pengadopsian dikirim!');
             return redirect()->route('details', $id);
         } else {
-            alert()->error('You have already sent the application or Your submitation has been accepted by the owner');
+            alert()->error('Anda telah mengirim permohonan atau permohonan anda telah diterima oleh pemilik');
             return back();
         }
     }
@@ -107,7 +107,7 @@ class AdoptController extends Controller
         $application = Application::findorfail($request->id);
         $application->status = 1;
         $application->update();
-        alert()->success('Success accept appliances!');
+        alert()->success('Berhasil menyetujui form!');
         return back();
     }
 
@@ -116,7 +116,7 @@ class AdoptController extends Controller
         $application = Application::findorfail($request->id);
         $application->status = 2;
         $application->update();
-        alert()->success('Success reject appliances!');
+        alert()->success('Berhasil menolak form!');
         return back();
     }
 
@@ -162,11 +162,11 @@ class AdoptController extends Controller
         ]);
 
         $adopt->save();
-        $post->status = 'Adopted by ' . $adopter->name;
+        $post->status = 'Teradopsi oleh ' . $adopter->name;
         $post->update();
         $application->status = 3;
         $application->update();
-        alert()->success('Success set ' . $adopter->name . ' as ' . $post->name . ' adopter!');
+        alert()->success('Berhasil menjadikan ' . $adopter->name . ' sebagai pengadopsi ' . $post->name . ' !');
         return back();
     }
 
@@ -174,7 +174,7 @@ class AdoptController extends Controller
     {
         $cities = Province::findorfail($request->province)->city;
 
-        if ($request->province !== 'Select Province...') {
+        if ($request->province !== 'Pilih Provinsi...') {
             return $cities;
         }
     }
@@ -192,7 +192,7 @@ class AdoptController extends Controller
         $provinces = Province::all();
         $cities = City::orderBy('name', 'asc')->get();
 
-        if ($request->province != "Select Province...") {
+        if ($request->province != "Pilih Provinsi...") {
             foreach ($provinces as $province) {
                 if ($province->id == $request->province) {
                     $namaProvinsi = $province->name;
@@ -204,7 +204,7 @@ class AdoptController extends Controller
                 }
             }
             $lokasi = $namaProvinsi . ', ' . $namaCity;
-        } elseif ($request->city != "Select City...") {
+        } elseif ($request->city != "Pilih Kota...") {
             foreach ($cities as $city) {
                 if ($request->city == $city->id) {
                     $idprovinsi = $city->province_id;
@@ -219,108 +219,77 @@ class AdoptController extends Controller
             $lokasi = $namaProvinsi . ', ' . $namaCity;
         }
 
-        if ($request->province == 'Select Province...') {
-            // Province kosong
-            if ($request->city == 'Select City...') {
-                // City kosong
-                if ($request->category == 'Select Category...') {
-                    // Category kosong
+        if ($request->province == 'Pilih Provinsi...') {
+            if ($request->city == 'Pilih Kota...') {
+                if ($request->category == 'Pilih Kategori...') {
                     if (empty($search)) {
-                        // Name kosong
                         if ($request->has('availablecheckbox')) {
-                            // Available
-                            $postings = DB::table('postings')->where('status', 'Available')->paginate(6);
+                            $postings = DB::table('postings')->where('status', 'Tersedia')->paginate(6);
                         } else {
-                            // All
                             $postings = DB::table('postings')->paginate(6);
                         }
 
                         return view('users.adopt', compact('postings', 'provinces', 'cities'));
                     } elseif (!empty($search)) {
-                        // Name terisi
                         if ($request->has('availablecheckbox')) {
-                            // Available
-                            $postings = DB::table('postings')->where('name', 'LIKE', "%$search%")->where('status', 'Available')->paginate(6);
+                            $postings = DB::table('postings')->where('name', 'LIKE', "%$search%")->where('status', 'Tersedia')->paginate(6);
                         } else {
-                            // All
                             $postings = DB::table('postings')->where('name', 'LIKE', "%$search%")->paginate(6);
                         }
 
                         return view('users.adopt', compact('postings', 'provinces', 'cities'));
                     }
-                } elseif ($request->category != 'Select Category...') {
-                    // Category terisi
+                } elseif ($request->category != 'Pilih Kategori...') {
                     if (empty($search)) {
-                        // Name kosong
                         if ($request->has('availablecheckbox')) {
-                            // Available
-                            $postings = DB::table('postings')->where('category', $request->category)->where('status', 'Available')->paginate(6);
+                            $postings = DB::table('postings')->where('category', $request->category)->where('status', 'Tersedia')->paginate(6);
                         } else {
-                            // All
                             $postings = DB::table('postings')->where('category', $request->category)->paginate(6);
                         }
 
                         return view('users.adopt', compact('postings', 'provinces', 'cities'));
                     } elseif (!empty($search)) {
-                        // Name terisi
                         if ($request->has('availablecheckbox')) {
-                            // Available
-                            $postings = DB::table('postings')->where('category', $request->category)->where('name', 'LIKE', "%$search%")->where('status', 'Available')->paginate(6);
+                            $postings = DB::table('postings')->where('category', $request->category)->where('name', 'LIKE', "%$search%")->where('status', 'Tersedia')->paginate(6);
                         } else {
-                            // All
                             $postings = DB::table('postings')->where('category', $request->category)->where('name', 'LIKE', "%$search%")->paginate(6);
                         }
 
                         return view('users.adopt', compact('postings', 'provinces', 'cities'));
                     }
                 }
-            } elseif ($request->city != 'Select City...') {
-                // City terisi
-                if ($request->category == 'Select Category...') {
-                    // Category kosong
+            } elseif ($request->city != 'Pilih Kota...') {
+                if ($request->category == 'Pilih Kategori...') {
                     if (empty($search)) {
-                        // Name kosong
                         if ($request->has('availablecheckbox')) {
-                            // Available
-                            $postings = DB::table('postings')->where('location', $lokasi)->where('status', 'Available')->paginate(6);
+                            $postings = DB::table('postings')->where('location', $lokasi)->where('status', 'Tersedia')->paginate(6);
                         } else {
-                            // All
                             $postings = DB::table('postings')->where('location', $lokasi)->paginate(6);
                         }
 
                         return view('users.adopt', compact('postings', 'provinces', 'cities'));
                     } elseif (!empty($search)) {
-                        // Name terisi
                         if ($request->has('availablecheckbox')) {
-                            // Available
-                            $postings = DB::table('postings')->where('location', $lokasi)->where('name', 'LIKE', "%$search%")->where('status', 'Available')->paginate(6);
+                            $postings = DB::table('postings')->where('location', $lokasi)->where('name', 'LIKE', "%$search%")->where('status', 'Tersedia')->paginate(6);
                         } else {
-                            // All
                             $postings = DB::table('postings')->where('location', $lokasi)->where('name', 'LIKE', "%$search%")->paginate(6);
                         }
 
                         return view('users.adopt', compact('postings', 'provinces', 'cities'));
                     }
-                } elseif ($request->category != 'Select Category...') {
-                    // Category terisi
+                } elseif ($request->category != 'Pilih Kategori...') {
                     if (empty($search)) {
-                        // Name kosong
                         if ($request->has('availablecheckbox')) {
-                            // Available
-                            $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->where('status', 'Available')->paginate(6);
+                            $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->where('status', 'Tersedia')->paginate(6);
                         } else {
-                            // All
                             $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->paginate(6);
                         }
 
                         return view('users.adopt', compact('postings', 'provinces', 'cities'));
                     } elseif (!empty($search)) {
-                        // Name terisi
                         if ($request->has('availablecheckbox')) {
-                            // Available
-                            $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->where('name', 'LIKE', "%$search%")->where('status', 'Available')->paginate(6);
+                            $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->where('name', 'LIKE', "%$search%")->where('status', 'Tersedia')->paginate(6);
                         } else {
-                            // All
                             $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->where('name', 'LIKE', "%$search%")->paginate(6);
                         }
 
@@ -328,53 +297,38 @@ class AdoptController extends Controller
                     }
                 }
             }
-        } elseif ($request->province != 'Select Province...') {
-            // Province terisi
-            if ($request->category == 'Select Category...') {
-                // Category kosong
+        } elseif ($request->province != 'Pilih Provinsi...') {
+            if ($request->category == 'Pilih Kategori...') {
                 if (empty($search)) {
-                    // Name kosong
                     if ($request->has('availablecheckbox')) {
-                        // Available
-                        $postings = DB::table('postings')->where('location', $lokasi)->where('status', 'Available')->paginate(6);
+                        $postings = DB::table('postings')->where('location', $lokasi)->where('status', 'Tersedia')->paginate(6);
                     } else {
-                        // All
                         $postings = DB::table('postings')->where('location', $lokasi)->paginate(6);
                     }
 
                     return view('users.adopt', compact('postings', 'provinces', 'cities'));
                 } elseif (!empty($search)) {
-                    // Name terisi
                     if ($request->has('availablecheckbox')) {
-                        // Available
-                        $postings = DB::table('postings')->where('location', $lokasi)->where('name', 'LIKE', "%$search%")->where('status', 'Available')->paginate(6);
+                        $postings = DB::table('postings')->where('location', $lokasi)->where('name', 'LIKE', "%$search%")->where('status', 'Tersedia')->paginate(6);
                     } else {
-                        // All
                         $postings = DB::table('postings')->where('location', $lokasi)->where('name', 'LIKE', "%$search%")->paginate(6);
                     }
 
                     return view('users.adopt', compact('postings', 'provinces', 'cities'));
                 }
-            } elseif ($request->category != 'Select Category...') {
-                // Category terisi
+            } elseif ($request->category != 'Pilih Kategori...') {
                 if (empty($search)) {
-                    // Name kosong
                     if ($request->has('availablecheckbox')) {
-                        // Available
-                        $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->where('status', 'Available')->paginate(6);
+                        $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->where('status', 'Tersedia')->paginate(6);
                     } else {
-                        // All
                         $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->paginate(6);
                     }
 
                     return view('users.adopt', compact('postings', 'provinces', 'cities'));
                 } elseif (!empty($search)) {
-                    // Name terisi
                     if ($request->has('availablecheckbox')) {
-                        // Available
-                        $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->where('name', 'LIKE', "%$search%")->where('status', 'Available')->paginate(6);
+                        $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->where('name', 'LIKE', "%$search%")->where('status', 'Tersedia')->paginate(6);
                     } else {
-                        // All
                         $postings = DB::table('postings')->where('location', $lokasi)->where('category', $request->category)->where('name', 'LIKE', "%$search%")->paginate(6);
                     }
 

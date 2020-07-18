@@ -6,7 +6,7 @@
 <section class="content">
     <div class="card mt-2">
         <div class="card-header">
-            <h3>Data Users</h3>
+            <h3>Data Pengguna</h3>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -15,13 +15,13 @@
                         <tr>
                             <th>Id</th>
                             <th>Avatar</th>
-                            <th>Name</th>
+                            <th>Nama</th>
                             <th>Email</th>
                             <th>Password</th>
-                            <th>Address</th>
-                            <th>Phone</th>
+                            <th>Alamat</th>
+                            <th>No. HP</th>
                             <th>Role</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,7 +41,7 @@
 
                                     {{ method_field('DELETE') }}
                                     <a href="{{ route('admin.user.edit',$user->id) }}" class="btn btn-sm btn-info"><i class="fas fa-edit"></i></a>
-                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this user ?');"><i class="fas fa-trash-alt"></i></button>
+                                    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Anda yakin ingin menghapus pengguna ini ?');"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>

@@ -44,10 +44,10 @@ class LoginController extends Controller
     protected function authenticated($request, $user)
     {
         if ($user->role == 'admin') {
-            alert()->success('Welcome ' . $user->name);
+            alert()->success('Selamat datang ' . $user->name);
             return redirect('/dashboard');
         } else if ($user->role == 'user') {
-            alert()->success('Welcome ' . $user->name);
+            alert()->success('Selamat datang ' . $user->name);
             return redirect('/');
         }
     }

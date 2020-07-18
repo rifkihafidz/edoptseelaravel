@@ -68,26 +68,26 @@
                     <ul class="navbar-nav ml-auto" style="font-family:McLaren;">
                         <!-- Authentication Links -->
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ route('index') }}">Beranda <span class="sr-only">(current)</span></a>
                         </li>
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" data-target="#loginModal" href="">{{ __('Login') }}</a>
+                            <a class="nav-link" data-toggle="modal" data-target="#loginModal" href="">{{ __('Masuk') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" data-target="#registerModal" href="">{{ __('Register') }}</a>
+                            <a class="nav-link" data-toggle="modal" data-target="#registerModal" href="">{{ __('Daftar') }}</a>
                         </li>
                         @endif
                         <li class="nav-item">
-                            <a class="nav-link" href="#footer">{{ __('Contact Us') }}</a>
+                            <a class="nav-link" href="#footer">{{ __('Hubungi Kami') }}</a>
                         </li>
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('adopt') }}">{{ __('Adopt Animals') }}</a>
+                            <a class="nav-link" href="{{ route('adopt') }}">{{ __('Adopsi Hewan') }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('posting') }}">{{ __('Add New Animals') }}</a>
+                            <a class="nav-link" href="{{ route('posting') }}">{{ __('Tambah Hewan') }}</a>
                         </li>
                         @if( Auth::user()->role === 'admin' )
                         <li class="nav-item">
@@ -95,7 +95,7 @@
                         </li>
                         @else
                         <li class="nav-item">
-                            <a class="nav-link" href="#footer">{{ __('Contact Us') }}</a>
+                            <a class="nav-link" href="#footer">{{ __('Hubungi Kami') }}</a>
                         </li>
                         @endif
                         <li class="nav-item dropdown">
@@ -106,12 +106,12 @@
 
                             <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('profile') }}">
-                                    <i class="fas fa-user"></i> Profile
+                                    <i class="fas fa-user"></i> Profil
                                 </a>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    <i class="fas fa-sign-out-alt"></i> {{ __('Logout') }}
+                                    <i class="fas fa-sign-out-alt"></i> {{ __('Keluar') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

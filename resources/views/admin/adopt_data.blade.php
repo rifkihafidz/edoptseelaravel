@@ -6,22 +6,22 @@
 <section class="content">
     <div class="card mt-2">
         <div class="card-header">
-            <h3>Data Adopts</h3>
+            <h3>Data Adopsi</h3>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table id="tableadopts" class="table table-striped table-bordered text-center" style="width:100%">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Id Adopt</th>
-                            <th>Id Owner</th>
-                            <th>Owners Name</th>
-                            <th>Id Adopter</th>
-                            <th>Adopters Name</th>
+                            <th>Id Adopsi</th>
+                            <th>Id Pemilik</th>
+                            <th>Nama Pemilik</th>
+                            <th>Id Pengadopsi</th>
+                            <th>Nama Pengadopsi</th>
                             <th>Id Post</th>
-                            <th>Animals Name</th>
-                            <th>Id Application</th>
-                            <th>Adopted At</th>
+                            <th>Nama Hewan</th>
+                            <th>Id Permohonan</th>
+                            <th>Tanggal Adopsi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,7 +69,7 @@
             ],
             language: {
                 search: "_INPUT_",
-                searchPlaceholder: "Search..."
+                searchPlaceholder: "Cari..."
             }
         });
         $('input').addClass('form-control');

@@ -31,7 +31,6 @@ class ProfileController extends Controller
             ->where('postings.id_user', '=', $user->id)
             ->select('adopts.adoptedat as adoptdate')
             ->get();
-
         if (!empty($adopts)) {
             foreach ($adopts as $adopt) {
                 $adopt->adoptdate;

@@ -117,7 +117,8 @@
                                                                             <strong>Latar Belakang : {{ $posting->background }} </strong><br>
                                                                         </p>
                                                                         @if($posting->status != 'Tersedia' && $posting->status != 'Tiada' && $posting->status != 'Teradopsi')
-                                                                        <h6 class="card-subtitle mb-2" style="text-align:center;"><strong>Tanggal adopsi : {{ $adopt->adoptdate }}</strong></h6>
+                                                                        <?= $adopt->adoptdate ?>
+                                                                        <h6 class="card-subtitle mb-2" style="text-align:center;"><strong>Tanggal adopsi : Tes</strong></h6>
                                                                         @endif
                                                                         @if($posting->status == 'Tersedia' || $posting->status == 'Teradopsi' || $posting->status == 'Tiada')
                                                                         <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Ubah</a>

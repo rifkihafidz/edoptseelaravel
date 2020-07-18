@@ -206,7 +206,7 @@ class PostingController extends Controller
 
         $posting->update();
 
-        alert()->success('Update success!');
+        alert()->success('Sukses mengubah post!');
         return redirect()->route('posting.edit', $id);
     }
 }

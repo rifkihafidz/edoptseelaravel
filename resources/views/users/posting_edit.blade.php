@@ -186,10 +186,10 @@
                                                 <select name="friendly" class="form-control">
                                                     @if($post->friendly === 0)
                                                     <option value="0" selected>Tidak</option>
-                                                    <option value="1">Yes</option>
+                                                    <option value="1">Iya</option>
                                                     @elseif($post->friendly === 1)
                                                     <option value="0">Tidak</option>
-                                                    <option value="1" selected>Yes</option>
+                                                    <option value="1" selected>Iya</option>
                                                     @endif
                                                 </select>
                                             </td>

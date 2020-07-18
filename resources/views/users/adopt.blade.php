@@ -156,14 +156,14 @@
       }
       sel.length = 0;
 
-      if (selectedProvince == "Select Province...") {
+      if (selectedProvince == "Pilih Provinsi...") {
         $.post("{{url('/getAllCities')}}", {
           "_token": "{{ csrf_token() }}",
 
         }, function(resp) {
           var opt = document.createElement('option');
           opt.selected = 'false';
-          opt.text = 'Select City...';
+          opt.text = 'Pilih Kota...';
           sel.appendChild(opt);
           $(resp).each(function() {
             var opt = document.createElement('option');

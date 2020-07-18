@@ -82,7 +82,7 @@
                             <label for="alamat" class="col-md-2 col-form-label text-md-right">{{ __('Alamat') }}</label>
                             <div class="col-md-3 mb-2">
                                 <select name="province" class="form-control" id="province">
-                                    <option selected="false">Pilih Province...</option>
+                                    <option selected="false">Pilih Provinsi...</option>
                                     @foreach($provinces as $province)
                                     <option value="{{ $province->id }}">{{ $province->name }}</option>
                                     @endforeach

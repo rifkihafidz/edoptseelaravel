@@ -48,7 +48,7 @@
                                                 <td>{{ $post->size }}</td>
                                             </tr>
                                             <tr>
-                                                <td>J. Kelamin</td>
+                                                <td>Kelamin</td>
                                                 @if($post->sex == 'Laki-laki')
                                                 <td><i class="fas fa-mars fa-lg" style="color:#a6dcef;"></i></td>
                                                 @else
@@ -99,11 +99,11 @@
                                 <img src="{{ url('assets/uploads') }}/{{ $post->img }}" class="img-fluid" style="border-radius: 15px;">
                                 @if($post->id_user === $user->id OR $post->status != 'Tersedia')
                                 <div class="text-center">
-                                    <button class="btn btn-info btn-block mt-3" disabled><i class="fa fa-paw"></i> Kirim Permohonan Adopsi!</button>
+                                    <button class="btn btn-info btn-block mt-3" disabled><i class="fa fa-paw"></i> Kirim Permohonan Adopsi <i class="fa fa-paw"></i></button>
                                 </div>
                                 @else
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-info btn-block btn-show mt-2" data-toggle="modal" data-target="#applyModal" data-id={{ $post->id }}><i class="fa fa-paw"></i> Kirim Permohonan Adopsi!</button>
+                                    <button type="button" class="btn btn-info btn-block btn-show mt-2" data-toggle="modal" data-target="#applyModal" data-id={{ $post->id }}><i class="fa fa-paw"></i> Kirim Permohonan Adopsi <i class="fa fa-paw"></i></button>
                                     <a href="whatsapp://send?text=Hello&phone=+62{{ $owner->phone }}" class="btn btn-success btn-block mt-2"><i class="fa fa-phone"></i> Whatsapp Pemilik</a>
                                 </div>
                                 @endif

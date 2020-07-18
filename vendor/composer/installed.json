@@ -1817,17 +1817,17 @@
     },
     {
         "name": "nesbot/carbon",
-        "version": "2.33.0",
-        "version_normalized": "2.33.0.0",
+        "version": "2.36.1",
+        "version_normalized": "2.36.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/briannesbitt/Carbon.git",
-            "reference": "4d93cb95a80d9ffbff4018fe58ae3b7dd7f4b99b"
+            "reference": "ee7378a36cc62952100e718bcc58be4c7210e55f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4d93cb95a80d9ffbff4018fe58ae3b7dd7f4b99b",
-            "reference": "4d93cb95a80d9ffbff4018fe58ae3b7dd7f4b99b",
+            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/ee7378a36cc62952100e718bcc58be4c7210e55f",
+            "reference": "ee7378a36cc62952100e718bcc58be4c7210e55f",
             "shasum": ""
         },
         "require": {
@@ -1839,24 +1839,31 @@
         "require-dev": {
             "doctrine/orm": "^2.7",
             "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
-            "kylekatarnls/multi-tester": "^1.1",
+            "kylekatarnls/multi-tester": "^2.0",
             "phpmd/phpmd": "^2.8",
-            "phpstan/phpstan": "^0.11",
+            "phpstan/extension-installer": "^1.0",
+            "phpstan/phpstan": "^0.12.30",
             "phpunit/phpunit": "^7.5 || ^8.0",
             "squizlabs/php_codesniffer": "^3.4"
         },
-        "time": "2020-04-20T15:05:43+00:00",
+        "time": "2020-07-04T12:29:56+00:00",
         "bin": [
             "bin/carbon"
         ],
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "2.x-dev"
+                "dev-master": "2.x-dev",
+                "dev-3.x": "3.x-dev"
             },
             "laravel": {
                 "providers": [
                     "Carbon\\Laravel\\ServiceProvider"
+                ]
+            },
+            "phpstan": {
+                "includes": [
+                    "extension.neon"
                 ]
             }
         },

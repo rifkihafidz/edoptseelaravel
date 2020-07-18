@@ -23,9 +23,9 @@ class ProfileController extends Controller
     public function index()
     {
         $user = User::where('id', Auth::user()->id)->firstorfail();
-        $postings = DB::table('postings')->where('id_user', Auth::user()->id)->paginate(6);
-        $postavail = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'Tersedia')->paginate(6);
-        $postadopted = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'LIKE', 'Teradopsi%')->paginate(6);
+        $postings = DB::table('postings')->where('id_user', Auth::user()->id)->get();
+        $postavail = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'Tersedia')->get();
+        $postadopted = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'LIKE', 'Teradopsi%')->get();
         $adopts = DB::table('postings')
             ->join('adopts', 'postings.id', '=', 'adopts.id_post')
             ->where('postings.id_user', '=', $user->id)
@@ -38,7 +38,7 @@ class ProfileController extends Controller
             }
         }
 
-        $postrip = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'Tiada')->paginate(6);
+        $postrip = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'Tiada')->get();
 
         $applicationsent = DB::table('applications')
             ->join('postings', 'applications.id_post', '=', 'postings.id')
@@ -233,8 +233,8 @@ class ProfileController extends Controller
     {
         $user = User::findorfail($id);
         $allposts = Posting::where('id_user', $id)->paginate();
-        $availableposts = Posting::where('id_user', $id)->where('status', 'Tersedia')->paginate(6);
-        $adoptedposts = Posting::where('id_user', $id)->where('status', 'LIKE', 'Teradopsi%')->paginate(6);
+        $availableposts = Posting::where('id_user', $id)->where('status', 'Tersedia')->get();
+        $adoptedposts = Posting::where('id_user', $id)->where('status', 'LIKE', 'Teradopsi%')->get();
 
         return view('users.profile_detail', compact('user', 'allposts', 'availableposts', 'adoptedposts'));
     }

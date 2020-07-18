@@ -171,5 +171,9 @@
 @endsection
 
 @section('scripts')
-
+<script type="text/javascript">
+    @if(count($errors) > 0)
+    $('#applyModal').modal('show');
+    @endif
+</script>
 @endsection

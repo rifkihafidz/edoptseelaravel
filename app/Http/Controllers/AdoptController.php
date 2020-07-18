@@ -94,7 +94,7 @@ class AdoptController extends Controller
 
             Application::create($data);
 
-            alert()->success('Permohonan pengadopsian dikirim!');
+            alert()->success('Permohonan pengadopsian berhasil dikirim!');
             return redirect()->route('details', $id);
         } else {
             alert()->error('Anda telah mengirim permohonan atau permohonan anda telah diterima oleh pemilik');
@@ -166,6 +166,7 @@ class AdoptController extends Controller
         $post->update();
         $application->status = 3;
         $application->update();
+
         alert()->success('Berhasil menjadikan ' . $adopter->name . ' sebagai pengadopsi ' . $post->name . ' !');
         return back();
     }

@@ -25,7 +25,7 @@ class ProfileController extends Controller
         $user = User::where('id', Auth::user()->id)->firstorfail();
         $postings = DB::table('postings')->where('id_user', Auth::user()->id)->get();
         $postavail = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'Tersedia')->get();
-        $postadopted = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'LIKE', 'Teradopsi%')->get();
+        $postadopted = DB::table('postings')->where('id_user', Auth::user()->id)->where('status', 'LIKE', '%Teradopsi%')->get();
         $adopts = DB::table('postings')
             ->join('adopts', 'postings.id', '=', 'adopts.id_post')
             ->where('postings.id_user', '=', $user->id)

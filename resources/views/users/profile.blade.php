@@ -25,7 +25,7 @@
                         </div>
                         <div class="float-right pb-2 pt-3">
                             <a href="{{ route('profile.edit') }}" class="btn btn-info">
-                                <i class="fa fa-pencil-alt"></i> Ubah Profile
+                                <i class="fa fa-pencil-alt"></i> Ubah Profil
                             </a>
                         </div>
                         <table class="table table-responsive-sm">

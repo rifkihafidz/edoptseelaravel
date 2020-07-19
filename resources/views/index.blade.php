@@ -7,7 +7,7 @@
 <!-- Jumbotron -->
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h5 class="display-4 animate__animated animate__slideInDown">Pilih dan adopsi hewan yang sesuai dengan keinginanmu.</h5>
+    <h5 class="display-4 animate__animated animate__slideInDown">Pilih dan Adopsi Hewan yang Sesuai dengan Keinginanmu.</h5>
     <a href="{{ route('adopt') }}"><button class="glow-on-hover">Adopsi Sekarang</button></a>
   </div>
 </div>

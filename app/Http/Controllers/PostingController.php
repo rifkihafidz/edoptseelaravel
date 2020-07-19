@@ -166,7 +166,7 @@ class PostingController extends Controller
     {
         $post = Posting::where('id', $id)->firstorfail();
         if (Auth::id() != $post->id_user) {
-            alert()->error('Jangan coba mengubah post yang bukan anda buat!');
+            alert()->error('Jangan coba mengubah post yang bukan milik anda!');
             return redirect('profile');
         }
 

@@ -112,7 +112,7 @@
   @endif
 
   <div class="card pr-5 pl-5 pt-3 pb-2 mb-3" style="background:#f9f9f9">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center animate__animated animate__backInUp">
       {{ $postings->links() }}
     </div>
     <div class="row justify-content-center mt-2">
@@ -139,6 +139,9 @@
       @else
       <strong style="text-align: center;">Tidak ada hasil yang sesuai.</strong>
       @endif
+    </div>
+    <div class="row justify-content-center animate__animated animate__backInUp">
+      {{ $postings->links() }}
     </div>
   </div>
 </div>

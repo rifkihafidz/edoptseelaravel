@@ -226,7 +226,7 @@
                                     <img src="{{ url('assets/uploads') }}/{{ $post->img }}" class="img-fluid mt-4 pt-2" style="border-radius:15px;">
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-info btn-block mt-2">
-                                            Save
+                                            Simpan
                                         </button>
                                     </div>
                                 </div>

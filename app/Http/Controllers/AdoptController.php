@@ -97,7 +97,7 @@ class AdoptController extends Controller
             alert()->success('Permohonan pengadopsian berhasil dikirim!');
             return redirect()->route('details', $id);
         } else {
-            alert()->error('Anda telah mengirim permohonan atau permohonan anda telah diterima oleh pemilik');
+            alert()->error('Anda telah mengirim permohonan atau permohonan anda telah diterima oleh pemilik!');
             return back();
         }
     }
@@ -107,7 +107,7 @@ class AdoptController extends Controller
         $application = Application::findorfail($request->id);
         $application->status = 1;
         $application->update();
-        alert()->success('Berhasil menyetujui form!');
+        alert()->success('Berhasil menyetujui form permohonan!');
         return back();
     }
 
@@ -116,7 +116,7 @@ class AdoptController extends Controller
         $application = Application::findorfail($request->id);
         $application->status = 2;
         $application->update();
-        alert()->success('Berhasil menolak form!');
+        alert()->success('Berhasil menolak form permohonan!');
         return back();
     }
 

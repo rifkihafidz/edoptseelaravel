@@ -62,7 +62,7 @@
                                                         <p class="card-text" style="text-align: center;">
                                                             <strong>Status : {{ $post->status }}</strong><br>
                                                             <strong>Umur : {{ $post->age }} year(s)</strong><br>
-                                                            <strong>Latar Belakang {{ $post->background }} </strong><br>
+                                                            <strong>Latar Belakang : {{ $post->background }} </strong><br>
                                                         </p>
                                                         <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Detail</a>
                                                     </div>
@@ -92,7 +92,7 @@
                                                         <p class="card-text" style="text-align: center;">
                                                             <strong>Status : {{ $post->status }}</strong><br>
                                                             <strong>Umur : {{ $post->age }} year(s)</strong><br>
-                                                            <strong>Latar Belakang {{ $post->background }} </strong><br>
+                                                            <strong>Latar Belakang : {{ $post->background }} </strong><br>
                                                         </p>
                                                         <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Detail</a>
                                                     </div>
@@ -122,7 +122,7 @@
                                                         <p class="card-text" style="text-align: center;">
                                                             <strong>Status : {{ $post->status }}</strong><br>
                                                             <strong>Umur : {{ $post->age }} year(s)</strong><br>
-                                                            <strong>Latar Belakang {{ $post->background }} </strong><br>
+                                                            <strong>Latar Belakang : {{ $post->background }} </strong><br>
                                                         </p>
                                                         <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Detail</a>
                                                     </div>

@@ -172,7 +172,7 @@ class AdminController extends Controller
             $user->password = Hash::make($request->password);
         }
         $user->update();
-        alert()->success('Berhasil memperbaharui profil!');
+        alert()->success('Berhasil memperbaharui data pengguna!');
         return back();
     }
 

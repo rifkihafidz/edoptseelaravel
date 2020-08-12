@@ -57,7 +57,7 @@ class PostingController extends Controller
 
         $request->validate([
             'img' => 'required|image|mimes:jpeg,png,jpg|min:128|max:4096',
-            'name' => 'required',
+            'name' => 'required|min:3',
             'age' => 'required|numeric|max:100',
             'category' => 'required',
             'size' => 'required',
@@ -177,7 +177,9 @@ class PostingController extends Controller
     {
         $posting = Posting::findorfail($id);
         $request->validate([
-            'img' => 'image|mimes:jpeg,png,jpg,gif|min:128|max:4096'
+            'img' => 'image|mimes:jpeg,png,jpg,gif|min:128|max:4096',
+            'age' => 'required|numeric|max:100',
+            'name' => 'min:3',
         ]);
         if (!empty($request->img)) {
             $oldFile = public_path('/assets/uploads/' . $posting->img);

@@ -137,7 +137,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md">
-                                    <input id="otheranimals" type="text" class="form-control @error('otheranimals') is-invalid @enderror" name="otheranimals" placeholder="Ada berapa hewan lain yang anda miliki ? Jelaskan !" pattern=".{10,}" title="10 characters minimum" required>
+                                    <input id="otheranimals" type="text" class="form-control @error('otheranimals') is-invalid @enderror" name="otheranimals" placeholder="Ada berapa hewan lain yang anda miliki ? Jelaskan !" pattern=".{5,}" title="Minimal 5 karakter." required>
                                     @error('otheranimals')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -147,7 +147,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-md">
-                                    <input id="permissions" type="text" class="form-control @error('permissions') is-invalid @enderror" name="permissions" placeholder="Anda sudah mendapat izin dari penghuni rumah ?" pattern=".{10,}" title="10 characters minimum" required>
+                                    <input id="permissions" type="text" class="form-control @error('permissions') is-invalid @enderror" name="permissions" placeholder="Anda sudah mendapat izin dari penghuni rumah ?" pattern=".{5,}" title="Minimal 5 karakter." required>
                                     @error('permissions')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

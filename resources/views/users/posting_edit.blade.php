@@ -33,7 +33,7 @@
                                                 <label for="name" class="col-form-label text-md-right">{{ __('Nama') }}</label>
                                             </td>
                                             <td>
-                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $post->name }}" required autocomplete="name" autofocus>
+                                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $post->name }}" required autocomplete="name" autofocus placeholder="Nama Hewan">
 
                                                 @error('name')
                                                 <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                                                 <label for="age" class="col-form-label text-md-right">{{ __('Umur') }}</label>
                                             </td>
                                             <td>
-                                                <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ $post->age }}" required autocomplete="age" autofocus>
+                                                <input id="age" type="text" class="form-control @error('age') is-invalid @enderror" name="age" value="{{ $post->age }}" required placeholder="(Tahun, Perkiraan)" autocomplete="age" autofocus>
 
                                                 @error('age')
                                                 <span class="invalid-feedback" role="alert">
@@ -107,7 +107,7 @@
                                                 <label for="description" class="col-form-label text-md-right">{{ __('Deskripsi') }}</label>
                                             </td>
                                             <td>
-                                                <textarea style="text-align: justify;" class="form-control" name="description" rows="3" required placeholder="Description">{{ $post->description }}</textarea>
+                                                <textarea style="text-align: justify;" class="form-control" name="description" rows="3" required placeholder="Deskripsi Hewan">{{ $post->description }}</textarea>
 
                                                 @error('description')
                                                 <span class="invalid-feedback" role="alert">
@@ -121,7 +121,7 @@
                                                 <label for="medical" class="col-form-label text-md-left">{{ __('Catatan Medis') }}</label>
                                             </td>
                                             <td>
-                                                <textarea style="text-align: justify;" class="form-control" name="medical" rows="3" required placeholder="Medical notes">{{ $post->medical }}</textarea>
+                                                <textarea style="text-align: justify;" class="form-control" name="medical" rows="3" required placeholder="Catatan Medis">{{ $post->medical }}</textarea>
 
                                                 @error('medical')
                                                 <span class="invalid-feedback" role="alert">

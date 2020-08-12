@@ -158,7 +158,9 @@ class ProfileController extends Controller
         $user = User::where('id', Auth::user()->id)->firstorfail();
 
         $this->validate($request, [
-            'password' => 'confirmed',
+            'password' => 'confirmed|min:8',
+            'name' => 'min:4',
+            'email' => 'required|email|unique:users',
             'no_hp' => 'required|numeric|min:8',
             'avatar' => 'image|mimes:jpeg,png,jpg|min:64|max:2048'
         ]);

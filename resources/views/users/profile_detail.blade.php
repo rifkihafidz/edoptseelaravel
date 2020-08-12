@@ -61,7 +61,7 @@
                                                         <h6 class="card-subtitle mb-2 text-muted">Tanggal Post : {{ $post->date }}</h6>
                                                         <p class="card-text" style="text-align: center;">
                                                             <strong>Status : {{ $post->status }}</strong><br>
-                                                            <strong>Umur : {{ $post->age }} year(s)</strong><br>
+                                                            <strong>Umur : {{ $post->age }} tahun</strong><br>
                                                             <strong>Latar Belakang : {{ $post->background }} </strong><br>
                                                         </p>
                                                         <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Detail</a>
@@ -91,7 +91,7 @@
                                                         <h6 class="card-subtitle mb-2 text-muted">Tanggal Post : {{ $post->date }}</h6>
                                                         <p class="card-text" style="text-align: center;">
                                                             <strong>Status : {{ $post->status }}</strong><br>
-                                                            <strong>Umur : {{ $post->age }} year(s)</strong><br>
+                                                            <strong>Umur : {{ $post->age }} tahun</strong><br>
                                                             <strong>Latar Belakang : {{ $post->background }} </strong><br>
                                                         </p>
                                                         <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Detail</a>
@@ -121,7 +121,7 @@
                                                         <h6 class="card-subtitle mb-2 text-muted">Tanggal Post : {{ $post->date }}</h6>
                                                         <p class="card-text" style="text-align: center;">
                                                             <strong>Status : {{ $post->status }}</strong><br>
-                                                            <strong>Umur : {{ $post->age }} year(s)</strong><br>
+                                                            <strong>Umur : {{ $post->age }} tahun</strong><br>
                                                             <strong>Latar Belakang : {{ $post->background }} </strong><br>
                                                         </p>
                                                         <a class="btn btn-info btn-block mt-3" href="{{ route('details',$post->id) }}"><i class="fa fa-paw"></i> Detail</a>

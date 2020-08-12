@@ -113,7 +113,7 @@
                                                                         <h6 class="card-subtitle mb-2 text-muted">Tanggal post : {{ $posting->date }}</h6>
                                                                         <p class="card-text" style="text-align: center;">
                                                                             <strong>Status : {{ $posting->status }}</strong><br>
-                                                                            <strong>Umur : {{ $posting->age }} year(s)</strong><br>
+                                                                            <strong>Umur : {{ $posting->age }} tahun</strong><br>
                                                                             <strong>Latar Belakang : {{ $posting->background }} </strong><br>
                                                                         </p>
                                                                         @if($posting->status != 'Tersedia' && $posting->status != 'Tiada' && $posting->status != 'Teradopsi')
@@ -155,7 +155,7 @@
                                                                     <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Tanggal post : {{ $posting->date }}</h6>
                                                                     <p class="card-text" style="text-align: center;">
                                                                         <strong>Status : {{ $posting->status }}</strong><br>
-                                                                        <strong>Umur : {{ $posting->age }} year(s)</strong><br>
+                                                                        <strong>Umur : {{ $posting->age }} tahun</strong><br>
                                                                         <strong>Latar Belakang : {{ $posting->background }} </strong><br>
                                                                     </p>
                                                                     <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Ubah</a>
@@ -189,7 +189,7 @@
                                                                     <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Tanggal post : {{ $posting->date }}</h6>
                                                                     <p class="card-text" style="text-align: center;">
                                                                         <strong>Status : {{ $posting->status }}</strong><br>
-                                                                        <strong>Umur : {{ $posting->age }} year(s)</strong><br>
+                                                                        <strong>Umur : {{ $posting->age }} tahun</strong><br>
                                                                         <strong>Latar Belakang : {{ $posting->background }} </strong><br>
                                                                     </p>
                                                                     @if($posting->status != 'Tersedia' && $posting->status != 'Tiada' && $posting->status != 'Teradopsi')
@@ -230,7 +230,7 @@
                                                                     <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Tanggal post : {{ $posting->date }}</h6>
                                                                     <p class="card-text" style="text-align: center;">
                                                                         <strong>Status : {{ $posting->status }}</strong><br>
-                                                                        <strong>Umur : {{ $posting->age }} year(s)</strong><br>
+                                                                        <strong>Umur : {{ $posting->age }} tahun</strong><br>
                                                                         <strong>Latar Belakang : {{ $posting->background }} </strong><br>
                                                                     </p>
                                                                     <a href="{{ route('posting.edit',$posting->id) }}" class="btn btn-info btn-block"><i class="fa fa-pencil-alt"></i> Ubah</a>
@@ -605,7 +605,7 @@
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid mb-3" style="border-radius:15px">
                     <h6 class="card-subtitle mb-2 text-muted">Pemilik : {{ $posting->owner }}<br></h6>
-                    <p class="card-text">Umur : {{ $posting->age }} year(s)</p>
+                    <p class="card-text">Umur : {{ $posting->age }} tahun</p>
                     <p class="card-text">Kategori : {{ $posting->category }}</p>
                     <p class="card-text">Ukuran : {{ $posting->size }}</p>
                     <p class="card-text">Jenis Kelamin : {{ $posting->sex }}</p>
@@ -688,7 +688,7 @@
                 <div class="modal-body">
                     <img src="{{ url('assets/uploads') }}/{{ $posting->img }}" class="img-fluid mb-3" style="border-radius:15px">
                     <h6 class="card-subtitle mb-2 text-muted">Pemilik : {{ $posting->owner }}<br></h6>
-                    <p class="card-text">Umur : {{ $posting->age }} year(s)</p>
+                    <p class="card-text">Umur : {{ $posting->age }} tahun</p>
                     <p class="card-text">Kategori : {{ $posting->category }}</p>
                     <p class="card-text">Ukuran : {{ $posting->size }}</p>
                     <p class="card-text">Jenis Kelamin : {{ $posting->sex }}</p>

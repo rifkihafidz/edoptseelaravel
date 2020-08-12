@@ -127,7 +127,7 @@
             <h6 class="card-subtitle mb-2 text-muted" style="text-align:center;">Tanggal post : {{ $posting->date }}</h6>
             <p class="card-text" style="text-align:center;">
               <strong>Status : {{ $posting->status }}</strong><br>
-              <strong>Umur : {{ $posting->age }} year(s)</strong><br>
+              <strong>Umur : {{ $posting->age }} tahun</strong><br>
               <strong>Latar belakang : {{ $posting->background }} </strong><br>
               <a href="{{ route('otherprofile',$posting->id_user) }}" class="text-secondary mt-2"><i class="fas fa-user"></i><strong> : {{ $posting->owner}}</strong></a>
             </p>

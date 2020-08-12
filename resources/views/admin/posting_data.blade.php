@@ -28,7 +28,7 @@
                             <th>Medis</th>
                             <th>Vaksinasi</th>
                             <th>Sterilisasi</th>
-                            <th>Bershabat</th>
+                            <th>Bersahabat</th>
                             <th class="text-nowrap">Tanggal Post</th>
                             <th>Lokasi</th>
                             <th>Aksi</th>

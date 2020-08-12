@@ -74,7 +74,9 @@ class AdminController extends Controller
     {
         $post = Posting::findorfail($id);
         $request->validate([
-            'img' => 'image|mimes:jpeg,png,jpg,gif|min:128|max:4096'
+            'img' => 'image|mimes:jpeg,png,jpg,gif|min:128|max:4096',
+            'age' => 'required|numeric|max:100',
+            'name' => 'min:3'
         ]);
         if (!empty($request->img)) {
             $oldFile = public_path('/assets/uploads/' . $post->img);
@@ -151,7 +153,8 @@ class AdminController extends Controller
         $user = User::findorfail($id);
         $this->validate($request, [
             'avatar' => 'image|mimes:jpeg,png,jpg|min:64|max:2048',
-            'password' => 'confirmed|min:8',
+            'password' => 'confirmed',
+            'name' => 'min:4',
         ]);
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');

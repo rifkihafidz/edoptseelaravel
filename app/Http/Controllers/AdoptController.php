@@ -72,8 +72,8 @@ class AdoptController extends Controller
 
         $request->validate([
             'reason' => 'required|min:10',
-            'otheranimals' => 'required|min:10',
-            'permissions' => 'required|min:3'
+            'otheranimals' => 'required|min:5',
+            'permissions' => 'required|min:5'
         ]);
 
         $ada = "";

@@ -14,6 +14,5 @@ class Posting extends Model
         'status' => 'Tersedia',
     ];
 
-    // Disable timestamps
     public $timestamps = false;
 }

@@ -13,22 +13,18 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next,...$roles)
+    public function handle($request, Closure $next, ...$roles)
     {
-        if(in_array($request->user()->role, $roles)) {
+        if (in_array($request->user()->role, $roles)) {
             return $next($request);
         }
-        switch(auth()->user()->role) {
+        switch (auth()->user()->role) {
             case 'admin':
                 return redirect('/dashboard');
-            break;
+                break;
             case 'user':
                 return redirect('/');
-            break;
-        } 
+                break;
+        }
     }
-
-    // if(Auth::user() && Auth::user()->roles =='admin') {
-    //     return $next($request);
-    // }
 }
